@@ -1,0 +1,16 @@
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D01\Oefeningen D01\obj\Debug\net5.0\Oefeningen D01.csproj.AssemblyReference.cache
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D01\Oefeningen D01\obj\Debug\net5.0\Oefeningen D01.GeneratedMSBuildEditorConfig.editorconfig
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D01\Oefeningen D01\obj\Debug\net5.0\Oefeningen D01.AssemblyInfoInputs.cache
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D01\Oefeningen D01\obj\Debug\net5.0\Oefeningen D01.AssemblyInfo.cs
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D01\Oefeningen D01\obj\Debug\net5.0\Oefeningen D01.csproj.CoreCompileInputs.cache
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D01\Oefeningen D01\bin\Debug\net5.0\Oefeningen D01.exe
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D01\Oefeningen D01\bin\Debug\net5.0\Oefeningen D01.deps.json
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D01\Oefeningen D01\bin\Debug\net5.0\Oefeningen D01.runtimeconfig.json
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D01\Oefeningen D01\bin\Debug\net5.0\Oefeningen D01.runtimeconfig.dev.json
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D01\Oefeningen D01\bin\Debug\net5.0\Oefeningen D01.dll
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D01\Oefeningen D01\bin\Debug\net5.0\ref\Oefeningen D01.dll
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D01\Oefeningen D01\bin\Debug\net5.0\Oefeningen D01.pdb
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D01\Oefeningen D01\obj\Debug\net5.0\Oefeningen D01.dll
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D01\Oefeningen D01\obj\Debug\net5.0\ref\Oefeningen D01.dll
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D01\Oefeningen D01\obj\Debug\net5.0\Oefeningen D01.pdb
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D01\Oefeningen D01\obj\Debug\net5.0\Oefeningen D01.genruntimeconfig.cache

@@ -1,0 +1,16 @@
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D03\Oefeningen D03\Oefeningen D03\bin\Debug\net5.0\Oefeningen D03.exe
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D03\Oefeningen D03\Oefeningen D03\bin\Debug\net5.0\Oefeningen D03.deps.json
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D03\Oefeningen D03\Oefeningen D03\bin\Debug\net5.0\Oefeningen D03.runtimeconfig.json
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D03\Oefeningen D03\Oefeningen D03\bin\Debug\net5.0\Oefeningen D03.runtimeconfig.dev.json
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D03\Oefeningen D03\Oefeningen D03\bin\Debug\net5.0\Oefeningen D03.dll
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D03\Oefeningen D03\Oefeningen D03\bin\Debug\net5.0\ref\Oefeningen D03.dll
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D03\Oefeningen D03\Oefeningen D03\bin\Debug\net5.0\Oefeningen D03.pdb
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D03\Oefeningen D03\Oefeningen D03\obj\Debug\net5.0\Oefeningen D03.csproj.AssemblyReference.cache
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D03\Oefeningen D03\Oefeningen D03\obj\Debug\net5.0\Oefeningen D03.GeneratedMSBuildEditorConfig.editorconfig
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D03\Oefeningen D03\Oefeningen D03\obj\Debug\net5.0\Oefeningen D03.AssemblyInfoInputs.cache
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D03\Oefeningen D03\Oefeningen D03\obj\Debug\net5.0\Oefeningen D03.AssemblyInfo.cs
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D03\Oefeningen D03\Oefeningen D03\obj\Debug\net5.0\Oefeningen D03.csproj.CoreCompileInputs.cache
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D03\Oefeningen D03\Oefeningen D03\obj\Debug\net5.0\Oefeningen D03.dll
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D03\Oefeningen D03\Oefeningen D03\obj\Debug\net5.0\ref\Oefeningen D03.dll
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D03\Oefeningen D03\Oefeningen D03\obj\Debug\net5.0\Oefeningen D03.pdb
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D03\Oefeningen D03\Oefeningen D03\obj\Debug\net5.0\Oefeningen D03.genruntimeconfig.cache

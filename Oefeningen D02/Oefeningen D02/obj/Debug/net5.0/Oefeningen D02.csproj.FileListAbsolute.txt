@@ -1,0 +1,5 @@
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D02\Oefeningen D02\obj\Debug\net5.0\Oefeningen D02.csproj.AssemblyReference.cache
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D02\Oefeningen D02\obj\Debug\net5.0\Oefeningen D02.GeneratedMSBuildEditorConfig.editorconfig
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D02\Oefeningen D02\obj\Debug\net5.0\Oefeningen D02.AssemblyInfoInputs.cache
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D02\Oefeningen D02\obj\Debug\net5.0\Oefeningen D02.AssemblyInfo.cs
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Oefeningen D02\Oefeningen D02\obj\Debug\net5.0\Oefeningen D02.csproj.CoreCompileInputs.cache
