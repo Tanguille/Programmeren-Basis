@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Nieuwe map (2)\\aaaProgrammeren\\Programmeren Basis\\Oefeningen D03\\Oefeningen D03\\Oefeningen D03\\Oefeningen D03.csproj": {}
+    "C:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D03\\Oefeningen D03\\Oefeningen D03.csproj": {}
   },
   "projects": {
-    "D:\\Nieuwe map (2)\\aaaProgrammeren\\Programmeren Basis\\Oefeningen D03\\Oefeningen D03\\Oefeningen D03\\Oefeningen D03.csproj": {
+    "C:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D03\\Oefeningen D03\\Oefeningen D03.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Nieuwe map (2)\\aaaProgrammeren\\Programmeren Basis\\Oefeningen D03\\Oefeningen D03\\Oefeningen D03\\Oefeningen D03.csproj",
+        "projectUniqueName": "C:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D03\\Oefeningen D03\\Oefeningen D03.csproj",
         "projectName": "Oefeningen D03",
-        "projectPath": "D:\\Nieuwe map (2)\\aaaProgrammeren\\Programmeren Basis\\Oefeningen D03\\Oefeningen D03\\Oefeningen D03\\Oefeningen D03.csproj",
+        "projectPath": "C:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D03\\Oefeningen D03\\Oefeningen D03.csproj",
         "packagesPath": "C:\\Users\\Tangu\\.nuget\\packages\\",
-        "outputPath": "D:\\Nieuwe map (2)\\aaaProgrammeren\\Programmeren Basis\\Oefeningen D03\\Oefeningen D03\\Oefeningen D03\\obj\\",
+        "outputPath": "C:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D03\\Oefeningen D03\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Tangu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
