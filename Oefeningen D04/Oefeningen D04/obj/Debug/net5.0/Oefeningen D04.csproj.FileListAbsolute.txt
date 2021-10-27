@@ -14,3 +14,11 @@ D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Programmeren-Basis-Oefening
 D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D04\Oefeningen D04\obj\Debug\net5.0\ref\Oefeningen D04.dll
 D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D04\Oefeningen D04\obj\Debug\net5.0\Oefeningen D04.pdb
 D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D04\Oefeningen D04\obj\Debug\net5.0\Oefeningen D04.genruntimeconfig.cache
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D04\Oefeningen D04\obj\Debug\net5.0\Oefeningen D04.csproj.AssemblyReference.cache
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D04\Oefeningen D04\obj\Debug\net5.0\Oefeningen D04.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D04\Oefeningen D04\obj\Debug\net5.0\Oefeningen D04.AssemblyInfoInputs.cache
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D04\Oefeningen D04\obj\Debug\net5.0\Oefeningen D04.AssemblyInfo.cs
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D04\Oefeningen D04\obj\Debug\net5.0\Oefeningen D04.csproj.CoreCompileInputs.cache
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D04\Oefeningen D04\obj\Debug\net5.0\Oefeningen D04.dll
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D04\Oefeningen D04\obj\Debug\net5.0\ref\Oefeningen D04.dll
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D04\Oefeningen D04\obj\Debug\net5.0\Oefeningen D04.pdb
