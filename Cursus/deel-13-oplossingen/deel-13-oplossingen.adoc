@@ -1,0 +1,305 @@
+﻿= Programmeren Basis - Deel 13 - Oplossingen
+Frederiek De Wolf
+v2021.10.19.09.56
+// toc and section numbering
+:toc: preamble
+:toclevels: 4
+// geen auto section numbering voor oefeningen (handigere titels en toc)
+//:sectnums: 
+:sectlinks:
+:sectnumlevels: 4
+// source code formatting
+:prewrap!:
+:source-highlighter: rouge
+:source-language: csharp
+:rouge-style: github
+:rouge-css: class
+// inject css for highlights using docinfo
+:docinfodir: ../common
+:docinfo: shared-head
+// folders
+:imagesdir: images
+:url-verdieping: ../{docname}-verdieping/{docname}-verdieping.adoc
+// experimental voor kdb: en btn: macro's van AsciiDoctor
+:experimental:
+
+//preamble
+[.text-right]
+versie {revnumber}
+
+== Test jezelf
+
+=== Visual Studio en Debugging
+
+==== Oefening D13.palindroom
+
+[cols="3,1", options="header"]
+|===
+|Call Stack|Overige variabelen op het activatie record
+|`ReverseText(string tekst = "hallo")` gebroken op __regel 19__|`string result = "ollah"`
+|`IsPalindroom(string tekst = "hallo")` invoceert op __regel 9__ bovenstaande activatie|`string reverse = null`
+|`Main()` invoceert op __regel 5__ bovenstaande activatie|`string input = "hallo"`
+|===
+
+Op het activatierecord voor de call naar `IsPalindroom` staat variabele `reverse` nog op `null`.  
+
+Zoals je je misschien herinnert is dit de __defaultwaarde__ van het `string` datatype.  Op het moment dat de uitvoer gepauzeerd werd is aan `reverse` immers nog geen waarde toegekend.
+
+De fout zat in de `ReverseText` method...
+
+[source, csharp, linenums]
+----
+static string ReverseText(string tekst) {
+ 	string result = "";
+ 	foreach(char c in tekst) {
+ 		result = c + result;  // <1>
+ 	}
+ 	return result;
+}
+----
+<1> Hier zat de fout.
+
+=== Arrays en methods
+
+==== Oefening D13.doorsnede
+
+[source, csharp, linenums]
+----
+class Program {
+    static void Main() {
+        double[] temperaturenMeetpunt1 = { 10.1, 20.2, 15.5, 12.3, 28.7 };
+        double[] temperaturenMeetpunt2 = { 9.0, 10.0, 20.2, 15.6, 12.3, 28.8, 11.1 };
+
+        double[] doorsnede = Doorsnede(temperaturenMeetpunt1, temperaturenMeetpunt2);
+        ToonDoorsnede(doorsnede);                       // toont de tekst "Doorsnede: 20,2 | 12,3"
+
+        double[] getallen1 = { 1.23, 2.34, 3.45 };
+        double[] getallen2 = { 1.99, 2.34 };
+        ToonDoorsnede(Doorsnede(getallen1, getallen2)); // toont de tekst "Doorsnede: 2,34"
+
+        double[] getallen3 = { 1.99, 2.99, 3.99 };
+        ToonDoorsnede(Doorsnede(getallen1, getallen3)); // toont de tekst "geen doorsnede"
+    }
+
+    static void ToonDoorsnede(double[] doorsnede) {
+        if (doorsnede.Length >= 1) {
+            Console.WriteLine($"Doorsnede: {string.Join(", ", doorsnede)}");
+        } else {
+            Console.WriteLine("geen doorsnede");
+        }
+    }
+
+    static double[] Doorsnede(double[] getallen1, double[] getallen2) {
+        // Bepaal welke de korste en langste array is:
+        double[] kortsteArray = getallen1;
+        double[] langsteArray = getallen2;
+        if (kortsteArray.Length > getallen2.Length) { 
+            kortsteArray = getallen2;
+            langsteArray = getallen1;
+        }
+
+        // Tel het aantal waardes die in de doorsnede moeten terechtkomen:
+        int aantalInDoorsnede = 0;
+        for (int i = 0; i < kortsteArray.Length; i++) {
+            for (int j = 0; j < langsteArray.Length; j++) {
+                if (kortsteArray[i] == langsteArray[j]) {
+                    aantalInDoorsnede++;
+                }
+            }
+        }
+
+        // Maak de array aan voor de doorsnede:
+        double[] doorsnede = new double[aantalInDoorsnede];
+
+        // Ga nogmaals door de twee arrays om de vereist waardes over te nemen in de doorsnede:
+        int k = 0;
+        for (int i = 0; i < kortsteArray.Length; i++) {
+            for (int j = 0; j < langsteArray.Length; j++) {
+                if (kortsteArray[i] == langsteArray[j]) {
+                    doorsnede[k] = kortsteArray[i];
+                    k++;
+                }
+            }
+        }
+
+        // Lever de doorsnede array op:
+        return doorsnede;
+    }
+}
+----
+
+==== Oefening D13.gemeenteraad
+
+[source, csharp, linenums]
+----
+static int Raadsleden(int inwoners) {
+    int[] inwonersAantallen = { 1000, 2000, 3000, 4000, 5000, 7000, 9000, 12000, 15000,
+                    20000, 25000, 30000, 35000, 40000, 50000, 60000, 70000,
+                    80000, 90000, 100000, 150000, 200000, 250000, 300000 };
+    int[] raadsledenAantallen = { 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35,
+                        37, 39, 41, 43, 45, 47, 49, 51, 53, 55 };
+
+    int raadsleden = 7;
+    int index = 0;
+    while (index < inwonersAantallen.Length &&
+            inwoners >= inwonersAantallen[index]) {
+        raadsleden = raadsledenAantallen[index];
+        index++;
+    }
+
+    return raadsleden;
+}
+
+static int[] Zetels(int raadsleden, string[] lijsten, int[] stemcijfers) {
+    // Maak een array aan om per lijst het aantal zetels bij te houden...
+    int[] zetels = new int[lijsten.Length];
+
+    // Maak arrays aan om per lijst over een huidige deler en huidig stemquotient te beschikken...
+    double[] delers = new double[lijsten.Length];
+    double[] quotienten = new double[lijsten.Length];
+    // Vul de tabellen alvast op met deler 1 en het eerste stemquotient...
+    for (int i = 0; i < lijsten.Length; i++) {
+        delers[i] = 1;
+        quotienten[i] = stemcijfers[i]; // of dus eigenlijk stemcijfers[i] / delers[i];
+    }
+
+    // Zolang nog niet alle zetels verdeeld zijn: verhogen we het aantal zetels voor de lijst met het hoogste stemquotient...
+    int verdeeldeZetels = 0;
+    // Maak een tabel aan om per lijst het aantal zetels bij te houden...
+    do {
+        // Zoek de positie (index) van het hoogste stemquotient...
+        int indexHoogsteQuotient = 0;
+        for (int i = 1; i < quotienten.Length; i++) {
+            if ((quotienten[i] > quotienten[indexHoogsteQuotient]) ||
+                (quotienten[i] == quotienten[indexHoogsteQuotient] && stemcijfers[i] > stemcijfers[indexHoogsteQuotient])) {
+                // indien zelf het stemcijfer gelijk is, wordt hier impliciet gekeken naar het lijstnummer
+                indexHoogsteQuotient = i;
+            }
+        }
+
+        // Verhoog voor die lijst (op die positie) het aantal zetels met 1...
+        zetels[indexHoogsteQuotient] += 1;
+        // Verhoog voor die lijst (op die positie) de deler met 1...
+        delers[indexHoogsteQuotient] += 1;
+        // Bereken voor die lijst (op die positie) het volgende quotient...
+        quotienten[indexHoogsteQuotient] = stemcijfers[indexHoogsteQuotient] / delers[indexHoogsteQuotient];
+
+        // Verhoog het aantal verdeelde zetels met 1...
+        verdeeldeZetels++;
+    } while (verdeeldeZetels < raadsleden);
+
+    // Lever de zetels tabel op...
+    return zetels;
+}
+----
+
+=== Console invoer, arrays en methods
+
+==== Oefening D13.frequenties
+
+[source, csharp, linenums]
+----
+class Program {
+    static void Main() {
+        const int aantal = 10;
+
+        // Invoer opvangen in een array getallen:
+        int[] getallen = new int[aantal];
+        int som = 0;
+        for (int teller = 1; teller <= aantal; teller++) {
+            int getal;
+            bool invoerOk;
+            do {
+                Console.Write($"Getal {teller}?: ");
+                invoerOk = int.TryParse(Console.ReadLine(), out getal);
+            } while (!invoerOk);
+            getallen[teller - 1] = getal;
+            som += getal;
+        }
+
+        Console.WriteLine();
+        Console.WriteLine($"Som: {som}");
+        Console.WriteLine($"Gemiddelde: {som / aantal}");
+
+        int[] frequenties = new int[aantal];
+        // In de (parallelle) frequenties array stoppen we het aantal-keer-voorkomen
+        // bij het eerste voorkomen van dat getal.
+        frequenties[0] = 1;
+        for (int i = 1; i < getallen.Length; i++) {
+            // Ga naar het eerste voorkomen van dat getal, en verhoog daar met 1...
+            for (int j = 0; j <= i; j++) {
+                if (getallen[j] == getallen[i]) {
+                    frequenties[j]++;
+                    break;
+                }
+            }
+        }
+
+        // Afdrukken:
+        Console.WriteLine("Frequenties:");
+        for (int i = 0; i < getallen.Length; i++) {
+            if (frequenties[i] > 0) { 
+                Console.WriteLine($"  {getallen[i]} komt {frequenties[i]} voor");
+            }
+        }
+    }
+}
+----
+
+==== Oefening D13.morsebeep
+
+[source, csharp, linenums]
+----
+class Program {
+    static void Main() {
+        Console.WriteLine("MORSE VERTALER:\n");
+        Console.WriteLine("Voer één of meerdere karakter in (karakters van A t.e.m. Z worden aanvaard)...");
+
+        while (true) {
+            if (Console.KeyAvailable) {
+                ConsoleKeyInfo cki = Console.ReadKey();
+                if (cki.Key >= ConsoleKey.A && cki.Key <= ConsoleKey.Z) {
+                    char letter = cki.KeyChar;
+                    string morse = Morse(letter);
+                    System.Diagnostics.Debug.Print($"Toets voor letter {letter} ingedrukt => {morse}");
+
+                    PlayBeep(morse);
+                    System.Threading.Thread.Sleep(750);
+                }
+            }
+        }
+    }
+
+    static string Morse(char letter) {
+        string[] morse = { ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.." };
+        char[] letters = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+
+        for (int i = 0; i < letters.Length; i++) {
+            if (letters[i] == letter) {
+                return morse[i];
+            }
+        }
+        return null;
+    }
+
+    static void PlayBeep(string morse) {
+        const int frequentie = 750;
+        const int kort = 500;        // halve seconde
+        const int lang = kort * 2;   // 1 seconde
+        const int pauze = 250;       // kwart seconde
+
+        foreach (char teken in morse) {
+            int duur = 0;
+            if (teken == '.') {
+                duur = kort;
+                System.Diagnostics.Debug.Print("kort");
+            } else if (teken == '-') {
+                duur = lang;
+                System.Diagnostics.Debug.Print("lang");
+            }
+            Console.Beep(frequentie, duur);
+            System.Threading.Thread.Sleep(pauze);
+        }
+    }
+}
+----

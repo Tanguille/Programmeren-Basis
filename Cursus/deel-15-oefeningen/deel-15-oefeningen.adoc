@@ -1,0 +1,557 @@
+﻿= Programmeren Basis - Deel 15 - Oefeningen
+Frederiek De Wolf
+v2021.02.15.14.28
+// toc and section numbering
+:toc: preamble
+:toclevels: 4
+// geen auto section numbering voor oefeningen (handigere titels en toc)
+//:sectnums:  
+:sectlinks:
+:sectnumlevels: 4
+// source code formatting
+:prewrap!:
+:source-highlighter: rouge
+:source-language: csharp
+:rouge-style: github
+:rouge-css: class
+// inject css for highlights using docinfo
+:docinfodir: ../common
+:docinfo: shared-head
+// folders
+:imagesdir: images
+:deel-11-oefeningen: ../deel-11-oefeningen/deel-11-oefeningen.adoc
+:deel-11-oplossingen: ../deel-11-oplossingen/deel-11-oplossingen.adoc
+:url-verdieping: ../{docname}-verdieping/{docname}-verdieping.adoc
+// experimental voor kdb: en btn: macro's van AsciiDoctor
+:experimental:
+
+//preamble
+[.text-right]
+versie {revnumber}
+
+// Y4 en Y5 oefeningen zijn hierin verwerkt
+// FDW Oude prog2 oefenening C01-C07 reeds weggevallen of verwerkt in vorige delen
+//                           C08-C13 valt weg wegens overlap met Y4... of Y5... oefeningen
+// Met uitzondering van C12.Afdrukwachtrij, die mag nog eens verwerkt worden.
+
+== Visibility / Properties
+
+=== Oefening D15.persoon
+
+Pas de klasse `Persoon` uit de oplossing van __D14.persoon__ zo aan dat je met properties werkt als `Naam`, `Geboortedatum` en `Woonplaats´.
+
+We gaan er hier van uit dat we net als voorheen deze eigenschappen zowel willen kunnen opvragen (__getten__) als instellen (__setten__).
+
+Je gaat in de code van de `Leeftijd()` method ook één en andere moeten aanpassen.
+
+Pas ook de code van de `Main` method uit de klasse `Program` aan om correct overweg te gaan met deze properties.
+
+=== Oefening D15.rechthoek
+
+Pas de klasse `Rechthoek` uit de oplossing van __D14.rechthoek__ zo aan dat je met properties werkt als `Hoogte` en `Breedte`.
+
+We gaan er hier van uit dat we net als voorheen deze eigenschappen zowel willen kunnen opvragen (__getten__) als instellen (__setten__).
+
+Je gaat in de code van de `Oppervlakte()` method ook één en andere moeten aanpassen.
+
+Herschrijf ook de `Program` klasse uit de opgave van deze oefening.
+
+=== Oefening D15.cirkel
+
+Pas de klasse `Cirkel` uit de oplossing van __D14.cirkel__ zo aan dat je met een property  `Straal` werkt.
+
+We gaan er hier van uit dat we net als voorheen deze eigenschap zowel willen kunnen opvragen (__getten__) als instellen (__setten__).
+
+Je gaat in de code van de `Oppervlakte()` en `Omtrek()` methods ook één en andere moeten aanpassen.
+
+Herschrijf ook de `Program` klasse uit de opgave van deze oefening.
+
+=== Enkel uitleesbare properties
+
+==== Oefening D15.bankrekening
+
+Pas de klasse `Bankrekening ` uit de oplossing van __D14.bankrekening__ zo aan dat je met een property `Saldo` werkt.  
+
+We gaan er hier van uit dat we net als voorheen deze eigenschap enkel kunnen uitlezen (__getten__), en niet rechtstreeks instellen (niet kunnen __setten__).
+
+Uiteraard blijft het zo dat de `Stort(decimal bedrag)` en `HaalAf(decimal bedrag)` methods de __saldo toestand__ gaan manipuleren.
+Ook in de code van die methods ga je één en andere moeten aanpassen.
+
+Herschrijf ook de `Program` klasse uit de opgave van deze oefening.
+
+== Constructoren
+
+=== Default constructor
+
+==== Oefening D15.artikel
+
+Pas de klasse `Artikel` uit de oplossing van __D14.artikel__ zo aan dat je met properties  `PrijsExclusiefBtw` en `BtwPercentage` werkt.
+
+We gaan er hier van uit dat we net als voorheen deze eigenschap zowel willen kunnen opvragen (__getten__) als instellen (__setten__).
+
+Maak gebruik van een __default constructor__ om het initiële `BtwPercentage` op __21__ te krijgen.  Ter herinnering: een default constructor is `public` en parameterloos.
+
+Maak gebruik van dezelfde `Program` klasse als in de oplossing van __D14.artikel__ om uit te testen of je klasse en members correct zijn gedefinieerd.
+
+
+==== Oefening D15.encrypter
+
+Neem link:{deel-11-oplossingen}#_oplossing_d11_encrypted[de oplossing van D11.encrypted] erbij en stop de logica voor de versleuteling in een class `Encrypter`.
+
+Deze klasse heeft een constructor met 1 parameter, nl. de verschuiving (offset) die moet gebruikt worden bij het opstellen van de geheime tekst. Het codewiel zit ingebakken in die klasse (in een private dataveld) en kan niet van buitenaf worden ingesteld of opgevraagd. 
+
+Ter herinnering, het codewiel was een string die er zo uitzag :
+
+[source,csharp,linenums]
+----
+string codewiel = "0ab1cd2ef3gh4ij5kl6m n7op8qr9st.uv,wx!yz?"; // <1>
+----
+<1> Maak hiervan een private dataveld in je klasse `Encrypter`
+
+__Als de termen verschuiving, offset, en codewiel je niks zeggen, dan moet je nog eens link:{deel-11-oefeningen}#_oefening_d11_encrypted[de uitleg bij die oefening D11.encrypted] herlezen.__
+
+Voorzie ook een instance method `GetCodeFor` met 1 parameter voor de tekst die moet versleuteld worden. Deze method produceert de versleutelde tekst als return value.
+
+Een `Encrypter` object kan dan als volgt gebruikt worden :
+
+[source,csharp,linenums]
+----
+Encrypter e = new Encrypter(6); // <1>
+string gewoneTekst = "hallo";
+string geheimeTekst = e.GetCodeFor(gewoneTekst); // <2>
+Console.WriteLine($"{gewoneTekst} werd versleuteld tot {geheimeTekst}");
+----
+<1> hier wordt een `Encrypter` object aangemaakt met het ingebakken codewiel en een verschuiving van `6`
+<2> hier wordt "hallo" meegegeven als parameter dus de return value zal de versleutelde versie van `hallo` zijn.
+
+Je kunt je class `Encrypter` testen met deze code :
+
+[source,csharp,linenums]
+----
+Encrypter e5 = new Encrypter(5); 
+string tekst = "a19z";
+string code = e5.GetCodeFor(tekst);
+Console.WriteLine("+ 5 " + tekst + "->" + code);
+
+tekst = "GROEN";
+Console.WriteLine("+ 5 " + tekst + "->" + e5.GetCodeFor(tekst));
+
+Encrypter e10 = new Encrypter(10);
+tekst = "c# !";
+Console.WriteLine("+10 " + tekst + "->" + e10.GetCodeFor(tekst));
+
+Console.WriteLine();
+
+tekst = "0allo?";
+Encrypter e1 = new Encrypter(1);
+Console.WriteLine("+ 1 " + tekst + "->" + e1.GetCodeFor(tekst));
+
+Encrypter e40 = new Encrypter(40);
+Console.WriteLine("+40 " + tekst + "->" + e40.GetCodeFor(tekst));
+
+Encrypter e41 = new Encrypter(41);
+Console.WriteLine("+41 " + tekst + "->" + e41.GetCodeFor(tekst));
+
+Encrypter em1 = new Encrypter(-1);
+Console.WriteLine("- 1 " + tekst + "->" + em1.GetCodeFor(tekst));
+
+Console.WriteLine();
+
+Encrypter em10 = new Encrypter(-10);
+Console.WriteLine("-10 " + tekst + "->" + em10.GetCodeFor(tekst));
+
+Encrypter em40 = new Encrypter(-40);
+Console.WriteLine("-40 " + tekst + "->" + em40.GetCodeFor(tekst));
+
+Encrypter em41 = new Encrypter(-41);
+Console.WriteLine("-41 " + tekst + "->" + em41.GetCodeFor(tekst));
+
+Encrypter em82 = new Encrypter(-82);
+Console.WriteLine("-82 " + tekst + "->" + em82.GetCodeFor(tekst));
+----
+
+De output van dit fragment is dezelfde als bij link:{deel-11-oefeningen}#_oefening_d11_encrypted[de uitleg bij die oefening D11.encrypted] :
+
+[source, shell]
+----
++ 5 a19z->2fv1
++ 5 GROEN->GROEN
++10 c# !->j#t2
+
++ 1 0allo?->ab66p0
++40 0allo?->?0kk7z
++41 0allo?->0allo?
+- 1 0allo?->?0kk7z
+
+-10 0allo?->.ueeit
+-40 0allo?->ab66p0
+-41 0allo?->0allo?
+-82 0allo?->0allo?
+----
+
+
+=== Verplichte initialisatie / Meerdere constructoren (die elkaar oproepen)
+
+==== Oefening D15.artikelmetprijs
+
+Pas je oplossing van voorgaande oefening aan.  Maak het verplicht om bij creatie van een `Artikel`op zijn minst een __prijs exclusief BTW__ te voorzien.
+
+In totaal zijn er twee mogelijkheden bij het aanmaken van `Artikel` objecten:
+
+- met één parameter (de __prijs exclusief BTW__), bijvoorbeeld `new Artikel(100m)`, __100__ zal hier de __prijs exclusief BTW__ zijn, __21__ is dan het default __BTW percentage__ van toepassing
+
+- met twee parameter (de __prijs exclusief BTW__ en het __BTW percentage__), bijvoorbeeld `new Artikel(200m, 6m)`, __200__ zal hier de __prijs exclusief BTW__ zijn, __6__ is dan het __BTW percentage__ van toepassing
+
+Test uit of je klasse en members correct gedefinieerd zijn aan de hand van volgende `Program` klasse...
+
+.Program.cs
+[source, csharp, linenums]
+----
+using System;
+
+class Program {
+    static void Main() {
+	    // Test de constructor met één parameter:
+        Artikel artikel1 = new Artikel(100m);
+		Console.WriteLine(artikel1.PrijsExclusiefBtw == 100m);    // zou true moeten opleveren
+        Console.WriteLine(artikel1.BtwPercentage == 21m);         // zou true moeten opleveren
+		Console.WriteLine(artikel1.PrijsInclusiefBtw() == 121m);  // zou true moeten opleveren
+
+		// Test of de __setters__ nog correct functioneren:
+        artikel1.PrijsExclusiefBtw = 1000m;
+        artikel1.BtwPercentage = 6m;
+        Console.WriteLine(artikel1.PrijsExclusiefBtw == 1000m);   // zou true moeten opleveren
+        Console.WriteLine(artikel1.BtwPercentage == 6m);          // zou true moeten opleveren
+		Console.WriteLine(artikel1.PrijsInclusiefBtw() == 1060m); // zou true moeten opleveren
+
+		// Test de constructor met twee parameters:
+		Artikel artikel2 = new Artikel(200m, 6m);
+		Console.WriteLine(artikel2.PrijsExclusiefBtw == 200m);    // zou true moeten opleveren
+        Console.WriteLine(artikel2.BtwPercentage == 6m);          // zou true moeten opleveren
+        Console.WriteLine(artikel2.PrijsInclusiefBtw() == 212m);  // zou true moeten opleveren
+
+		// Test uit of de prijs exclusief BTW wel verplicht is,
+		// volgende regel code zou dan ook een compile-fout moeten opleveren:
+		Artikel artikel3 = new Artikel();
+		// Zet bovenstaande regel in commentaar indien hij daadwerkelijk een 
+		// compile-fout oplevert, dan heb je bereikt wat de bedoeling was
+    }
+}
+----
+
+=== Immutable objecten
+
+==== Oefening D15.immutablecirkel
+
+Herneem je oplossing van __Oefening D15.cirkel__ maar zorg er deze keer voor dat objecten van de klasse `Cirkel` immutable zijn.  Meer specifiek: na creatie van een `Cirkel` kan de `Straal` niet meer wijzigen.
+
+Ter herinnering...
+
+Indien je zelf datatype gedeeltelijk of geheel immutable wil maken, ga je typisch:
+
+- een constructor voorzien om initiële waardes bij creatie van het object te kunnen opgeven
+
+- __getters__ voorzien om de nodige informatie bevraagbaar te maken
+
+Bij creatie van een `Cirkel` gaan we de __straal__ opgeven.  De __straal eigenschap__ is opvraagbaar (__gettable__), niet verder instelbaar (__settable__).
+
+Test ook uit aan de hand van een `Program` of je inderdaad de __straal__ niet meer kan wijzigen (wat de bedoeling dus is).
+
+==== Oefening D15.afstandtussenpunten
+
+Herneem je oplossing van __Oefening D14.afstandtussenpunten__ maar zorg er deze keer voor dat objecten van de klasse `Punt` immutable zijn.  Werk anderzijds ook met propertys voor de __X__ en __Y__ coördinaten.
+
+Bij creatie van een `Punt` object moet de `X` en `Y` waarde worden ingesteld.  Na creatie kunnen deze waardes niet meer veranderen
+
+Pas de `Program` zo aan dat met de properties wordt gewerkt.
+
+== Verwijzingen en samengestelde objecten
+
+=== Oefening D15.cirkelpunt
+
+//Oefening Y4.08
+
+Maak gebruik van de `Punt` klasse uit je oplossing van __D15.afstandtussenpunten__, en herwerk de `Cirkel` klasse van __D15.immutablecirkel__ als volgt...
+
+Elke __cirkel__ houdt nu de positie van z'n __middelpunt__ bij, deze wordt bij constructie ingesteld door de __X__ en __Y__ waarden mee te geven aan de constructor (bovenop de __straal__).
+
+Voorzie een method `VerplaatsNaar(int x, int y)` die het __middelpunt__ van de __cirkel__ verplaatst naar de nieuwe positie. 
+
+Voorzie ook een `Middelpunt` member die een `Punt` oplevert dat __het middelpunt van de cirkel__ voorstelt.
+
+Voorzie in de `Cirkel` klasse ook een `Bevat(Punt p)` method die __true__ of __false__ antwoordt al naargelang of het __punt__ binnen de __cirkel__ valt of niet.  Hiervoor gebruik je de method `GetAfstandTussen`.
+
+Test je programma uit met de volgende code...
+
+.Program.cs
+[source, csharp, linenums]
+----
+using System;
+
+class Program {
+
+	static void Main() {
+		Cirkel c = new Cirkel(10, 20, 5);   // x, y en straal
+		Punt p1 = new Punt(13, 25);         // x en y
+		Punt p2 = new Punt(8, 16);          // x en y
+
+		Console.WriteLine(c.Bevat(p1));     // toont false
+		Console.WriteLine(c.Bevat(p2));     // toont true
+
+		c.VerplaatsNaar(11, 27);            // x en y
+
+		Console.WriteLine(c.Middelpunt.X);  // toont 11
+		Console.WriteLine(c.Middelpunt.Y);  // toont 27
+
+		Console.WriteLine(c.Bevat(p1));     // toont true
+		Console.WriteLine(c.Bevat(p2));     // toont false
+	}
+}
+----
+
+Teken een object diagram dat de situatie weergeeft op het einde van de `Main` method.
+
+=== Oefening D15.cirkeloverlapt
+
+//Oefening Y4.09
+
+Ga nog wat verder...
+
+Voeg aan de `Cirkel` klasse een method 'Overlapt' toe met 2 `Cirkel` parameters die __true__ of __false__ retourneert al naargelang of __de cirkels__ elkaar overlappen of niet.
+
+Kijk eens goed in onderstaande `Program` of er nu verwacht wordt dat de `Overlapt` method een instance method (non-`static`) of class method (`static`) is.
+
+Twee __cirkels overlappen__ elkaar indien de afstand tussen hun __middelpunten__ kleiner is dan de som van hun __stralen__.
+
+Werk met volgende `Program` klasse om je `Overlapt` method uit te testen...
+
+.Program.cs
+[source, csharp, linenums]
+----
+using System;
+
+class Program {
+	static void Main() {
+		Cirkel c1 = new Cirkel(10, 20, 5);
+		Cirkel c2 = new Cirkel(8, 12, 10);
+		Cirkel c3 = new Cirkel(100, 200, 3);
+
+		Console.WriteLine(Cirkel.Overlapt(c1, c2));  // moet true opleveren
+		Console.WriteLine(Cirkel.Overlapt(c2, c3));  // moet false opleveren
+	}
+}
+----
+
+=== Oefening D15.figuren
+
+//Oefening Y4.10
+
+Opnieuw gaan we een stapje verder...
+
+Het is logisch dat klassen `Cirkel` en `Punt` in eenzelfde __namespace__ terechtkomen.
+
+Stop ze in een `namespace Figuren`.  Vaak plaats men alle code die tot één namespace behoort ook samen in één folder.  Hier zou je een folder 'Figuren' voor alle code uit die namespace kunnen aanmaken. 
+
+.Een folder aanmaken in __Visual Studio__.
+[NOTE]
+====
+Rechterklik in het __Solution Explorer__ toolvenster op de projectnaam en kies voor menu:Add[New Folder].
+====
+
+Zorg ervoor dat de klasse met je `Main` method niet verplaatst wordt (ze komt immers niet in de `Figuren` namespace terecht).
+
+Welke foutmeldingen geeft de compiler je?
+Wat moet je veranderen in de file met je Main method om de compiler tevreden te stellen?
+
+=== Oefening D15.getafstandtussenenoverlapt
+
+//Oefening Y4.11
+
+Stel dat we in de klasse `Punt`, de afstand tussen twee __punten__ als een __instance method__ willen definiëren (in plaats van een __class method__)...
+
+Hoe zouden we deze __instance method__ dan kunnen aanroepen?
+
+Herschrijf de method `GetAfstandTussen` om er een __instance method__ van te maken.
+
+Stel dat we in de klasse `Cirkel`, de method die test of twee __cirkels__ overlappen als een __instance method__ willen definiëren (in plaats van een __class method__). ..
+
+Hoe zouden we deze __instance method__ dan kunnen aanroepen?
+
+Herschrijf de method `Overlapt` om er een __instance method__ van te maken.
+
+Pas ook volgende `Program` code aan om opnieuw de afstand van `p1` tot `p2` te bepalen, en het al dan niet overlappen van __cirkels__ `c1` en `c2`, en `c2` en `c3` na te gaan, maar deze keer aan de hand van de __instance methods__.
+
+.Program.cs
+[source, csharp, linenums]
+----
+using System;
+
+class Program {
+	static void Main() {
+		Punt p1 = new Punt(4, 6);
+		Punt p2 = new Punt(7, 2);
+
+		double afstand = Punt.GetAfstandTussen(p1, p2);
+		Console.WriteLine(afstand);                  // moet 5 zijn
+
+		Cirkel c1 = new Cirkel(10, 20, 5);
+		Cirkel c2 = new Cirkel(8, 12, 10);
+		Cirkel c3 = new Cirkel(100, 200, 3);
+
+		Console.WriteLine(Cirkel.Overlapt(c1, c2));  // moet true opleveren
+		Console.WriteLine(Cirkel.Overlapt(c2, c3));  // moet false opleveren
+	}
+}
+----
+
+=== Oefening D15.rekeningkantoor
+
+//Oefening Y5.06
+
+Voorzien klassen met de volgende properties...
+
+....
+	class Persoon
+		string Voornaam
+		string Familienaam
+		Adres Adres
+		
+	class Adres
+		string Straat
+		string Huisnummer
+		string Postcode
+		string Gemeente
+
+	class Rekening
+		string Nummer
+		double Saldo
+		Kantoor Kantoor
+		Persoon Titularis
+
+	class Kantoor
+		Persoon kantoorhouder
+		Adres adres
+....
+
+Alle properties mogen __gettable__ en __settable__ zijn.
+
+Geef elke klasse één constructor die de nodige parameters heeft om elke property van een beginwaarde te voorzien.
+
+Schrijf een `Main` method die objecten maakt en aanéénknoopt voor de volgende voorbeelddata:
+
+....
+	Jan Janssens, Koekoekstraat 70, 9090 Melle
+
+	Jan heeft een rekening met nummer BE11 2222 3333 4444 met daarop 120Eur
+
+	Deze rekening is bij het kantoor van Mieke Mickelsen, Kerkstraat 12, 8000 Brugge
+
+	Mieke woont in haar kantoor
+....
+
+Teken ook een object diagram van de toestand op het eind van deze `Main` method.
+
+=== Oefening D15.rekeningkantoormieke
+
+//Oefening Y5.07
+
+Voeg in je oplossing van de vorige oefening, wat code toe om __Mieke__ te doen verhuizen naar __huisnummer 99__ in dezelfde straat..
+
+[source, csharp, linenums]
+----
+Persoon mieke = new Persoon(...);
+...andere code...
+mieke.Adres.HuisNummer = 99;
+----
+	
+Wat gebeurt er met het __kantoor__?  Zet eens het __huisnummer__ op de console...
+
+[source, csharp, linenums]
+----
+Console.WriteLine(kantoorMieke.Adres.HuisNummer);  // geeft?
+----
+
+Indien je de afgedrukt waarde niet goed begrijpt, grijp je terug naar je object diagram uit vorige oefeningen.  Pas daar het `Huisnummer` van het `Adres` van `mieke` aan in __99__.
+
+Dan kan je misschien beter volgen welke waarde wordt afgedrukt. 
+
+== Expressies en static typing
+
+=== Oefening D15.expressies1
+
+[source, csharp, linenums]
+----
+using System;
+
+class Factuur {
+    public int Id { get; set; }
+    public DateTime CreatieDatum { get; set; }
+}
+
+class Program {
+    static void Main() {
+        DateTime d = new DateTime(2017, 3, 12);
+        Console.WriteLine(GetFactuur(5, d).CreatieDatum.Day);  // <1>
+    }
+    static Factuur GetFactuur(int id, DateTime creatieDatum) {
+		Factuur f = new Factuur();
+		f.Id = id;
+		f.CreatieDatum = creatieDatum;
+		return f;
+    }
+}
+----
+<1> Is de code op deze regel grammaticaal correct?
+
+Welke expressies (van welke datatypes, die wat voorstellen) herken je op die regel?
+
+=== Oefening D15.expressies2
+
+[source, csharp, linenums]
+----
+class Persoon {
+    public bool Vip { get; set; }
+    public string Naam { get; set; }
+}
+
+class Program {
+    static void Main() {
+        bool v = (new Persoon()).Vip;  // <1>
+    }
+}
+----
+<1> Is de code op deze regel grammaticaal correct?
+
+Welke expressies (van welke datatypes, die wat voorstellen) herken je op die regel?
+
+=== Oefening D15.expressies3
+
+[source, csharp, linenums]
+----
+class Program {
+    static void Main() {
+        string[] a = new string[new int[]{ 1, 2, 3 }.Length * 5];  // <1>
+	}
+}
+----
+<1> Is de code op deze regel grammaticaal correct?
+
+Welke expressies (van welke datatypes, die wat voorstellen) herken je op die regel?
+
+=== Oefening D15.expressies4
+
+[source, csharp, linenums]
+----
+class Program {
+    static void Main() {
+        int g = 4;
+        while (g > 5 && 6)  // <1>
+        {
+            /* ... */
+        }
+    }
+}
+----
+<1> Is de code op deze regel grammaticaal correct?
+
+Welke expressies (van welke datatypes, die wat voorstellen) herken je op die regel?

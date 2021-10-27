@@ -1,0 +1,463 @@
+﻿= Programmeren Basis - Deel 13 - Oefeningen
+Frederiek De Wolf
+v2021.10.19.09.56
+// toc and section numbering
+:toc: preamble
+:toclevels: 4
+// geen auto section numbering voor oefeningen (handigere titels en toc)
+//:sectnums:  
+:sectlinks:
+:sectnumlevels: 4
+// source code formatting
+:prewrap!:
+:source-highlighter: rouge
+:source-language: csharp
+:rouge-style: github
+:rouge-css: class
+// inject css for highlights using docinfo
+:docinfodir: ../common
+:docinfo: shared-head
+// folders
+:imagesdir: images
+:url-verdieping: ../{docname}-verdieping/{docname}-verdieping.adoc
+// experimental voor kdb: en btn: macro's van AsciiDoctor
+:experimental:
+
+//preamble
+[.text-right]
+versie {revnumber}
+
+== Test jezelf
+
+Ondertussen heb je leren werken met de basiselementen (__variabelen__, __operatoren__, __arrays__, ...) en basisstructuren (__sequenties__, __selecties__ en __iteraties__) van algoritmes.  
+Zelfs met __methods__ zijn we aan de slag gegaan.   
+Zo is een eerste mijlpaal bereikt!
+
+Als we het straks in volgende delen hebben over __object orientatie__ of __collectietypes__ is het niet onbelangrijk dat je goed uit de voeten kan met de voorvermelde basiselementen- of structuren.
+Het is daarom een goed idee je niveau op dit moment eens grondig af te toetsen.  Op basis van onderstaande oefeningen zou je dat kunnen doen.
+
+Zet je telefoon op __do not disturb__, en haal er wat versnaperingen bij.  Een overzicht...
+
+- Oefening *palindroom* is een oefening op debuggen, voorzie hiervoor een kwartier.
+- Oefening *doorsnede* is een oefening op arrays en methods, voorzie hiervoor een anderhalf uur.
+- Oefening *gemeenteraad* is een oefening op arrays en methods, voorzie hiervoor een tweetal uur.
+- Oefening *frequenties* is een oefening op console invoer, arrays en methods, voorzie hiervoor een anderhalf uur.
+- Oefening *morsebeep* is een oefening op console invoer, arrays en methods, voorzie hiervoor een uur.
+
+In de opgave wordt telkens wel op één of ander manier omschreven welk resultaat je oplossing moet produceren.  Onder meer op basis van dit resultaat kan je afmeten hoe goed je het er van af brengt.
+Vergelijk je oplossing uiteindelijk ook maar eens met de modeloplossing, en ga na of er significante afwijkingen zijn.  Is dat het geval, en heb je twijfels over je aanpak, ga dan ten rade bij een docent.
+
+We geven dus opnieuw meteen de modeloplossingen mee, maar bedwing jezelf deze er bij te nemen, nog voor je zelf een serieuze poging hebt ondernomen.
+
+Heb je de meeste van deze oefeningen succesvol kunnen voltooien, wel dan zit je goed!  Is dat niet het geval, dan moet je dringend een tandje bijsteken, of je herpakken.  Herlees de relevante stukken uit cursusmateriaal, hermaak de oefeningen betreffende de thema's waar je het moeilijk mee hebt, en stel vragen aan de docenten.
+
+=== Debugging
+
+==== Oefening D13.palindroom
+
+Stel dat we onderstaande code zouden overnemen...
+
+[source, csharp, linenums]
+----
+ 1 : static void Main() {
+ 2 : 	Console.WriteLine("Geef een tekst : ");
+ 3 : 	string tekst = Console.ReadLine();
+ 4 : 
+ 5 : 	Console.WriteLine(IsPalindroom(tekst));
+ 6 : }
+ 7 : 
+ 8 : static bool IsPalindroom(string tekst) {
+ 9 : 	string reverse = ReverseText(tekst);
+10 : 	if (tekst == reverse) { 
+11 : 		return true;
+12 : 	} else {
+13 : 		return false;
+14 : 	}
+15 : }
+16 : 
+17 : static string ReverseText(string tekst) {
+18 : 	string result = "";
+19 : 	foreach(char c in tekst) {  // <1>
+20 : 		result = c.ToString();
+21 : 	}
+22 : 	return result;
+23 : }
+----
+<1> Hier zouden we een breakpoint plaatsen.
+
+...en een breakpoint zou plaatsen op __regel 19__.  
+
+*Hoe zal dan de call stack er dan uitzien* wanneer je de code tot daar zou laten uitvoeren?  Dit in de veronderstelling dat de gebruiker de waarde __hallo__ had ingevoerd.
+
+Neem bij elke activatie op je call stack ook de parameterwaardes op.  En geef daarnaast ook nog eens van de andere lokale variabelen (`result`, `reverse` en `input`) tijdens die activaties de waardes weer.
+
+****
+[.underline]#Voorbeeld#
+
+Bij een breakpoint in onderstaande code op __regel 11__...
+
+[source, csharp, linenums]
+----
+ 1 : static void Main() {
+ 2 : 	int a = 123;
+ 3 : 	PrintDubbele(a);
+ 4 : 
+ 5 : 	int b = 200;
+ 6 : 	PrintDubbele(200);
+ 7 : }
+ 8 : 
+ 9 : static void PrintDubbele(int getal) {
+10 : 	int dubbele = getal * 2;
+11 : 	Console.WriteLine($"Het dubbele van {getal} is {dubbele}.");  // <1>
+12 : }
+----
+<1> Hier zouden we een breakpoint plaatsen.
+
+Zal bij uitvoer tot op die regel de __call stack__, en __overige variabelen op de verschillende activatierecords__ er zo uitzien:
+
+[cols="3,2", options="header"]
+|===
+|Call Stack|Overige variabelen op het activatie record
+|`PrintDubbele(int getal = 123)` gebroken op __regel 11__|`int getal = 123`
+|`Main()` invoceert op __regel 3__ bovenstaande activatie|`int a = 123` en `int b = 0` 
+|===
+
+Merk op dat de inhoud van `b` nog op __0__ staat.  `PrintDubbele` mag dan al twee keer worden aangeroepen, er is wel gebroken tijdens de eerste activatie.  Met andere woorden de uitvoer is gepauzeerd nog voor aan `b` een waarde kon worden toegekend.  Om die reden staat hij nog op zijn __defaultwaarde 0__.
+****
+
+Neem de code nu ook effectief over, je kan ze van hieronder kopiëren (zonder lijnnummers deze keer)...
+
+[source, csharp, linenums]
+----
+static void Main() {
+  	Console.WriteLine("Geef een tekst : ");
+  	string tekst = Console.ReadLine();
+  
+  	Console.WriteLine(IsPalindroom(tekst));
+}
+ 
+static bool IsPalindroom(string tekst) {
+ 	string reverse = ReverseText(tekst);
+	if (tekst == reverse) {  
+		return true;
+ 	} else {
+ 		return false;
+ 	}
+}
+
+static string ReverseText(string tekst) {
+ 	string result = "";
+ 	foreach(char c in tekst) {
+ 		result = c.ToString();
+ 	}
+ 	return result;
+}
+----
+
+...en *zoek uit wat er fout loopt*.
+
+Indien de gebruiker bijvoorbeeld __kajak__ invoert wordt __false__ afgedrukt, dit ondanks er wel degelijk sprake is van een __palindroom__.
+
+Ga op zoek naar de fout.  Start het programma opnieuw op en onderbreek de code op een gepast tijdstip.  We hebben gezien dat je dit bijvoorbeeld kan met breakpoint(s) of aan de hand van de __'Run execution to here'__ optie. 
+
+Maak eventueel gebruik van debugger opties als __Step Into__, __Over__ of __Out__ om stap voor stap door de code te gaan, en zo hopelijk uit te komen op het stukje code dat de __logische fout__ veroorzaakt.
+
+=== Arrays en methods
+
+==== Oefening D13.doorsnede
+
+Schrijf een method `Doorsnede` die een array kan opleveren opgevuld met alle waardes die in twee andere arrays met getallen voorkomen.  
+
+Deze method krijgt __twee parameters__, meer specifiek de twee arrays waarvan de *doorsnede* wordt bepaald.
+    
+Je moet de code voor `Doorsnede` zelf schrijven, je mag hiervoor geen ingebouwde methods gebruiken die min of meer hetzelfde doen.  Je mag ook enkel gebruik maken van arrays, niet van overige __collectietypes__.
+Later gaan we inderdaad zien hoe dergelijke functionaliteit reeds vervat zit in voorgedefinieerde logica.
+
+Maak ook een method `ToonDoorsnede` die je zoals in onderstaande code geïllustreerd, kan inzetten...
+
+[source, csharp, linenums]
+----
+class Program
+{
+    static void Main()
+    {
+        double[] temperaturenMeetpunt1 = { 10.1, 20.2, 15.5, 12.3, 28.7 };
+        double[] temperaturenMeetpunt2 = { 10.0, 20.2, 15.6, 12.3, 28.8, 11.1 };
+
+        double[] doorsnede = Doorsnede(temperaturenMeetpunt1, temperaturenMeetpunt2);
+        ToonDoorsnede(doorsnede);                       // toont de tekst "20,2 | 12,3"
+
+        double[] getallen1 = { 1.23, 2.34, 3.45 };
+        double[] getallen2 = { 1.99, 2.34 };
+        ToonDoorsnede(Doorsnede(getallen1, getallen2)); // toont de tekst "2,34"
+
+        double[] getallen3 = { 1.99, 2.99, 3.99 };
+        ToonDoorsnede(Doorsnede(getallen1, getallen3)); // toont de tekst "geen doorsnede"
+    }
+
+    ...  // <1>
+
+    ...  // <2>
+}
+----
+<1> Vul hier aan met method `ToonDoorsnede`.
+<2> Vul hier aan met method `Doorsnede`.
+
+De uitvoer is...
+
+[source, shell]
+----
+Doorsnede: 20,2 | 12,3
+Doorsnede: 2,34
+geen doorsnede
+----
+
+==== Oefening D13.gemeenteraad
+
+Elke gemeente verkies bij de gemeenteraadsverkiezing een aantal raadsleden.  Elk raadslid krijgt een __zetel__ in de gemeenteraad.  
+
+*Totaal aantal raadsleden:*
+
+Creëer een method `Raadsleden`.  De method wordt gebruikt om voor een bepaald __aantal inwoners__ het correct __aantal raadsleden__ te bevragen.
+
+Het aantal raadsleden (of dus zetels) is afhankelijk van het aantal inwoners.  
+Er zijn minstens __7 raadsleden__.  Vanaf __1'000 inwoners__ zijn dit er __9__, vanaf __2'000__ zijn het er __11__, ..., vanaf __300'000 inwoners__ zijn dit er __55__.
+
+De implementatie van deze method mag alvast gebruik maken van volgende arrays...
+
+[source, csharp, linenums]
+----
+int[] inwonersAantallen = { 1000, 2000, 3000, 4000, 5000, 7000, 9000, 12000, 15000,
+                            20000, 25000, 30000, 35000, 40000, 50000, 60000, 70000, 
+                            80000, 90000, 100000, 150000, 200000, 250000, 300000 };
+int[] raadsledenAantallen = { 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35,
+                              37, 39, 41, 43, 45, 47, 49, 51, 53, 55 };
+----
+
+`inwonersAantallen` en `raadsledenAantallen` zijn __parallelle arrays__.  
+
+Ter herinnering: Waardes die in parallelle arrays op eenzelfde positie staan, horen bij elkaar.  Op __index 2__ van `inwonersAantallen` vinden we waarde __3000__, dit is het minimum __inwoners aantal__ die vereist zijn om __13 raadsleden__ (de waarde op __index 2__ in `raadsledenAantallen`) aan te duiden.
+
+*Aantal raadsleden per lijst:*
+
+Daarnaast willen we ook bepalen hoeveel raadsleden/zetels elke __lijst__ (__politieke partij__) krijgt toegewezen.
+
+Om te bepalen hoeveel zetels elke lijst krijgt, kan je telkens op basis van het hoogste __quotient__ (behorende tot een bepaalde lijst) een zetel toewijzen.  De __stemcijfers__ worden eerst door 1 gedeeld, vervolgens door 2, dan 3, enzovoort... .
+
+In onderstaand overzicht krijg je een beeld hoe dit kan worden bepaald...
+
+|===
+|Index{set:cellbgcolor:white}|`lijsten`{set:cellbgcolor:white}|`stemcijfers`{set:cellbgcolor:white}|Zetel 1{set:cellbgcolor:white}|Zetel 2{set:cellbgcolor:white}|Zetel 3{set:cellbgcolor:white}|Zetel 4{set:cellbgcolor:white}|Zetel 5{set:cellbgcolor:white}|Zetel 6{set:cellbgcolor:white}|Zetel 7{set:cellbgcolor:white}|`zetels`{set:cellbgcolor:white}
+
+|0{set:cellbgcolor:white}|Groen{set:cellbgcolor:#d5f7b0}|60{set:cellbgcolor:#9fdff5}|[.underline]#60 (1)#{set:cellbgcolor:white}|30 (2){set:cellbgcolor:white}|[.underline]#30 (2)#{set:cellbgcolor:white}|20 (3){set:cellbgcolor:white}|[.underline]#20 (3)#{set:cellbgcolor:white}|15 (4){set:cellbgcolor:white}|[.underline]#15 (4)#{set:cellbgcolor:white}|4{set:cellbgcolor:#ffbabb}
+|1{set:cellbgcolor:white}|Open Vld{set:cellbgcolor:#d5f7b0}|30{set:cellbgcolor:#9fdff5}|30 (1){set:cellbgcolor:white}|30 (1){set:cellbgcolor:white}|30 (1){set:cellbgcolor:white}|[.underline]#30 (1)#{set:cellbgcolor:white}|15 (2){set:cellbgcolor:white}|15 (2){set:cellbgcolor:white}|15 (2){set:cellbgcolor:white}|1{set:cellbgcolor:#ffbabb}
+|2{set:cellbgcolor:white}|N-VA{set:cellbgcolor:#d5f7b0}|31{set:cellbgcolor:#9fdff5}|31 (1){set:cellbgcolor:white}|[.underline]#31 (1)#{set:cellbgcolor:white}|15,5 (2){set:cellbgcolor:white}|15,5 (2){set:cellbgcolor:white}|15,5 (2){set:cellbgcolor:white}|[.underline]#15,5 (2)#{set:cellbgcolor:white}|10,33 (3){set:cellbgcolor:white}|2{set:cellbgcolor:#ffbabb}
+|3{set:cellbgcolor:white}|sp.a{set:cellbgcolor:#d5f7b0}|4{set:cellbgcolor:#9fdff5}|4 (1){set:cellbgcolor:white}|4 (1){set:cellbgcolor:white}|4 (1){set:cellbgcolor:white}|4 (1){set:cellbgcolor:white}|4 (1){set:cellbgcolor:white}|4 (1){set:cellbgcolor:white}|4 (1){set:cellbgcolor:white}|0{set:cellbgcolor:#ffbabb}
+|===
+{set:cellbgcolor!}
+
+Voor het toewijzen van elke zetel (__Zetel 1__, __Zetel 2__, ...) wordt gezocht naar het hoogste stemquotient (de hoogste waarde in die kolom).  Het hoogste stemquotient werd onderlijnd.  De lijst met het hoogste stemquotient bekomt de zetel.
+
+Tussen haakjes zie je het gebruikte deler.  Nadat een zetel aan een bepaalde lijst is toegewezen, wordt voor die lijst de deler verhoogd.
+
+Laat opvallen hoe de __derde__ en de __zevende__ zetel naar __Groen__ gaat, en niet __Open Vld__.  Ondanks het gelijke stemquotient krijgt __Groen__ de zetels toegewezen vanwege het hogere stemcijfer.
+
+Creëer zelf de `Zetels` method die op basis van het aantal `raadleden`, de `lijsten` (de groene kolom), en de `stemcijfers` (de blauwe kolom) een array van __zetel aantallen__ (de roze kolom) kan opleveren.
+
+`lijsten`, `stemcijfers` en `zetels` zijn parallelle arrays.  Op __index 2__ bijvoorbeeld zien we in de arrays hoe __N-VA__, met hun behaalde stemcijfer __31__ aan __2__ zetels komt. 
+
+Het is mogelijk dat je in de implementatie van de `Zetels` method nog extra (parallelle) arrays kan gebruiken.
+
+*Meegegeven `Main` en `Print` methods:*
+
+Je uitgeschreven `Raadsleden` en `Zetels` method moet je kunnen inpassen in volgende code...
+
+[source, csharp, linenums]
+----
+class Program {
+    static void Main() {
+        // Voor fictieve gemeente X:
+        int inwonersGemeente = 125;
+        int[] lijstNummers = { 1, 2, 3, 4 };
+        string[] lijsten = { "Groen", "Open Vld", "N-VA", "sp.a" };
+        int[] stemcijfers = { 60, 30, 31, 4 };
+
+        // Voor Gent (gemeenteraadsverkiezingen 2018): // <3>
+        // (vervang bovenstaande regels door onderstaande om voor deze gemeente uit te testen)
+        /*
+        int inwonersGemeente = 259570;
+        int[] lijstNummers = { 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
+        string[] lijsten = { "spa.a-Groen", "N-VA", "CD&V", "VLAAMS BELANG", "Open Vld", "PVDA", "DUW.GENT", "MRP", "SPIEGEL Partij", "BE-ONE", "GENTSE BURGERS", "VMC", "PISS-OFF" };
+        int[] stemcijfers = { 53179, 19167, 13979, 12354, 39879, 11178, 3229, 498, 329, 1709, 1633, 480, 931 };
+        */
+
+        // Vraag het aantal raadsleden voor de gemeenteraad op:
+        int raadsleden = Raadsleden(inwonersGemeente);
+
+        // Vraag het aantal zetels (voor elke lijst) op:
+        int[] zetels = Zetels(raadsleden, lijsten, stemcijfers);
+
+        Print(lijstNummers, lijsten, stemcijfers, zetels);
+    }
+
+    static void Print(int[] lijstNummers, string[] lijsten, int[] stemcijfers, int[] zetels) {
+        for (int i = 0; i < lijstNummers.Length; i++) {
+            Console.WriteLine($"{lijstNummers[i],2}: {lijsten[i],15:d}: {zetels[i],2:d} zetels: {stemcijfers[i],6:d} stemmen");
+        }
+    }
+
+    ... // <1>
+    
+    ... // <2>
+}
+----
+<1> Plaats hier de definitie van de `Raadsleden` method.
+<2> Plaats hier de definitie van de `Zetels` method.
+<3> Indien je voor __Gent__ wil uittesten, vervang je `inwonersGemeente`, `lijstNummers`, `lijsten` en `stemcijfers` van __gemeente X__ door deze van __Gent__.
+
+De `Print` method levert voor __gemeente X__ volgende uitvoer op:
+
+[source, shell]
+----
+ 1:           Groen:  4 zetels:     60 stemmen
+ 2:        Open Vld:  1 zetels:     30 stemmen
+ 3:            N-VA:  2 zetels:     31 stemmen
+ 4:            sp.a:  0 zetels:      4 stemmen
+----
+
+Voor __Gent__ zal de `Print` method het volgende weergeven:
+
+[source, shell]
+----
+ 1:     spa.a-Groen: 19 zetels:  53179 stemmen
+ 2:            N-VA:  6 zetels:  19167 stemmen
+ 3:            CD&V:  5 zetels:  13979 stemmen
+ 5:   VLAAMS BELANG:  4 zetels:  12354 stemmen
+ 6:        Open Vld: 14 zetels:  39879 stemmen
+ 7:            PVDA:  4 zetels:  11178 stemmen
+ 8:        DUW.GENT:  1 zetels:   3229 stemmen
+ 9:             MRP:  0 zetels:    498 stemmen
+10:  SPIEGEL Partij:  0 zetels:    329 stemmen
+11:          BE-ONE:  0 zetels:   1709 stemmen
+12:  GENTSE BURGERS:  0 zetels:   1633 stemmen
+13:             VMC:  0 zetels:    480 stemmen
+14:        PISS-OFF:  0 zetels:    931 stemmen
+----
+
+Test het ook nog eens voor __je eigen gemeente__, de resultaten kan je hier controleren: https://vlaanderenkiest.be/verkiezingen2018/
+
+=== Console invoer, arrays en methods
+
+==== Oefening D13.frequenties
+
+Maak een console applicatie dat *de gebruiker om __10 getallen__ vraagt*.
+
+Alle ongeldige input (tekst die niet als `int` te interpreteren valt) worden genegeerd.
+
+Druk na de invoer in het programma de *som* en het *gemiddelde* van alle getallen af.
+Druk ook af *hoe vaak elk getal werd ingevoerd*. 
+
+Maak gebruik van arrays en methods daar waar je zelf nuttig vindt.
+
+Bij de invoer van de waardes __123__, __45__, __45__, __test__, __89__, __45__, __789__, __789__, __789__, __789__ en __123__ bekomen we...
+
+[source, shell]
+----
+Getal 1?: 123 
+Getal 2?: 
+Getal 2?: 45 
+Getal 3?: 45 
+Getal 4?: test 
+Getal 4?: 89 
+Getal 5?: 45 
+Getal 6?: 789 
+Getal 7?: 789 
+Getal 8?: 789 
+Getal 9?: 789 
+Getal 10?: 123 
+
+Som: 3626
+Gemiddelde: 362
+Frequenties:
+  123 komt 2 voor
+  45 komt 3 voor
+  89 komt 1 voor
+  789 komt 4 voor
+----
+
+==== Oefening D13.morsebeep
+
+Maak een programma dat meteen van ingetoetste karakers (letter __a__ tot en met __z__ worden aanvaard) de *__morse code__* gaat beepen.
+
+Om in de console een __beep__ af te spelen kan je gebruik maken van de voorgedefinieerde method `Beep`, probeer volgend stukje code eens uit...
+
+[source, csharp, linenums]
+----
+const int frequentie = 750;
+
+Console.Beep(frequentie, 500);       // <1>
+System.Threading.Thread.Sleep(250);  // <2>
+Console.Beep(frequentie, 1000);      // <3>
+----
+<1> Zal een korte __beep__ (van __500 milliseonden__) afspelen.
+<2> Na een kleine pauze (van __250 milliseonden__) wordt...
+<3> een lange __beep__ (van __1000 milliseonden__) afgespeeld. 
+
+Als alles goed is hoor je eerst een __korte beep__, vrij snel gevolgd door een __langere beep__.
+
+.Ik hoor geen beep
+[NOTE]
+====
+Controleer eens of je volume wel open staat ;)
+
+De kans is klein, maar sommige hardware configuraties zullen bij sommige __Windows__ versie geen geluid produceren.   Indien dat het geval is kan je deze oefening ombuigen naar eentje die de tekst __"lang"__ of __"kort"__ gaat afdrukken op het moment dat een __lange__ of __korte beep__ wordt verwacht.  Eventueel met een __lange__ of __korte__ pause tussen het afdrukken van deze woorden.
+====
+
+Splits de programmalogica af in verschillende methods:
+
+. Een `PlayBeep` method gaat op basis van een bepaalde morse combinatie (bijvoorbeeld `"-."` of `"..-."`) de verschillende morse tekens (`.` of `-`) in een __beep__ omzetten.
++
+[source, csharp, linenums]
+----
+string morse = "-.";
+PlayBeep(morse);   // <1>
+PlayBeep("..-.");  // <2>
+----
+<2> Speelt een __lange__ en __korte beep__ af.
+<2> Speelt een __korte__, __korte__, __lange__ en __korte beep__ af.
+
+. De `Morse` method levert op basis van een karakter een tekst op bestaande uit de combinatie van __morse tekens__.  Bijvoorbeeld...
++
+[source, csharp, linenums]
+----
+char letter = 'h';
+string morse = Morse(letter);
+Console.Write(morse);            // <1>
+Console.Write(Morse('m'));       // <2>
+----
+<1> Levert `..-.` op.
+<2> Levert `-.` op.
++
+Maak in deze method alvast gebruik van volgende (parallelle) arrays...
++
+[source, csharp, linenums]
+----
+string[] morse = { ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.." };
+char[] letters = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+----
+
+. De `Main` method gaat oneindig lang (`while (true) { ... }`), vanaf er een toets wordt ingedrukt (`if (Console.KeyAvailable) { ... }`), indien het gaat om een letter uit het alfabet, zorgen voor afspelen van de juist __beeps__.
++
+Controleren of het gaat om een letter uit het alfabet, kan door gebruik te maken van de `Key` property van `ConsoleKeyInfo` object.  Deze property levert een `ConsoleKey` enumeratiewaarde op.  
++
+Waardes vanaf __a__ (`>= ConsoleKey.A`) tot en met __z__ (`\<= ConsoleKey.Z`) worden aanvaard.
++
+[source, csharp, linenums]
+----
+ConsoleKeyInfo cki = Console.ReadKey();
+if (cki.Key >= ConsoleKey.A && cki.Key <= ConsoleKey.Z) {
+    ...
+}
+----
++
+Het afspelen van de verwachte __beeps__ gebeurt uiteraard door op gepaste wijze gebruik te maken van de `Morse` en `PlayBeep` methods.

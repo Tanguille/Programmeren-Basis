@@ -1,0 +1,90 @@
+﻿= Programmeren Basis - Deel 16
+Yanic Inghelbrecht
+v2021.02.25
+// toc and section numbering
+:toc: preamble
+:toclevels: 4
+:sectnums: 
+:sectlinks:
+:sectnumlevels: 4
+// source code formatting
+:prewrap!:
+:source-highlighter: rouge
+:source-language: csharp
+:rouge-style: github
+:rouge-css: class
+// inject css for highlights using docinfo
+:docinfodir: ../common
+:docinfo: shared-head
+// folders
+:imagesdir: images
+:url-verdieping: ../{docname}-verdieping/{docname}-verdieping.adoc
+// experimental voor kdb: en btn: macro's van AsciiDoctor
+:experimental:
+
+//preamble
+[.text-right]
+versie {revnumber}
+ 
+== Collectieklassen
+
+=== Alternatieven voor arrays
+
+We zagen eerder dat we meerdere objecten (of waarden) kunnen bundelen in arrays.  
+
+Arrays worden in zelfgeschreven klassen echter zelden gebruikt omdat...
+
+* arrays groeien (of krimpen) niet vanzelf naarmate je er meer (of minder) elementen in bewaart
+** je moet dit zelf inschatten en ze expliciet resizen op de juiste momenten
+* arrays bieden weinig extra functionaliteit zoals bv. een element middenin toevoegen
+** de link:https://docs.microsoft.com/en-us/dotnet/api/system.array[klasse Array] bevat wel een aantal handige static methods, maar het blijft beperkt. Bijvoorbeeld, `Array.Resize()` en `Array.IndexOf()`.
+
+In de .NET omgeving zitten verschillende collectieklassen waarmee elementen kunnen worden bijgehouden, zoals bijvoorbeeld `List<T>`, `LinkedList<T>` en `HashSet<T>`. Deze zijn veel *handiger om mee te werken*. Ze verschillen in de mate waarop ze efficient omgaan met het geheugen en CPU cycles, of de elementen al dan niet geordend zijn en of er al dan niet dubbels toegelaten zijn.
+
+Er is dus geen "beste" collectieklasse, men kiest het soort collectie op basis van wat men ermee wil doen.
+
+.T bepaald het elementtype
+[NOTE]
+====
+Het `<T>` achtervoegsel duidt op het soort element dat we erin kunnen stoppen, bijvoorbeeld...
+
+- `List<int>` (lees: __list of int__): een lijst van int waarden.
+- `HashSet<Persoon>` (lees: __hashset of persoon__): een verzameling van verwijzingen naar Persoon objecten.
+- `List<string>` (lees: __list of string__): een lijst van strings.
+
+In een `List<int>` kun je dus geen `string`, `double` of `Persoon` reference stoppen.  Enkel `int` waarden.
+====
+
+We bekijken drie eenvoudige voorgedefinieerde collectieklassen...
+
+=== List<T>
+
+Dit is een lijst van elementen in een bepaalde volgorde, je kan dus bijvoorbeeld het vijfde element opvragen. Intern worden de objecten in een array bijgehouden maar daar merk je niks van (inkapseling). Het voordeel is dat het opvragen van een willekeurig element quasi ogenblikkelijk is. Het nadeel is dat als er een element middenin toegevoegd of verwijderd moet worden, er gemiddeld de helft van de element moet opgeschoven worden (zodat de volgorde in de lijst niet wijzigt). Bovendien, als het interne array te klein blijkt, komt er een resize waarbij alle verwijzingen gekopieerd worden naar een groter array (dat dan het nieuwe interne array wordt). Om te vermijden dat dit kopiëren te vaak gebeurt, zal het interne array altijd wat groter ingesteld worden dan het aantal elementen in de lijst, ruimte verspilt maar tijd spaart.
+
+=== LinkedList<T>
+
+Dit is een lijst van elementen in een bepaalde volgorde. Intern worden objecten bijgehouden in een
+ketting van schakels. Elk schakel-object bevat een verwijzing naar de volgende (en vorige) schakel in de
+ketting. Het voordeel daarvan is dat middenin inlassen of verwijderen heel efficient kan gebeuren door
+een paar verwijzingen in de schakels aan te passen. Het nadeel is echter dat het 1001e element
+opvragen relatief lang duurt omdat eerst de 1000 voorafgaande schakels moeten overlopen worden
+vooraleer we bij schakel 1001 komen. Wijzigingen vooraan of achteraan de lijst zijn wel efficient.
+
+=== HashSet<T>
+
+Dit is een verzameling van elementen zonder vaste positie en er kunnen geen dubbels in voorkomen.
+Vermits de elementen geen onderlinge volgorde hebben, zal het overlopen met foreach loop in “een of
+andere” volgorde gebeuren. Je hebt dus geen garanties over de volgorde waarin je ze tegenkomt.
+Opvragen van elementen, toevoegen en verwijderen gebeurt allemaal zeer efficient. De interne
+structuren zullen soms eens moeten groeien als we elementen toevoegen.
+
+De keuze tussen deze 3 soorten collecties is doorgaans vrij eenvoudig als je hun voor- en nadelen kent...
+
+- `HashSet<T>` is aangewezen als de elementen niet in een bepaalde volgorde moeten zitten en je geen dubbels in de verzameling nodig hebt of dubbels wil vermijden.
+
+- `LinkedList<T>` gebruik je als je oog hebt voor performantieproblemen en de elementen steeds in volgorde wil overlopen (dus zelden zomaar een element middenin opvraagt of `Contains()` gebruikt) en als toevoegingen en verwijderingen vooral vooraan of achteraan de lijst gebeuren.
+
+- `List<T>` gebruik je in alle andere gevallen.
+
+Bekijk de properties en methods van deze klassen goed zodat je min of meer weet welke mogelijkheden ze bieden. Als je bijvoorbeeld niet weet dat er zoiets als `IndexOf()` bestaat ben je gedoemd om dit soort zoek-code
+zelf te schrijven en er zijn nuttigere manieren om je tijd te besteden. De interessantste zijn wellicht :

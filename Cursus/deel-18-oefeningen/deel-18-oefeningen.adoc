@@ -1,0 +1,523 @@
+= Programmeren Basis - Deel 18 - Oefeningen
+Yanic Inghelbrecht
+v2020.12.13.12.00
+// toc and section numbering
+:toc: preamble
+:toclevels: 4
+// geen auto section numbering voor oefeningen (handigere titels en toc)
+//:sectnums:  
+:sectlinks:
+:sectnumlevels: 4
+// source code formatting
+:prewrap!:
+:source-highlighter: rouge
+:source-language: csharp
+:rouge-style: github
+:rouge-css: class
+// inject css for highlights using docinfo
+:docinfodir: ../common
+:docinfo: shared-head
+// folders
+:imagesdir: images
+:url-verdieping: ../{docname}-verdieping/{docname}-verdieping.adoc
+// experimental voor kdb: en btn: macro's van AsciiDoctor
+:experimental:
+
+//preamble
+[.text-right]
+versie {revnumber}
+
+
+
+== Vooraf
+
+Alle klassen in deze oefeningen staan in een namespace `ConsoleApp` en de `Main` method staat in een klasse `Program`.
+
+
+
+== Eenvoudig
+
+
+
+=== Oefening D18.persoonopleeftijd
+Schrijf een klasse `Persoon` met 2 properties, `Naam` en `Leeftijd`, die via de constructor kunnen ingesteld worden.
+
+Vervolledig in de `Program` klasse de volgende `PrintPersonen` method :
+
+[source,csharp,linenums]
+----
+static void PrintPersonenMetTitel(string titel, List<Persoon> personen) { 
+	Console.WriteLine($"--- {titel} ---");
+	
+	// Toon alle personen op de console <1>
+}
+----
+<1> Per persoon 1 regel waarin de naam en de leeftijd van die persoon staat.
+
+Schrijf in de Program klasse een Main method waarin een `List` wordt gemaakt met de volgende inhoud (in de gegeven volgorde!) aan `Persoon` objecten :
+
+* Jan, 23 jaar
+* Miet, 45 jaar
+* Joris, 34 jaar
+* Corneel, 12 jaar
+* Phara, 34 jaar
+
+Daarna wordt `PrintPersonenMetTitel` opgeroepen (titel : `ongesorteerd`) met die lijst als parameter.
+
+**Sorteer vervolgens de lijst op leeftijd.**
+
+Roep opnieuw `PrintPersonenMetTitel` op (titel : `gesorteerd op leeftijd`).
+
+De output van dit programma ziet er zo uit :
+
+[source,shell]
+----
+--- ongesorteerd ---
+Jan, 23 jaar
+Miet, 45 jaar
+Joris, 34 jaar
+Corneel, 12 jaar
+Phara, 34 jaar
+--- gesorteerd op leeftijd ---
+Corneel, 12 jaar
+Jan, 23 jaar
+Joris, 34 jaar
+Phara, 34 jaar
+Miet, 45 jaar
+----
+
+
+
+=== Oefening D18.persoonopnaam
+
+Pas de oplossing van D18.persoonopleeftijd aan, zodat achteraf de personen ook eens op naam (a->z) gesorteerd en getoond worden (titel : `gesorteerd op naam`).
+
+Schrijf hiervoor een klasse `PersoonNaamComparer`.
+
+De output van dit programma ziet er zo uit :
+
+[source,shell]
+----
+--- ongesorteerd ---
+Jan, 23 jaar
+Miet, 45 jaar
+Joris, 34 jaar
+Corneel, 12 jaar
+Phara, 34 jaar
+--- gesorteerd op leeftijd ---
+Corneel, 12 jaar
+Jan, 23 jaar
+Joris, 34 jaar
+Phara, 34 jaar
+Miet, 45 jaar
+--- gesorteerd op naam ---
+Corneel, 12 jaar
+Jan, 23 jaar
+Joris, 34 jaar
+Miet, 45 jaar
+Phara, 34 jaar
+----
+
+
+
+=== Oefening D18.persoonopnaamomgekeerd
+
+Wat zou je aan de code van `PersoonNaamComparer` uit oplossing D18.persoonopnaam moeten veranderen zodat er van z->a gesorteerd wordt?
+
+Probeer dit uit, de output wordt dan :
+
+[source,shell]
+----
+--- ongesorteerd ---
+Jan, 23 jaar
+Miet, 45 jaar
+Joris, 34 jaar
+Corneel, 12 jaar
+Phara, 34 jaar
+--- gesorteerd op leeftijd ---
+Corneel, 12 jaar
+Jan, 23 jaar
+Joris, 34 jaar
+Phara, 34 jaar
+Miet, 45 jaar
+--- gesorteerd op naam ---
+Phara, 34 jaar
+Miet, 45 jaar
+Joris, 34 jaar
+Jan, 23 jaar
+Corneel, 12 jaar
+----
+
+
+
+== Iets ingewikkelder
+
+
+
+=== Oefening D18.persooncomparertelling
+
+Pas de oplossing van D18.persoonopnaam aan, zodat **elke comparer op de console toont welke personen hij (zij?) vergelijkt**.
+
+Voeg deze regel toe bovenaan de `Compare` method van elke klasse die de `IComparer<T>` interface implementeert :
+
+[source,csharp,linenums]
+----
+System.Console.WriteLine($"   {x.Naam} en {y.Naam} worden vergeleken");
+----
+
+Pas de `Main` method aan, zodat deze op het einde *nogmaals* sorteert op naam en opnieuw de inhoud toont van de lijst (titel : `nogmaals gesorteerd op naam`).
+
+Voor de duidelijkheid, het programma **sorteert dus achtereenvolgens drie keer** :
+
+. op leeftijd
+. op naam
+. op naam (nogmaals!)
+
+De output van het programma wordt dan :
+
+[source,shell]
+----
+--- ongesorteerd ---
+Jan, 23 jaar
+Miet, 45 jaar
+Joris, 34 jaar
+Corneel, 12 jaar
+Phara, 34 jaar
+   Miet en Jan worden vergeleken		// <1>
+   Joris en Miet worden vergeleken
+   Joris en Jan worden vergeleken
+   Corneel en Miet worden vergeleken
+   Corneel en Joris worden vergeleken
+   Corneel en Jan worden vergeleken
+   Phara en Miet worden vergeleken
+   Phara en Joris worden vergeleken
+--- gesorteerd op leeftijd ---
+Corneel, 12 jaar
+Jan, 23 jaar
+Joris, 34 jaar
+Phara, 34 jaar
+Miet, 45 jaar
+   Jan en Corneel worden vergeleken		// <2>
+   Joris en Jan worden vergeleken
+   Phara en Joris worden vergeleken
+   Miet en Phara worden vergeleken
+   Miet en Joris worden vergeleken
+--- gesorteerd op naam ---
+Corneel, 12 jaar
+Jan, 23 jaar
+Joris, 34 jaar
+Miet, 45 jaar
+Phara, 34 jaar
+   Jan en Corneel worden vergeleken		// <3>
+   Joris en Jan worden vergeleken
+   Miet en Joris worden vergeleken
+   Phara en Miet worden vergeleken
+--- nogmaals gesorteerd op naam ---
+Corneel, 12 jaar
+Jan, 23 jaar
+Joris, 34 jaar
+Miet, 45 jaar
+Phara, 34 jaar
+----
+<1> output van de `PersoonLeeftijdComparer`
+<2> output van de `PersoonNaamComparer`
+<3> output van de `PersoonNaamComparer` (voor reeds op naam gesorteerde lijst)
+
+[IMPORTANT]
+====
+Zoals je ziet wordt bij het sorteren *niet* systematisch elk element met elk ander element vergeleken!
+
+Het aantal vergelijkingen hangt af van de beginvolgorde van de elementen in de lijst.
+====
+
+
+
+=== Oefening D18.persoonopleeftijddanopnaam
+
+De code in de `Sort` method van `List<T>` gebruikt een bepaald link:https://nl.wikipedia.org/wiki/Sorteeralgoritme[sorteer algoritme] om de elementen op de juiste plaats te krijgen.
+
+Er zijn vele link:https://www.youtube.com/watch?v=ZZuD6iUe3Pc[soorten sorteer algoritmen,window=_blank], die o.a. verschillen in
+
+* snelheid (bv. aantal vergelijkingen/verplaatsingen)
+* geheugengebruik
+* of ze stabiel zijn of niet
+* ...
+
+We noemen een sorteeralgoritme *stabiel* als het de onderline volgorde van "gelijke" elementen behoudt.
+
+Als je naar het voorbeeld kijkt uit oefening D18.persoonopnaam :
+
+[source,shell]
+----
+--- ongesorteerd ---
+Jan, 23 jaar
+Miet, 45 jaar
+Joris, 34 jaar
+Corneel, 12 jaar
+Phara, 34 jaar
+--- gesorteerd op leeftijd ---
+Corneel, 12 jaar
+Jan, 23 jaar
+Joris, 34 jaar
+Phara, 34 jaar
+Miet, 45 jaar
+----
+
+dan zie je dat de onderlinge volgorde van `Joris` en `Phara`, die dezelfde leeftijd hebben, behouden bleef.
+
+Dit zou erop wijzen dat de `Sort` method een stabiel sorteer algoritme gebruikt. **Het kan echter ook toeval zijn!** 
+
+Dit soort informatie zou in link:https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.sort[de documentatie,window=_blank] moeten staan. In de 'Remarks' sectie vinden we inderdaad :
+
+* __This implementation **performs an unstable sort**; that is, if two elements are equal, their order might not be preserved. In contrast, a stable sort preserves the order of elements that are equal.__
+
+Het is dus toeval.
+
+Een groot nadeel van een onstabiel sorteer algoritme is, dat het sorteren van een lijst op basis van 2 criteria meer werk vraagt. 
+
+Bijvoorbeeld, met sorteren **"op leeftijd en dan op naam"** bedoelen we : 
+
+* personen op leeftijd sorteren
+* personen met dezelfde leeftijd onderling op naam sorteren
+
+Bij een stabiel sorteer algoritme is dit makkelijk : sorteer eerst op naam en sorteer daarna nog eens op leeftijd.
+
+Bij een onstabiel sorteer algoritme, moeten we echter een speciale comparer `PersoonLeeftijdDanNaamComparer` klasse schrijven.
+
+Schrijf deze klasse en probeer ze uit op de volgende lijst van personen :
+
+* Mietje, 12 jaar
+* Jantje, 12 jaar
+* Phara, 34 jaar
+* Corneel, 12 jaar
+* Joris, 34 jaar
+
+Gebruik voor de `Main` method dezelfde structuur als in oefening D18.persoonopnaam.
+
+De output van dit programma is :
+
+[source,shell]
+----
+--- ongesorteerd ---
+Mietje, 12 jaar
+Jantje, 12 jaar
+Phara, 34 jaar
+Corneel, 12 jaar
+Joris, 34 jaar
+--- gesorteerd op leeftijd dan naam ---
+Corneel, 12 jaar
+Jantje, 12 jaar
+Mietje, 12 jaar
+Joris, 34 jaar
+Phara, 34 jaar
+----
+
+
+
+=== Oefening D18.persoonopnaamslim
+
+Pas oplossing D18.persoonopleeftijd aan zodat een slimmere comparer gebruikt wordt die op naam kan sorteren, zowel a->z als z->a.
+
+Schrijf een klasse `PersoonNaamComparerSlim` die personen op naam vergelijkt.
+
+Aan de constructor wordt een `bool` parameter `isNormaleVolgorde` meegegeven die de volgorde vastlegt :
+
+* indien true, dan vergelijkt de comparer de namen in a->z volgorde
+* indien false, dan vergelijkt de comparer de namen in z->a volgorde
+
+Pas de Main method aan zodat deze lijst 
+
+* Jan, 23 jaar
+* Miet, 45 jaar
+* Joris, 34 jaar
+* Corneel, 12 jaar
+* Phara, 34 jaar
+
+driemaal getoond wordt :
+
+. ongesorteerd
+. gesorteerd op naam a->z
+. gesorteerd op naam z->a
+
+De output van dit programma is :
+
+[source,shell]
+----
+--- ongesorteerd ---
+Jan, 23 jaar
+Miet, 45 jaar
+Joris, 34 jaar
+Corneel, 12 jaar
+Phara, 34 jaar
+--- gesorteerd op naam a->z ---
+Corneel, 12 jaar
+Jan, 23 jaar
+Joris, 34 jaar
+Miet, 45 jaar
+Phara, 34 jaar
+--- gesorteerd op naam z->a ---
+Phara, 34 jaar
+Miet, 45 jaar
+Joris, 34 jaar
+Jan, 23 jaar
+Corneel, 12 jaar
+----
+
+
+
+== Strings
+
+
+
+=== Oefening D18.stringznaara
+
+Schrijf een `Main` method die de volgende lijst alfabetisch sorteert en op het scherm toont :
+
+[source,csharp,linenums]
+----
+List<string> woorden = new List<string> { "kAT", "Aap", "kat", "HOND", "varken", "zebra", "hondshaai", "aap", "grinch", "varkenshaasje", "hond"};
+----
+
+Schrijf een klasse `StringComparerOmgekeerd` waarmee een lijst van strings gesorteerd kan worden van z->a.
+
+Voeg aan het einde van de `Main` method, code toe die de lijst sorteert van z->a en toont.
+
+De output van dit programma is :
+
+[source,shell]
+----
+aap, Aap, grinch, hond, HOND, hondshaai, kat, kAT, varken, varkenshaasje, zebra
+zebra, varkenshaasje, varken, kAT, kat, hondshaai, HOND, hond, grinch, Aap, aap
+----
+
+Merk op dat in de a->z volgorde :
+
+* hoofdletters blijkbaar na kleine letters komen (bv. `aap` voor `Aap`)
+* kortere woorden voor langere woorden komen (bv. `varken` voor `varkenshaasje`)
+
+Vreemd genoeg staat `HOND` voor `hondshaai`, dus lengte is blijkbaar toch belangrijker dan inhoud &#128579;
+
+
+
+=== Oefening D18.reversedstringcomparer
+
+Schrijf een `Main` method die de volgende lijst alfabetisch sorteert en op het scherm toont :
+
+[source,csharp,linenums]
+----
+List<string> woorden = new List<string> { "kAT", "Aap", "kat", "HOND", "varken", "zebra", "hondshaai", "aap", "grinch", "varkenshaasje", "hond", "rothond"};
+----
+
+Schrijf een klasse `ReversedStringComparer` waarmee een lijst van strings gesorteerd kan worden op de volgende manier :
+
+* `zebra` komt voor `aap`, omdat `arbez` voor `paa` komt
+
+Er wordt dus gekeken naar de achterstevoren versie van de strings en die versies wordt alfabetisch gesorteerd. Anders gezegd, de comparer gebruikt de achterstevoren versie van de strings die hij moet vergelijken.
+
+Je kunt hierbij gebruik maken van de `ReverseText` method :
+
+[source,csharp,linenums]
+----
+static private string ReverseText(String text) {
+	string result = "";
+	foreach (char c in text) {
+		result = c + result;
+	}
+	return result;
+}
+----
+
+De output van dit programma is :
+
+[source,shell]
+----
+aap, Aap, grinch, hond, HOND, hondshaai, kat, kAT, rothond, varken, varkenshaasje, zebra
+zebra, hond, HOND, rothond, varkenshaasje, grinch, hondshaai, varken, aap, Aap, kat, kAT
+----
+
+Als je naar de laatste letter van elk woord kijk in de tweede lijst, zie je dat die netjes in a->z volgorde staan.
+
+
+
+=== Oefening D18.stringoplengte
+
+Schrijf een `Main` method die de volgende lijst alfabetisch sorteert en op het scherm toont :
+
+[source,csharp,linenums]
+----
+List<string> woorden = new List<string> { "grinch", "hond", "kat", "zebra", "aap", "musti"};
+----
+
+Schrijf een klasse `StringLengteComparer` waarmee een lijst van strings gesorteerd kan worden op hun lengte (kort komt voor lang). Als twee strings even lang zijn, wordt naar hun alfabetische volgorde gekeken.
+
+De output van dit programma is :
+
+[source,shell]
+----
+aap, grinch, hond, kat, musti, zebra
+aap, kat, hond, musti, zebra, grinch
+----
+
+
+
+== Eigen interface
+
+
+
+=== Oefening D18.printmetopmaak
+
+Bij deze oefening is het de bedoeling dat de onderstaande `Program` klasse
+
+[source,csharp,linenums]
+----
+using System;
+
+namespace ConsoleApp {
+    public class Program {
+
+         static void PrintStyled(string text, IStyle style) {
+            string styledText = style.getStyledTextFor(text);
+            Console.WriteLine(styledText);
+        }
+
+        static void Main(string[] args) {
+            AllCapsStyle acs = new AllCapsStyle();
+            ExclamationStyle es = new ExclamationStyle();
+            CapitalCasingStyle ccs = new CapitalCasingStyle();
+
+            PrintStyled("Veel geluk!", acs); // toont : VEEL GELUK!
+            PrintStyled("Vergeet het niet...", es); // toont: Vergeet het niet!!!
+            PrintStyled("geachte heer,", ccs); // toont : Geachte Heer,
+        }
+    }
+}
+----
+
+deze output produceert :
+
+[source,shell]
+----
+VEEL GELUK!
+Vergeet het niet!!!
+Geachte Heer,
+----
+
+Schrijf een interface `IStyle` waarmee een string naar een bepaalde stijl kan omgezet worden. In method `PrintStyled` hierboven, zie je hoe deze interface gebruikt wordt (en welke method hij moet bevatten).
+
+Schrijf drie klasse die deze interface implementeren :
+
+* Klasse `AllCapsStyle` is een stijl waarin alle letters hoofdletters worden
+* Klasse `ExclamationStyle` is een stijl waarbij elk punt symbool vervangen wordt door een uitroepteken
+* Klasse `CapitalCasingStyle` is een stijl die elke beginletter van een woord een hoofdletter geeft en alle andere letters klein maakt
+
+[TIP]
+====
+Probeer ze niet alle drie tegelijk te schrijven. 
+Begin met `AllCapStyle` (de gemakkelijkste) en probeer het programma uit. Zet de regels voor de andere stijlen voorlopig in commentaar.
+====
+
+Merk op dat `PrintStyled` dankzij de `IStyled` interfaces met allerlei verschillende stijlen kan werken, zonder dat we de code in die method moeten aanpassen!
+
+
+
+

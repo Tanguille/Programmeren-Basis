@@ -1,0 +1,320 @@
+= Programmeren Basis - Deel 17 - Oefeningen
+Yanic Inghelbrecht
+v2020.11.30.18.45
+// toc and section numbering
+:toc: preamble
+:toclevels: 4
+// geen auto section numbering voor oefeningen (handigere titels en toc)
+//:sectnums:  
+:sectlinks:
+:sectnumlevels: 4
+// source code formatting
+:prewrap!:
+:source-highlighter: rouge
+:source-language: csharp
+:rouge-style: github
+:rouge-css: class
+// inject css for highlights using docinfo
+:docinfodir: ../common
+:docinfo: shared-head
+// folders
+:imagesdir: images
+:url-verdieping: ../{docname}-verdieping/{docname}-verdieping.adoc
+// experimental voor kdb: en btn: macro's van AsciiDoctor
+:experimental:
+
+//preamble
+[.text-right]
+versie {revnumber}
+
+
+ 
+== Dictionaries
+
+
+
+=== Oefening D17.scheldwoorden
+// Y7.01
+
+Schrijf een programma dat de gebruiker om een woord vraagt. Indien de gebruiker een gekend scheldwoord intypt, toont het programma wat dit woord betekent. Als het geen scheldwoord is, toont het programma `Geen gekend scheldwoord`. Het programma eindigt nooit.
+
+Je kunt de betekenis opzoeken op 
+link:https://nl.wiktionary.org/wiki/Categorie:Scheldwoord_in_het_Nederlands[,window="_blank"]
+
+Stop 5 scheldwoorden in je programma zodat je het kan uitproberen.
+
+Een mogelijke uitvoering :
+
+[source,shell]
+----
+Geef een scheldwoord : appelflap
+stommeling, sufferd
+Geef een scheldwoord : mutten
+Geen gekend scheldwoord
+Geef een scheldwoord :
+Geen gekend scheldwoord
+Geef een scheldwoord : badgast
+rare kerel, iemand die zich vreemd gedraagt
+Geef een scheldwoord :
+----
+
+
+
+=== Oefening D17.dobbelsteen
+// Y7.02
+
+Schrijf een programma dat het rollen van een dobbelsteen simuleert en de resultaten op het scherm toont. 
+
+Genereer 100 willekeurige getallen van 1 t.e.m. 6 en toon hoe vaak elk cijfer voorkwam. Gebruik een Dictionary om de tellingen bij te houden.
+
+De volgorde waarin de getallen voorkomen, is niet belangrijk.
+
+Een mogelijke uitvoering :
+
+[source,shell]
+----
+1 kwam 18 keer voor
+2 kwam 12 keer voor
+3 kwam 17 keer voor
+4 kwam 19 keer voor
+5 kwam 14 keer voor
+6 kwam 20 keer voor
+----
+
+Merk op dat het in principe toeval is dat de getallen hier netjes in volgorde van 1 t.e.m. 6 getoond worden.
+
+
+
+=== Oefening D17.frequentie
+// Y7.04
+Schrijf een programma dat de gebruiker om een tekst vraagt en voor alle symbolen in die tekst, weergeeft hoe vaak elk symbool voorkomt. 
+
+De volgorde waarin de symbolen en hun aantallen getoond worden, is niet belangrijk. 
+
+Een mogelijke uitvoering waarbij de gebruiker `aannemen` invoerde :
+
+[source,shell]
+----
+Geef een tekst : aannemen
+symbool 'a' komt 2 keer voor
+symbool 'n' komt 3 keer voor
+symbool 'e' komt 2 keer voor
+symbool 'm' komt 1 keer voor
+----
+
+
+
+=== Oefening D17.telefoonnummer
+// Y7.05
+
+Schrijf een programma dat de gebruiker om een woord vraagt en dit omzet naar een telefoonnummer.
+
+Je mag ervan uitgaan dat het woord enkel uit de letters a-z bestaat (hoofdletterongevoelig).
+
+De omzetting gebeurt volgens links:https://en.wikipedia.org/wiki/Telephone_keypad[de letters op de toetsen van je telefoon, window="_blank"]. 
+
+Bv. het stukje GETFOOD uit 1-800-get-food wordt 4 3 8 3 6 6 3.
+
+Gegeven is een dictionary `digitToLetters` dat als volgt wordt opgevuld :
+
+Dictionary<int, string> digitToLetters=new Dictionary<int, string> {
+          {2, "ABC"},
+          {3, "DEF"},
+          {4, "GHI"},
+          {5, "JKL"},
+          {6, "MNO"},
+          {7, "PQRS"},
+          {8, "TUV"},
+          {9, "WXYZ"}
+};
+
+Helaas hebben wij precies de omgekeerde _mapping_ nodig, van letter naar cijfer!
+
+Schrijf de nodige code om m.b.v. `digitToLetters` een nieuwe dictionary `letterToDigit` op te vullen dat van pas zal komen bij het omzetten van een woord naar een telefoonnummer.
+
+In `letterToDigit` staat bv. de informatie D->3, C->2, T->8 enz.
+
+Een mogelijke uitvoering waarbij de gebruiker `GeTFOod` intypt :
+
+[source,shell]
+----
+Geef een woord : GeTFOod
+Telefoonnummer is : 4383663
+----
+
+
+
+== Met eigen klassen
+
+
+
+=== Oefening D17.telefoonboek
+// Y7.03
+
+Schrijf een klasse `PhoneDirectory` zodat een object van die klasse per naam één telefoonnummer kan bijhouden.
+
+Vervolledig deze klasse in de namespace `ConsoleApp1` :
+[source,csharp,linenums]
+----
+class PhoneDirectory {
+      public void Add(string name, string phoneNumber) { } // <1> 
+      public string GetPhoneNumberByName(string name)  { } // <2>
+}
+----
+<1> `Add` voegt een koppeling toe, of overschrijft ze met het nieuwe nummer indien er voor die naam al een telefoonnummer bestond
+<2> `GetPhoneNumberByName` retourneert het telefoonnummer dat bij de opgegeven naam hoort. Indien er geen telefoonnummer gekoppeld is aan die naam (of de naam was `null`), wordt `null` teruggegeven.
+
+Je zult natuurlijk nog meer in klasse `PhoneDirectory` moeten stoppen dan enkel die twee methods.
+
+Test je klasse met de volgende broncode :
+
+.Program.cs
+[source,csharp,linenums]
+----
+using System;
+namespace ConsoleApp1 {		
+	public class Program {
+		static void Main(string[] args) {
+			PhoneDirectory pd = new PhoneDirectory();
+
+			pd.Add("Jan", "1234");
+			pd.Add("Piet", "3456");
+			pd.Add("Mieke", "5678");
+
+			if (pd.GetPhoneNumberByName("Jan") == "1234") {
+				Console.WriteLine("Jan is ok");
+			} else {
+				Console.WriteLine("Jan is niet ok");
+			}
+			
+			if (pd.GetPhoneNumberByName("Piet") == "3456") {
+				Console.WriteLine("Piet is ok");
+			} else {
+				Console.WriteLine("Piet is niet ok");
+			}
+			
+			if (pd.GetPhoneNumberByName("Mieke") == "5678") {
+				Console.WriteLine("Mieke is ok");
+			} else {
+				Console.WriteLine("Mieke is niet ok");
+			}
+
+			if (pd.GetPhoneNumberByName("Corneel") == null) {
+				Console.WriteLine("onbekende naam is ok");
+			} else {
+				Console.WriteLine("onbekende naam is niet ok");
+			}
+
+			if (pd.GetPhoneNumberByName(null) == null) {
+				Console.WriteLine("'null' als naam is ok");
+			} else {
+				Console.WriteLine("'null' als naam is niet ok");
+			}
+		}
+	}
+}
+----
+
+De output zou er als volgt moeten uitzien :
+
+[source,shell]
+----
+Jan is ok
+Piet is ok
+Mieke is ok
+onbekende naam is ok
+'null' als naam is ok
+----
+
+
+
+=== Oefening D17.telefoonboekbeiderichtingen
+// Y7.06
+
+Herwerk oplossing D17.telefoonboek zodat de volgende method erbij komt, waarmee je de naam kunt opvragen die bij een telefoonnummer hoort :
+
+[source,csharp,linenums]
+----
+public string GetNameByPhoneNumber(string phoneNumber) { }
+----
+
+Bovenop de code voor deze nieuwe method zul je wellicht nog meer code moeten toevoegen/wijzigen aan deze klasse.
+
+Je mag ervan uitgaan dat 2 personen nooit hetzelfde telefoonnummer hebben.
+
+Indien het telefoonnummer niet gevonden wordt, geeft de method `null` terug (idem indien de parameter null is).
+
+Probeer deze method uit met de volgende broncode :
+
+.Program.cs
+[source,csharp,linenums]
+----
+using System;
+namespace ConsoleApp1 {		
+	public class Program {
+
+		static void Main(string[] args) {
+			PhoneDirectory pd = new PhoneDirectory();
+
+			pd.Add("Jan", "1234");
+			pd.Add("Piet", "3456");
+			pd.Add("Mieke", "5678");
+
+			if (pd.GetPhoneNumberByName("Jan") == "1234" && pd.GetNameByPhoneNumber("1234")=="Jan") {
+				Console.WriteLine("Jan is ok");
+			} else {
+				Console.WriteLine("Jan is niet ok");
+			}
+
+			if (pd.GetPhoneNumberByName("Piet") == "3456" && pd.GetNameByPhoneNumber("3456") == "Piet") {
+				Console.WriteLine("Piet is ok");
+			} else {
+				Console.WriteLine("Piet is niet ok");
+			}
+
+			if (pd.GetPhoneNumberByName("Mieke") == "5678" && pd.GetNameByPhoneNumber("5678") == "Mieke") {
+				Console.WriteLine("Mieke is ok");
+			} else {
+				Console.WriteLine("Mieke is niet ok");
+			}
+
+			if (pd.GetPhoneNumberByName("Corneel") == null) {
+				Console.WriteLine("onbekende naam is ok");
+			} else {
+				Console.WriteLine("onbekende naam is niet ok");
+			}
+
+			if (pd.GetNameByPhoneNumber("8888") == null) {
+				Console.WriteLine("onbekend nummer is ok");
+			} else {
+				Console.WriteLine("onbekend nummer is niet ok");
+			}
+
+			if (pd.GetPhoneNumberByName(null) == null) {
+				Console.WriteLine("'null' als naam is ok");
+			} else {
+				Console.WriteLine("'null' als naam is niet ok");
+			}
+
+			if (pd.GetNameByPhoneNumber(null) == null) {
+				Console.WriteLine("'null' als nummer is ok");
+			} else {
+				Console.WriteLine("'null' als nummer is niet ok");
+			}
+		}
+	}
+}		
+----
+
+De output zou er als volgt moeten uitzien :
+
+[source,shell]
+----
+Jan is ok
+Piet is ok
+Mieke is ok
+onbekende naam is ok
+onbekend nummer is ok
+'null' als naam is ok
+'null' als nummer is ok
+----

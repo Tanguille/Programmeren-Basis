@@ -1,0 +1,77 @@
+﻿= Programmeren Basis - Deel 14 - Verdieping
+Frederiek De Wolf
+v2020.11.19.09.15
+// toc and section numbering
+:toc: preamble
+:toclevels: 4
+:sectnums: 
+:sectlinks:
+:sectnumlevels: 4
+// source code formatting
+:prewrap!:
+:source-highlighter: rouge
+:source-language: csharp
+:rouge-style: github
+:rouge-css: class
+// inject css for highlights using docinfo
+:docinfodir: ../common
+:docinfo: shared-head
+// folders
+:imagesdir: images
+:url-verdieping: ../{docname}-verdieping/{docname}-verdieping.adoc
+// experimental voor kdb: en btn: macro's van AsciiDoctor
+:experimental:
+
+//preamble
+[.text-right]
+versie {revnumber}
+
+== Objecten aanmaken in Visual Studio
+
+Technisch gezien is het mogelijk je klassedefinitie enerzijds, en je clientcode (waar je objecten aanmaakt van dit type) anderzijds, in verschillende __projecten__ (van dezelfde __Visual Studio solution__) te plaatsen.
+
+Momenteel is dat voor ons nog niet nuttig of noodzakelijk.  We houden voor alle eenvoud de klassedefinitie en clientcode samen, in het hetzelfde __Visual Studio project__.
+
+****
+Zorg ervoor dat je klasse `Program` met de code die gebruikt maakt van het `Persoon` datatype, en de klasse `Persoon` zelf, in hetzelfde __Visual Studio__ project zitten...
+
+image::Program en Persoon klasse - Aangevuld.png[Program en Persoon in één project.]
+****
+
+Ter herinnering tonen we hieronder nog eens hoe je een nieuwe klasse kan toevoegen aan __Visual Studio__.
+
+== Een nieuwe klasse toevoegen in Visual Studio
+
+Elke klasse wordt doorgaans in een apart broncode document geplaatst.  
+
+****
+[.underline]#Toevoegen van een broncode document aan je Visual Studio project#
+
+Indien je in je project naast een `Program` klasse ook een `Persoon` klasse wil toevoegen kies je in de Visual Studio menu voor menu:Project[Add Class ...]...
+
+image::Project - Add Class.png[Project > Add Class..]
+
+In het resulterende __'Add New Item'__ venster selecteer je de __Class__ template.
+
+image::Add New Item - Class.png[Add New Item dialog - Class template]
+
+Als broncode bestandnaam kan je kiezen voor iets als __Persoon.cs__.  Klik op de btn:[Add] knop.  
+
+.Klassenaam als bestandsnaam
+[NOTE]
+====
+Het is altijd een goed idee om je broncode document dezelfde naam te geven als de klasse die erin is gedefinieerd.
+
+Zo kan je bijvoorbeeld makkelijk in een toolvenster als de __Solution Explorer__ je definitie terugvinden.
+====
+
+Op basis van de uitgekozen bestandsnaam zal een klasse met -in dit geval- de naam `Persoon` worden toegevoegd.
+
+image::Program en Persoon klasse.png[Beide klassen samen.]
+
+In je project zitten nu alvast twee broncode documenten.
+
+Vervang de meegegeven `class Persoon` door onze eigen versie die we daarstraks hadden uitgeschreven.
+****
+
+Je kan alle code, zowel de `Program` klasse met ondermeer je `Main` method, als je extra eigen klassen eventueel toevoegen aan een nieuw __Console App (.NET Core) project__.  In het vorig deel van dit cursusmateriaal besproken we hoe je dit kan doen.

@@ -1,0 +1,512 @@
+= Programmeren Basis - Deel 12 - Oplossingen
+Yanic Inghelbrecht
+v2021.10.23.09.13
+// toc and section numbering
+:toc: preamble
+:toclevels: 4
+// geen auto section numbering voor oefeningen (handigere titels en toc)
+//:sectnums: 
+:sectlinks:
+:sectnumlevels: 4
+// source code formatting
+:prewrap!:
+:source-highlighter: rouge
+:source-language: csharp
+:rouge-style: github
+:rouge-css: class
+// inject css for highlights using docinfo
+:docinfodir: ../common
+:docinfo: shared-head
+// folders
+:imagesdir: images
+:url-verdieping: ../{docname}-verdieping/{docname}-verdieping.adoc
+:deel-12-oplossingen: ../deel-12-oplossingen/deel-12-oplossingen.adoc
+// experimental voor kdb: en btn: macro's van AsciiDoctor
+:experimental:
+
+//preamble
+[.text-right]
+versie {revnumber}
+ 
+
+ 
+== Documentatie
+
+
+ 
+=== Oplossing D12.documentatie
+
+De officiële documentatie vind je op
+
+* De `Sleep()` method waarmee we ons programma konden laten wachten
+** link:https://docs.microsoft.com/en-us/dotnet/api/system.threading.thread.sleep[]
+* De `ReadKey()` method met een `bool` parameter
+** link:https://docs.microsoft.com/en-us/dotnet/api/system.console.readkey#System_Console_ReadKey_System_Boolean_[]
+
+
+
+== Kommagetallen en afronden
+
+
+
+=== Oplossing D12.soortenafrondingen
+
+[%autowidth, cols="^,^,^,^,^"]
+|===
+| `g` | `Math.Ceiling(g)` | `Math.Floor(g)` | `Math.Round(g)` | `Math.Round(g, MidpointRounding.AwayFromZero)`
+
+| `7.4` | 8 | 7 | 7 | 7
+| `7.5` | 8 | 7 | 8 | 8
+| `7.6` | 8 | 7 | 8 | 8
+| `-7.4` | -7 | -8 | -7 | -7
+| `-7.5` | -7 | -8 | -8 | -8
+| `-7.6` | -7 | -8 | -8 | -8
+|===
+
+De broncode die de resultaten berekent :
+
+[source,csharp,linenums]
+----
+decimal[] waarden = { 7.4m, 7.5m, 7.6m, -7.4m, -7.5m, -7.6m };
+
+foreach(decimal g in waarden) {
+	decimal mc = Math.Ceiling(g);
+	decimal mf = Math.Floor(g);
+	decimal mr = Math.Round(g);
+	decimal mrafz = Math.Round(g,MidpointRounding.AwayFromZero);
+
+	Console.WriteLine($"{mc} | {mf} | {mr} | {mrafz}");
+}
+----
+
+
+=== Oplossing D12.gasmaatschappij
+
+Voor deze oefening is er geen voorbeeld oplossing beschikbaar.
+
+
+=== Oplossing D12.kapitaalnietafgerond
+// Y2.12
+
+[source,csharp,linenums]
+----
+Console.Write("Geef een bedrag : ");
+string bedragAlsTekst = Console.ReadLine();
+decimal bedrag = decimal.Parse(bedragAlsTekst);
+
+Console.Write("Geef de intrestvoet (in %) : ");
+string intrestvoetAlsTekst = Console.ReadLine();
+decimal intrestvoet = decimal.Parse(intrestvoetAlsTekst);
+
+decimal intrestFactor = 1 + intrestvoet / 100;
+
+decimal kapitaal = bedrag;
+for (int jaar = 0; jaar <= 20; jaar++) {
+	Console.WriteLine($"jaar {jaar} : {kapitaal,0:f2}");
+	kapitaal *= intrestFactor; // <1>
+}
+----			
+<1> hier wordt de intrest bij het kapitaal geteld (via een vermenigvuldiging).
+
+Als we `intrestFactor = intrestvoet / 100` hadden genomen, dan zou de intrest bij het kapitaal geteld worden met `kapitaal += kapitaal*intrestFactor`.
+
+Beide berekeningswijzen komen op hetzelfde neer.
+
+
+=== Oplossing D12.kapitaalwelafgerond
+// Y2.12
+
+[source,csharp,linenums]
+----
+Console.Write("Geef een bedrag : ");
+string bedragAlsTekst = Console.ReadLine();
+decimal bedrag = decimal.Parse(bedragAlsTekst);
+
+Console.Write("Geef de intrestvoet (in %) : ");
+string intrestvoetAlsTekst = Console.ReadLine();
+decimal intrestvoet = decimal.Parse(intrestvoetAlsTekst);
+
+decimal intrestFactor = 1 + intrestvoet / 100;
+
+decimal kapitaal = Math.Round(bedrag, 2); // <1>
+for (int jaar = 0; jaar <= 20; jaar++) {
+	Console.WriteLine($"jaar {jaar} : {kapitaal,0:f2}"); // <2>
+	kapitaal *= intrestFactor;
+	kapitaal = Math.Round(kapitaal, 2);   // <1>
+}
+----	
+<1> dit zijn de enige regels die anders zijn dan in de vorige oplossing.
+<2> merk op dat we nog steeds in de output afronden (*)
+
+(*) Zijn we eigenlijk zeker dat de __afgerond getoonde bedragen__ (met `0:f2`), overeenkomen met de afgeronde bedragen waarmee we verder rekenen?
+
+Merk vooreerst op dat het __afgerond getoond bedrag__ (op regel <2>) steeds het resultaat is van een voorgaande `Math.Round()` afronding (regels <1>).
+
+Het antwoord is ja : een getal een tweede keer afronden op 2 cijfers na de komma blijft hetzelfde. 
+
+Bijvoorbeeld `123.4567` afronden op 2 cijfers na de komma geeft `123.4600000`. Als we dit dan nogmaals afronden tot 2 cijfers na de komma in de output, tonen we `123.46`.
+
+
+
+=== Oplossing D12.kortingplusbtw
+// Y2.13
+
+[source,csharp,linenums]
+----
+Console.Write("Geef een bedrag excl. BTW (2 cijfers na de komma) : ");
+string bedragExclusiefBTWAlsTekst = Console.ReadLine();
+decimal bedragExclusiefBTW = decimal.Parse(bedragExclusiefBTWAlsTekst);
+
+Console.Write("Geef de korting (in %) : ");
+string kortingsPercentageAlsTekst = Console.ReadLine();
+decimal kortingsPercentage = decimal.Parse(kortingsPercentageAlsTekst);
+
+Console.Write("Geef het BTW-tarief (in %) : ");
+string btwPercentageAlsTekst = Console.ReadLine();
+decimal btwPercentage = decimal.Parse(btwPercentageAlsTekst);
+
+decimal kortingNietAfgerond = bedragExclusiefBTW * (kortingsPercentage / 100);
+decimal korting = Math.Round(kortingNietAfgerond, 2, MidpointRounding.AwayFromZero);
+
+decimal belastbaarBedrag = bedragExclusiefBTW - korting; // zal automatisch ook 2 cijfers na de komma hebben
+decimal btwNietAfgerond = belastbaarBedrag * (btwPercentage / 100);
+decimal btw = Math.Round(btwNietAfgerond, 2);
+
+decimal bedragInclusiefBTW = belastbaarBedrag + btw;
+
+Console.WriteLine();
+Console.WriteLine($"excl. BTW : {bedragExclusiefBTW,8:f2}");
+Console.WriteLine($"  korting : {korting,8:f2}");
+Console.WriteLine($"      BTW : {btw,8:f2}");
+Console.WriteLine($"incl. BTW : {bedragInclusiefBTW,8:f2}");
+----
+
+
+
+== DateTime
+
+
+
+=== Oplossing D12.tonenmetonderdelen
+// Y2.01
+[source,csharp,linenums]
+----
+DateTime nu = DateTime.Now;
+
+int dag = nu.Day;
+int maand = nu.Month;
+int jaar = nu.Year;
+int uren = nu.Hour;
+int minuten = nu.Minute;
+
+Console.WriteLine($"De datum van vandaag is {dag,2:D2}/{maand,2:D2}/{jaar,4:D4} en het is nu {uren,2:D2}u{minuten,2:D2}"); // <1>
+----
+<1>	de toevoegsels `,2:D2` en `,4:D4` zorgen ervoor dat resp. `9` als `09` wordt getoond en `57` als `0057` (*)
+
+(*) het jaar waarin Venutius in opstand kwam tegen zijn vrouw Cartimandua! link:https://en.wikipedia.org/wiki/AD_57[Blijkbaar..,window="_target"]
+
+
+
+=== Oplossing D12.tonenmetformaatstring
+// Y2.01
+[source,csharp,linenums]
+----
+DateTime nu = DateTime.Now;
+
+string datumTekst = nu.ToString("dd/MM/yyyy");
+string tijdTekst = nu.ToString("HHumm"); // <1>
+
+Console.WriteLine($"De datum van vandaag is {datumTekst} en het is nu {tijdTekst}");
+----
+<1> Gelukkig heeft 'u' geen speciale betekenis qua formattering of we hadden een probleem!
+
+
+
+=== Oplossing D12.seizoen
+// Y2.06
+
+[source,csharp,linenums]
+----
+int jaartal = DateTime.Now.Year;
+DateTime startLente = new DateTime(jaartal, 03, 01);
+DateTime startZomer = new DateTime(jaartal, 06, 01);
+DateTime startHerfst = new DateTime(jaartal, 09, 01);
+DateTime startWinter = new DateTime(jaartal, 12, 01);
+
+Console.Write("Geef een datum : ");
+string datumAlsTekst = Console.ReadLine();
+
+System.Globalization.CultureInfo nlBe = new System.Globalization.CultureInfo("nl-BE");
+DateTime datum;
+bool gelukt = DateTime.TryParseExact(datumAlsTekst, "dd/MM", nlBe, System.Globalization.DateTimeStyles.None, out datum);
+
+// Merk op dat datum altijd in het huidige jaartal zit en
+// onze start datums ook. Dus het is 'winter' zowel in het begin
+// als op het einde van het jaar.
+if (datum < startLente || datum >= startWinter) {
+	Console.WriteLine("Winter");
+} else if (datum < startZomer) {
+	Console.WriteLine("Lente");
+} else if (datum < startHerfst) {
+	Console.WriteLine("Zomer");
+} else if (datum < startWinter) {
+	Console.WriteLine("Herfst");
+}
+----
+
+Merk op dat de formaat string `dd/MM` geen jaartal bevat. De `DateTime` waarde _moet_ echter altijd een jaargedeelte hebben. In dit geval zal het huidig jaartal gebruikt worden. 
+
+Dit kan soms problemen geven als je datums in een bepaald jaar vergelijkt met een datum die op basis van bv. `dd/MM` met `TryParseExact()` werd bekomen! Afhankelijk van het jaar waarin je het programma uitvoert kunnen de datums wel/niet in verschillende jaren liggen.
+
+
+
+=== Oplossing D12.verjaardagen
+// Y2.03
+
+[source,csharp,linenums]
+----
+System.Globalization.CultureInfo nlBe = new System.Globalization.CultureInfo("nl-BE");
+const int aantalData = 10;
+
+int[] aantalPerMaand = new int[12];
+for (int i=0;i<aantalData;i++) {
+	// vraag de gebruiker om een datum
+	Console.Write("Geef een geboortedatum : ");
+	string datumAlsTekst = Console.ReadLine();
+
+	// bouw een DateTime waarde voor de ingevoerde tekst
+	DateTime datum;
+	bool gelukt = DateTime.TryParseExact(datumAlsTekst, "dd/MM/yyyy", nlBe, System.Globalization.DateTimeStyles.None, out datum);
+
+	// achterhaal de maand en tel eentje bij voor die maand
+	int maandNummer = datum.Month;
+	int index = maandNummer - 1; // <1>
+	aantalPerMaand[index]=aantalPerMaand[index]+1;
+	// of korter : aantalPerMaand[index]++;
+}
+
+// toon de resultaten
+for(int index=0;index<aantalPerMaand.Length;index++) {
+	int maandNummer = index + 1; // <1>
+	int aantal = aantalPerMaand[index];
+	if (aantal > 0) {
+		Console.WriteLine($"In maand {maandNummer}, {aantal} verjaardag(en)");
+	}
+}
+----
+<1> Aah, de geneugten van het mengen van __tellen vanaf 0__ en __tellen vanaf 1__.
+
+
+
+=== Oplossing D12.bertbeverzondertimespan
+// Y2.04
+
+[source,csharp,linenums]
+----
+const int ticksPerMilliseconde = 10000;
+Console.WriteLine("Druk 2x na elkaar op dezelfde toets, zo snel mogelijk..");
+
+char c1 = Console.ReadKey(true).KeyChar;
+long ticks1 = DateTime.Now.Ticks;
+
+char c2 = Console.ReadKey(true).KeyChar;
+long ticks2 = DateTime.Now.Ticks;
+
+if (c1 == c2) {
+	long ticksDelta = ticks2 - ticks1;
+	long millisDelta = ticksDelta / ticksPerMilliseconde;
+	Console.WriteLine($"De tijd ertussen bedroeg {millisDelta}ms");
+} else {
+	Console.WriteLine("Dat waren 2 verschillende toetsen!");
+}
+----
+
+
+
+=== Oplossing D12.feestdagen
+// Y2.05
+
+Er is een potentieel probleem wegens de manier waarop `TryParseExact()` werkt als er geen jaartal wordt opgegeven. Dan wordt blijkbaar het huidige jaartal gebruikt.
+
+De programmeur die `TryParseExact()` schreef moest _iets_ kiezen voor het jaar gedeelte en dan is het huidige jaar geen slechte keuze.
+
+Ons programma zal enkel de feestdagen bevatten voor een specifiek jaar. Als we het programma in het verkeerde jaar uitvoeren, zal het datums uit verschillende jaren vergelijken en geen enkele feestdag detecteren.
+
+We zullen dus de `DateTime` waarde nog moeten corrigeren als het programma in het verkeerde jaar wordt uitgevoerd. 
+
+Geen paniek als je deze correctie niet voorzien had, aan dit soort kronkels denkt niemand de eerste keer. Alhoewel, er was de waarschuwing in link:{deel-12-oplossingen}#_oplossing_d12_seizoen[de oplossing van D12.seizoen] ;)
+
+Ongeacht de context (C#, databanken, javascript, web applicaties met aparte software in de browser en op de server), correct omgaan met datum en tijd waarden is _altijd_ moeilijker dan je zou willen/denken/hopen.
+
+Dit is de oplossing met feestdagen voor 2019.
+
+[source,csharp,linenums]
+----
+const int jaartal = 2019;
+
+DateTime[] feestDatums = {
+	new DateTime(2019,1,1),
+	new DateTime(2019, 4, 22),
+	new DateTime(2019, 5, 1),
+	new DateTime(2019, 5, 30),
+	new DateTime(2019, 6, 10),
+	new DateTime(2019, 7, 21),
+	new DateTime(2019, 8, 15),
+	new DateTime(2019, 11, 1),
+	new DateTime(2019, 11, 11),
+	new DateTime(2019, 12, 25)
+};
+
+string[] feestNamen = {
+	"Nieuwjaar",
+	"Paasmaandag",
+	"Dag van de Arbeid",
+	"O.H.Hemelvaart",
+	"Pinkstermaandag",
+	"Nationale feestdag",
+	"O.L.V.hemelvaart",
+	"Allerheiligen",
+	"Wapenstilstand",
+	"Kerstmis"
+};
+
+Console.Write($"Geef een datum in {jaartal} : ");
+string datumAlsTekst = Console.ReadLine();
+
+System.Globalization.CultureInfo nlBe = new System.Globalization.CultureInfo("nl-BE");
+DateTime datum;                                        // <1>
+bool gelukt = DateTime.TryParseExact(datumAlsTekst, "dd/MM", nlBe, System.Globalization.DateTimeStyles.None, out datum);
+
+if (gelukt) {
+	// corrigeer indien we het programma niet in het juiste jaar uitvoeren
+	if (datum.Year != jaartal) { // <2>
+		datum = new DateTime(jaartal, datum.Month, datum.Day);
+	}
+
+	bool gevonden = false;
+	for (int i = 0; i < feestDatums.Length; i++) {
+		DateTime feestDatum = feestDatums[i];
+		if (datum == feestDatum) { // <3>
+			Console.WriteLine($"Dat is \"{feestNamen[i]}\" in {jaartal}");
+			gevonden = true;
+			break;
+		}
+	}
+	if (!gevonden) {
+		Console.WriteLine($"Dat is geen feestdag in {jaartal}");
+	}
+} else {
+	Console.WriteLine($"Ongeldige datum voor {jaartal}");
+}
+----
+<1> Let op het gebruik van `dd/MM` als formaat string
+<2> `TryParseExact` neemt het huidige jaartal indien er in de formaat string geen jaartal voorkomt, dus we misschien moeten we dit corrigeren.
+<3> Vergelijking van twee `DateTime` waarden
+
+En mocht je het je afvragen : `DateTime` waarden gedragen zich netjes zodat we ook `Array.IndexOf` kunnen gebruiken :
+
+[source,csharp,linenums]
+----
+if (gelukt) {
+	// corrigeer indien we het programma niet in het juiste jaar uitvoeren
+	if (datum.Year != jaartal) {
+		datum = new DateTime(jaartal, datum.Month, datum.Day);
+	}
+
+	int i = Array.IndexOf(feestDatums, datum); // <1>
+	if (i != -1) {
+		Console.WriteLine($"Dat is \"{feestNamen[i]}\" in {jaartal}");
+	} else {
+		Console.WriteLine($"Dat is geen feestdag in {jaartal}");
+	}
+} else {
+	Console.WriteLine($"Ongeldige datum voor {jaartal}");
+}
+----
+<1> Gebruik van `Array.IndexOf()` op een array met `DateTime` waarden
+
+
+
+=== Oplossing D12.leeftijdinjaren
+// Y2.07
+
+We kunnen de leeftijd bekomen door de jaartallen van de huidige datum en de geboortedatum van elkaar af te trekken.
+
+We moet er dan echter wel rekening mee houden dat de gebruiker dit jaar misschien nog niet verjaard is.
+
+[source,csharp,linenums]
+----
+System.Globalization.CultureInfo nlBe = new System.Globalization.CultureInfo("nl-BE");
+
+Console.Write("Geef uw geboortedatum (dd/mm/jjjj) : ");
+string input = Console.ReadLine();
+
+DateTime geboorteDatum;
+bool gelukt = DateTime.TryParseExact(input, "dd/MM/yyyy", nlBe, System.Globalization.DateTimeStyles.None, out geboorteDatum);
+
+DateTime vandaag = DateTime.Today; // geen tijdstip nodig noch wenselijk
+
+int leeftijd = vandaag.Year - geboorteDatum.Year;
+
+// corrigeer indien de gebruiker dit jaar nog niet verjaard is
+DateTime verjaardagDitJaar = new DateTime(vandaag.Year, geboorteDatum.Month, geboorteDatum.Day);
+if (verjaardagDitJaar > vandaag) {
+	leeftijd--;
+}
+
+string vandaagAlsString = vandaag.ToString("dd/MM/yyy");
+Console.WriteLine($"Vandaag is het {vandaagAlsString}, dus u bent {leeftijd} jaar oud");
+----
+
+Het is best mogelijk dat deze code nog moet aangepast worden om rekening te houden met personen die op 29/2 geboren werden in combinatie met of het vandaag wel/niet een schrikkeldag is. Maar we gaan het hier niet te ingewikkeld maken.
+
+
+
+== TimeSpan
+
+
+=== Oplossing D12.bertbevermettimespan
+// Y2.04
+
+Nu we `TimeSpan` gebruiken is de oplossing iets eenvoudiger en overzichtelijker geworden.
+
+[source,csharp,linenums]
+----
+Console.WriteLine("Druk 2x na elkaar op dezelfde toets, zo snel mogelijk..");
+
+char c1 = Console.ReadKey(true).KeyChar;
+DateTime dt1 = DateTime.Now;
+
+char c2 = Console.ReadKey(true).KeyChar;
+DateTime dt2 = DateTime.Now;
+
+if (c1 == c2) {
+	TimeSpan ts = dt2-dt1;
+	Console.WriteLine($"De tijd ertussen bedroeg {ts.TotalMilliseconds}ms");
+} else {
+	Console.WriteLine("Dat waren 2 verschillende toetsen!");
+}
+----
+
+
+
+=== Oplossing D12.leeftijdindagen
+
+[source,csharp,linenums]
+----
+System.Globalization.CultureInfo nlBe = new System.Globalization.CultureInfo("nl-BE");
+
+Console.Write("Geef uw geboortedatum (dd/mm/jjjj) : ");
+string input = Console.ReadLine();
+
+DateTime geboorteDatum;
+bool gelukt = DateTime.TryParseExact(input, "dd/MM/yyyy", nlBe, System.Globalization.DateTimeStyles.None, out geboorteDatum);
+
+DateTime vandaag = DateTime.Today; // geen tijdstip nodig noch wenselijk
+
+TimeSpan levenstijd = vandaag - geboorteDatum;
+Console.WriteLine($"U bent {levenstijd.TotalDays} dagen oud");
+----
+
+
+

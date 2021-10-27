@@ -1,0 +1,128 @@
+= Programmeren Basis - Index
+Frederiek De Wolf
+v2021.10.19.11.24
+// toc and section numbering
+:toc: preamble
+:toclevels: 4
+:sectnums: 
+:sectlinks:
+:sectnumlevels: 0
+// source code formatting
+:prewrap!:
+:source-highlighter: rouge
+:source-language: csharp
+:rouge-style: github
+:rouge-css: class
+// inject css for highlights using docinfo
+:docinfodir: ../common
+:docinfo: shared-head
+// folders
+:imagesdir: images
+:url-verdieping: ../{docname}-verdieping/{docname}-verdieping.adoc
+// experimental voor kdb: en btn: macro's van AsciiDoctor
+:experimental:
+
+//preamble
+[.text-right]
+versie {revnumber}
+
+* link:deel-00/deel-00.adoc[Deel 00]: Werking computer en programma's.
+ 
+* link:deel-01/deel-01.adoc[Deel 01]: Variabelen en bewerkingen.
+** link:deel-01-oefeningen/deel-01-oefeningen.adoc[Oefeningen]
+** link:deel-01-oplossingen/deel-01-oplossingen.adoc[Oplossingen]
+** link:deel-01-verdieping/deel-01-verdieping.adoc[Verdieping]
+
+* link:deel-02/deel-02.adoc[Deel 02]: Conversies en beslissingsstructuren.
+** link:deel-02-oefeningen/deel-02-oefeningen.adoc[Oefeningen]
+** link:deel-02-oplossingen/deel-02-oplossingen.adoc[Oplossingen]
+
+* link:deel-03/deel-03.adoc[Deel 03]: String interpolatie, Random, Math en traceertabellen.
+** link:deel-03-oefeningen/deel-03-oefeningen.adoc[Oefeningen]
+** link:deel-03-oplossingen/deel-03-oplossingen.adoc[Oplossingen]
+ 
+* link:deel-04/deel-04.adoc[Deel 04]: Debuggen, else if, logische operatoren & TryParse.
+** link:deel-04-oefeningen/deel-04-oefeningen.adoc[Oefeningen]
+** link:deel-04-oplossingen/deel-04-oplossingen.adoc[Oplossingen]
+
+* link:deel-05/deel-05.adoc[Deel 05]: Herhalingen met (do) while.
+** link:deel-05-oefeningen/deel-05-oefeningen.adoc[Oefeningen]
+** link:deel-05-oplossingen/deel-05-oplossingen.adoc[Oplossingen]
+ 
+* link:deel-06/deel-06.adoc[Deel 06]: Herhalingen met for, Sleep() en Console.Clear().
+** link:deel-06-oefeningen/deel-06-oefeningen.adoc[Oefeningen]
+** link:deel-06-oplossingen/deel-06-oplossingen.adoc[Oplossingen]
+
+* link:deel-gfx1/deel-gfx1.adoc[Deel GFX1]: Oefeningen op basisstructuren in een andere context (graphics in een Windows Forms app).
+** link:deel-gfx1-oefeningen/deel-gfx1-oefeningen.adoc[Oefeningen (gelinkte pdf)]
+** link:deel-gfx1-oplossingen/deel-gfx1-oplossingen.adoc[Oplossingen]
+
+* link:deel-07/deel-07.adoc[Deel 07]: Projecten in Visual Studio, strings bewerkingen en char datatype.
+** link:deel-07-oefeningen/deel-07-oefeningen.adoc[Oefeningen]
+** link:deel-07-oplossingen/deel-07-oplossingen.adoc[Oplossingen]
+ 
+* link:deel-08/deel-08.adoc[Deel 08]: Arrays.
+** link:deel-08-oefeningen/deel-08-oefeningen.adoc[Oefeningen]
+** link:deel-08-oplossingen/deel-08-oplossingen.adoc[Oplossingen]
+
+* link:deel-09/deel-09.adoc[Deel 09]: Break en meer geavanceerde array en string aspecten.
+** link:deel-09-oefeningen/deel-09-oefeningen.adoc[Oefeningen]
+** link:deel-09-oplossingen/deel-09-oplossingen.adoc[Oplossingen]
+
+* link:deel-pa/deel-pa.adoc[Deel PA 1 - intro]
+
+* link:deel-10/deel-10.adoc[Deel 10]: Methods en console kleuren.
+** link:deel-10-oefeningen/deel-10-oefeningen.adoc[Oefeningen]
+** link:deel-10-oplossingen/deel-10-oplossingen.adoc[Oplossingen]
+** link:deel-10-verdieping/deel-10-verdieping.adoc[Verdieping]
+* link:deel-10bis/deel-10bis.adoc[Deel 10bis]: Geavanceerder debuggen.
+** link:deel-10bis-verdieping/deel-10bis-verdieping.adoc[Verdieping]
+
+* link:deel-11/deel-11.adoc[Deel 11]: Geavanceerde method aspecten, enumeraties en console mogelijkheden.
+** link:deel-11-oefeningen/deel-11-oefeningen.adoc[Oefeningen]
+** Eastbound and down (deel-11-oefening)
+** link:deel-11-oplossingen/deel-11-oplossingen.adoc[Oplossingen]
+
+* link:deel-pa/deel-pa.adoc[Deel PA 2 - stuk DPA.metmethods]
+** link:deel-pa-oefeningen/deel-pa-oefeningen.adoc[Oefening - stuk DPA.metmethods]
+** link:deel-pa-oplossingen/deel-pa-oplossingen.adoc[Oplossing - stuk DPA.metmethods]
+ 
+* link:deel-12/deel-12.adoc[Deel 12]: Documentatie, afronding, DateTime/Timespan, dot, using en namespaces
+** link:deel-12-oefeningen/deel-12-oefeningen.adoc[Oefeningen]
+** link:deel-12-oplossingen/deel-12-oplossingen.adoc[Oplossingen]
+
+* link:deel-13/deel-13.adoc[Deel 13]: File IO en structured exception handling.
+** link:deel-13-oefeningen/deel-13-oefeningen.adoc[Oefeningen]
+** link:deel-13-oplossingen/deel-13-oplossingen.adoc[Oplossingen]
+
+* link:deel-14/deel-14.adoc[Deel 14]: OOP.
+** link:deel-14-oefeningen/deel-14-oefeningen.adoc[Oefeningen]
+** link:deel-14-oplossingen/deel-14-oplossingen.adoc[Oplossingen]
+** link:deel-14-verdieping/deel-14-verdieping.adoc[Verdieping]
+
+* link:deel-15/deel-15.adoc[Deel 15]: OOP: constructoren, visibility, properties, containment en static typing.
+** link:deel-15-oefeningen/deel-15-oefeningen.adoc[Oefeningen]
+** link:deel-15-oplossingen/deel-15-oplossingen.adoc[Oplossingen]
+** link:deel-15-verdieping/deel-15-verdieping.adoc[Verdieping]
+
+* link:deel-pa/deel-pa.adoc[Deel PA 3 - stuk DPA.metpersoonklasse]
+** link:deel-pa-oefeningen/deel-pa-oefeningen.adoc[Oefening - stuk DPA.metpersoonklasse]
+** link:deel-pa-oplossingen/deel-pa-oplossingen.adoc[Oplossing - stuk DPA.metpersoonklasse]
+
+* link:deel-16/deel-16.adoc[Deel 16]: Collectieklassen: List<T>, LinkedList<T> en HashSet<T>.
+** link:deel-16-oefeningen/deel-16-oefeningen.adoc[Oefeningen]
+** link:deel-16-oplossingen/deel-16-oplossingen.adoc[Oplossingen]
+
+* link:deel-pa/deel-pa.adoc[Deel PA 4 - stuk DPA.metcollectieklassen]
+** link:deel-pa-oefeningen/deel-pa-oefeningen.adoc[Oefening - stuk DPA.metcollectieklassen]
+** link:deel-pa-oplossingen/deel-pa-oplossingen.adoc[Oplossing - stuk DPA.metcollectieklassen]
+
+* link:deel-17/deel-17.adoc[Deel 17]: Collectieklassen: Dictionary<TKey, TValue>.
+** link:deel-17-oefeningen/deel-17-oefeningen.adoc[Oefeningen]
+** link:deel-17-oplossingen/deel-17-oplossingen.adoc[Oplossingen]
+
+* deel-gfx 2(.zip) (Aanleiding tot interfaces)
+
+* link:deel-18/deel-18.adoc[Deel 18]: Interfaces en dynamisch polymorfisme.
+** link:deel-18-oefeningen/deel-18-oefeningen.adoc[Oefeningen]
+** link:deel-18-oplossingen/deel-18-oplossingen.adoc[Oplossingen]
