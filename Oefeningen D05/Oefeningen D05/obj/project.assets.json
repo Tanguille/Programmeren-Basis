@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Nieuwe map (2)\\aaaProgrammeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D05\\Oefeningen D05\\Oefeningen D05.csproj",
+      "projectUniqueName": "C:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D05\\Oefeningen D05\\Oefeningen D05.csproj",
       "projectName": "Oefeningen D05",
-      "projectPath": "D:\\Nieuwe map (2)\\aaaProgrammeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D05\\Oefeningen D05\\Oefeningen D05.csproj",
+      "projectPath": "C:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D05\\Oefeningen D05\\Oefeningen D05.csproj",
       "packagesPath": "C:\\Users\\Tangu\\.nuget\\packages\\",
-      "outputPath": "D:\\Nieuwe map (2)\\aaaProgrammeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D05\\Oefeningen D05\\obj\\",
+      "outputPath": "C:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D05\\Oefeningen D05\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Tangu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
