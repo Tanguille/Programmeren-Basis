@@ -1,0 +1,16 @@
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D07\Oefeningen D07\bin\Debug\net5.0\Oefeningen D07.exe
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D07\Oefeningen D07\bin\Debug\net5.0\Oefeningen D07.deps.json
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D07\Oefeningen D07\bin\Debug\net5.0\Oefeningen D07.runtimeconfig.json
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D07\Oefeningen D07\bin\Debug\net5.0\Oefeningen D07.runtimeconfig.dev.json
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D07\Oefeningen D07\bin\Debug\net5.0\Oefeningen D07.dll
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D07\Oefeningen D07\bin\Debug\net5.0\ref\Oefeningen D07.dll
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D07\Oefeningen D07\bin\Debug\net5.0\Oefeningen D07.pdb
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D07\Oefeningen D07\obj\Debug\net5.0\Oefeningen D07.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D07\Oefeningen D07\obj\Debug\net5.0\Oefeningen D07.AssemblyInfoInputs.cache
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D07\Oefeningen D07\obj\Debug\net5.0\Oefeningen D07.AssemblyInfo.cs
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D07\Oefeningen D07\obj\Debug\net5.0\Oefeningen D07.csproj.CoreCompileInputs.cache
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D07\Oefeningen D07\obj\Debug\net5.0\Oefeningen D07.dll
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D07\Oefeningen D07\obj\Debug\net5.0\ref\Oefeningen D07.dll
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D07\Oefeningen D07\obj\Debug\net5.0\Oefeningen D07.pdb
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D07\Oefeningen D07\obj\Debug\net5.0\Oefeningen D07.genruntimeconfig.cache
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D07\Oefeningen D07\obj\Debug\net5.0\Oefeningen D07.csproj.AssemblyReference.cache
