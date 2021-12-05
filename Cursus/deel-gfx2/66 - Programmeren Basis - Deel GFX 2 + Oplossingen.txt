@@ -1,0 +1,18 @@
+Oplossing GFX2.01
+	zie oplossing in aparte zip file
+
+Oplossing GFX2.02
+	Er is een potentieel conflict tussen de namen van de klassen
+		domain.Rectangle
+		System.Drawing.Rectangle
+	Ze hebben namelijk beiden de korte naam 'Rectangle'.
+	
+	Normaliter is dit geen probleem want bij volledige naam is er geen conflict.
+	
+	Zodra we echter 'using System.Drawing;' gebruiken, ontstaat er een conflict op de plaatsen in de code waar 'Rectangle' staat. De compiler ziet nu 2 mogelijke klassen die bij de naam 'Rectangle' zouden passen.
+
+Oplossing GFX2.03
+	zie oplossing in aparte afbeelding.
+
+Oplossing GFX2.04
+	zie oplossing in aparte zip file

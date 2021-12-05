@@ -1,6 +1,6 @@
 ﻿= Programmeren Basis - Deel 14
 Frederiek De Wolf
-v2021.02.04.12.55
+v2021.11.23.14.09
 // toc and section numbering
 :toc: preamble
 :toclevels: 4
@@ -166,7 +166,7 @@ Daarnaast is het ook mogelijk van elk __Persoon__ object de `Leeftijd` na te gaa
 [source,csharp,linenums]
 ----
 class Persoon {
-	private string _naam;
+	private string _naam;  // <1>
 	public string GetNaam() {
 		return _naam;
 	}
@@ -174,7 +174,7 @@ class Persoon {
 		_naam = naam;
 	}
 
-	private DateTime _geboortedatum;
+	private DateTime _geboortedatum;  // <2>
 	public DateTime GetGeboortedatum() {
 		return _geboortedatum;
 	}
@@ -194,7 +194,7 @@ class Persoon {
 }
 ----
 
-We hebben twee *datavelden* (soms ook gewoon __velden__ genoemd) voor het bijhouden van de toestand van onze verschillende `Persoon` instanties:
+<1> <2> We hebben twee *datavelden* (soms ook gewoon __velden__ genoemd) voor het bijhouden van de toestand van onze verschillende `Persoon` instanties:
 
 - `_naam` van type `string` voor het bijhouden van de naam
 - `_geboortedatum` van type `DateTime` voor het bijhouden van de geboortedatum
@@ -237,7 +237,7 @@ Vooral indien je zowel voorziet in de mogelijkheid eigenschappen __op te vragen_
 Verderop (in een volgend deel van het cursusmateriaal) werken we voor elke eigenschap met een zogenaamde __property__.  
 
 Eén property (met één naam) kan de mogelijkheid bieden de eigenschap zowel __in te stellen__ als __op te vragen__.  
-Vanaf dan laten we de __Get__ of __Set__ prefixen vallen.
+Vanaf dan laten we de __Get__ of __Set__ prefixen meestal vallen.
 ====
 
 Zolang we nog niet aan de slag gaan met properties, maken we vrij vaak gebruik van deze prefixen.  Maar het hoeft enkel indien het zinvol is te benadrukken dat het gaat om __getten__ of __setten__.

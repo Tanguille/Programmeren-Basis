@@ -5,21 +5,31 @@ namespace ConsoleApp1
     class klinkersenmedeklinkers
     {
         static void Main(string[] args)
-        {
-            //aan deze oefening beginnen
+        {            
             Console.Write("Geef een tekst: ");
             string tekst = Console.ReadLine();
 
-            int aantal = 0;
+            string klinkers = "aeiou";
+            int aantalKlinkers = 0;
+
+            string medeklinkers = "bcdfghjklmnpqrstvwxyz";
+            int aantalMedeklinkers = 0;
+
             foreach (char c in tekst)
             {
-                if (c == 'e')
-                {
-                    aantal++;
-                }
-            }
-            Console.WriteLine("'e' komt " + aantal + " keer voor.");
+               char cKlein = Char.ToLower(c);
 
+                if (klinkers.Contains(cKlein))
+                {
+                    aantalKlinkers  ++;
+                }
+                else if (medeklinkers.Contains(cKlein))
+                {
+                    aantalMedeklinkers ++;
+                }
+               
+            }
+            Console.WriteLine($"{aantalKlinkers} klinker(s) en {aantalMedeklinkers} medeklinkers.");
         }
     }
 }

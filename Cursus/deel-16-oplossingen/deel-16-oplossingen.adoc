@@ -1,6 +1,6 @@
 = Programmeren Basis - Deel 16 - Oplossingen
 Yanic Inghelbrecht
-v2021.10.23.09.17
+v2021.11.22.11.59
 // toc and section numbering
 :toc: preamble
 :toclevels: 4
@@ -74,6 +74,36 @@ return value is `true` indien gevonden, anders `false`
 return value `true` geeft aan dat er iets verwijderd werd, `false` betekent dat er niets te verwijderen viel.
 |====
  
+Merk op dat er geen `Add` method bestaat voor `LinkedList`!
+
+Het gevolg daarvan is dat het opvullen van een `LinkedList` omslachtiger is dan bij een `List` :
+
+[source,csharp,linenums]
+----
+      List<int> getallen1 = new       List<int> { 1, 2, 3 };
+LinkedList<int> getallen2 = new LinkedList<int> { 1, 2, 3 }; // DIT IS HELAAS NIET TOEGELATEN !!!
+----
+
+Je zult een `LinkedList` handmatig moeten opvullen, bijvoorbeeld via `AddLast` method oproepen :
+
+[source,csharp,linenums]
+----
+LinkedList<int> getallen = new LinkedList<int>();
+getallen.AddLast(1);
+getallen.AddLast(2);
+getallen.AddLast(3);
+----
+
+Je kunt het korter noteren door een array te introduceren, maar dat is minder efficiënt :
+
+[source,csharp,linenums]
+----
+                                                // <1>
+LinkedList<int> getallen = new LinkedList<int>( new int[] {1, 2, 3} );
+----
+<1> Hier wordt eerst een `int` array gemaakt met drie getallen
+
+De `LinkedList` kopieert gewoon de getallen over uit het array. Dit array wordt dus slechts 1x gebruikt bij het opvullen, daarna heeft het array geen nut meer. Het is dus eigenlijk een beetje (geheugen en CPU-tijd) verspilling, maar de code is er wel iets eenvoudiger door geworden.
 
 
 === Oplossing D16.hashsetdocumentatie
@@ -164,7 +194,38 @@ while (true) {
 <1> we voegen de nieuwe zoekterm achteraan de lijst toe
 <2> we verwijderen het eerste element zodat de lijst niet langer is dan `maxAantal`
 
+Vermits deze code enkel elementen toevoegt/verwijdert achteraan/vooraan in de lijst en geen elementen middenin opvraagt, zouden we een `LinkedList` kunnen overwegen. De code zou er dan zo uitzien :
 
+[source,csharp,linenums]
+----
+const int maxAantal = 5;
+
+// <1>
+LinkedList<string> zoektermen = new LinkedList<string>();
+zoektermen.AddLast("Charlie Sheen");
+zoektermen.AddLast("Hot shots");
+zoektermen.AddLast("Winning");
+zoektermen.AddLast("Electrabel storing");
+zoektermen.AddLast("Geen elektriciteit");
+
+while (true) {
+	string zoektermenTekst = String.Join(":", zoektermen);
+	Console.WriteLine(zoektermenTekst);
+
+	Console.Write("Nieuwe zoekterm: ");
+	string input = Console.ReadLine();
+
+	zoektermen.AddLast(input);    // <2>
+	if (zoektermen.Count > maxAantal) {
+		zoektermen.RemoveFirst(); // <3>
+	}
+}
+----
+<1> Hier gebruiken we een `LinkdList` als datatype. Let erop dat het opvullen van de lijst nu niet meer zo eenvoudig is!
+<2> Achteraan toevoegen
+<3> Vooraan verwijderen
+
+Vermits het hier maar over een klein aantal elementen gaat, hoeven we ons geen zorgen te maken over de efficiëntie en is het verschil tussen `List` en `LinkedList` verwaarloosbaar.
 
 === Oplossing D16.zoektermenvooraan
 // Y6.02
@@ -193,6 +254,38 @@ while (true) {
 <1> we lassen de nieuwe zoekterm in vooraan de lijst
 <2> we verwijderen het laatste element zodat de lijst niet langer is dan `maxAantal`
 
+Net als bij de vorige oefening, zouden we hier ook voor een `LinkedList` kunnen kiezen. De code ziet er dan zo uit :
+
+[source,csharp,linenums]
+----
+const int maxAantal = 5;
+
+// <1>
+LinkedList<string> zoektermen = new LinkedList<string>();
+zoektermen.AddLast("Geen elektriciteit");
+zoektermen.AddLast("Electrabel storing");
+zoektermen.AddLast("Winning");
+zoektermen.AddLast("Hot shots");
+zoektermen.AddLast("Charlie Sheen");
+
+while (true) {
+	string zoektermenTekst = String.Join(":", zoektermen);
+	Console.WriteLine(zoektermenTekst);
+
+	Console.Write("Nieuwe zoekterm: ");
+	string input = Console.ReadLine();
+
+	zoektermen.AddFirst(input);  // <2>
+	if (zoektermen.Count > maxAantal) {
+		zoektermen.RemoveLast(); // <3>
+	}
+}
+----
+<1> We gebruiken een `LinkedList`, let op de omslachtige manier waarop de lijst wordt opgevuld
+<2> Vooraan toevoegen
+<3> Achteraan verwijderen
+
+Het aantal elementen in de lijst is klein, het maakt dus niet veel verschil uit of je een `List` dan wel een `LinkedList` kiest.
 
 
 === Oplossing D16.vijfkleinstegetallen
@@ -449,6 +542,12 @@ string uniekeGetallenTekst = String.Join(",", gesorteerdeUniekeGetallen);
 Console.WriteLine($"unieke getallen : {uniekeGetallenTekst}");
 ----
 <1> Vanaf hier verschilt het programma van oplossing D16.uniekegetalleninvoeren en volgen we de drie stappen.
+
+
+=== Oplossing D16.socialmediafilter
+
+Voor deze oefening is er geen voorbeeld oplossing beschikbaar.
+
 
 === Oplossing D16.aantaluniekewoorden
 // Y6.05

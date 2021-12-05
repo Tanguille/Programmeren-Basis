@@ -1,6 +1,6 @@
 = Programmeren Basis - Deel 11
 Yanic Inghelbrecht
-v2021.10.04.19.00
+v2021.11.10.09.11
 // toc and section numbering
 :toc: preamble
 :toclevels: 4
@@ -586,7 +586,7 @@ De return waarde van `ReadKey` is een `ConsoleKeyInfo` object met informatie ove
 ConsoleKeyInfo cki = Console.ReadKey();
 if (cki.KeyChar == 'a') {        // <1>
     //  er werd op 'a' gedrukt
-} else if (cki.KeyChar = 'A') {  // <1>
+} else if (cki.KeyChar == 'A') {  // <1>
 	// er werd op 'a' geduwd (in combinatie met Shift ofwel stond Caps Lock aan)
 }
 ----

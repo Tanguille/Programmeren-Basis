@@ -215,7 +215,7 @@ for (int i = 0; i < 10; i++) {
 	d += 0.1;
 }
 
-if (d==1) {
+if (d==1.0d) {
 	Console.WriteLine("berekening correct");
 } else {
 	Console.WriteLine("berekening incorrect");
@@ -256,7 +256,7 @@ Voor financiële transacties en geldbedragen gebruik je in C# beter het *decimal
 | *decimal* | **128 bits** | **28 tot 29 cijfers** | ±1.0 x 10^-28^ to ±7.9228 x 10^28^
 |====
 
-Bij `decimal` worden kommagetallen op een andere manier voorgesteld dan bij `float` en `double` waardoor de meeste van de afrondingsproblemen vermeden kunnen worden.
+Bij `decimal` worden kommagetallen op een andere manier voorgesteld dan bij `float` en `double` waardoor de meeste van de afrondingsproblemen vermeden kunnen worden (omdat de fout zeer klein is). Deze `decimal` voorstelling vergt dubbel zoveel bits als een `double` voorstelling, nl. 128 bits. Een `decimal` waarde gebruikt dus meer geheugen en `decimal` berekeningen verlopen ook iets trager, omdat moderne processoren slechts met blokken van 64bits werken. Deze beide nadelen vallen echter pas op als je veel waarden moet onthouden of heel veel complexe berekeningen moet maken.
 
 Om een __literal value__ van type `decimal` te bekomen in je broncode, schrijf je er een `m` achter. Bijvoorbeeld `123.45m`.
 
@@ -271,7 +271,7 @@ for (int i = 0; i < 10; i++) {
 	d += 0.1m; // <2>
 }
 
-if (d == 1) {
+if (d == 1.0m) {
 	Console.WriteLine("berekening correct");
 } else {
 	Console.WriteLine("berekening incorrect");

@@ -1,6 +1,6 @@
 = Programmeren Basis - Deel 10 - Oefeningen
 Frederiek De Wolf
-v2021.10.22.12.28
+v2021.11.19.12.41
 // toc and section numbering
 :toc: preamble
 :toclevels: 4
@@ -121,7 +121,7 @@ Schrijf een method `ToonRechthoek` met 2 parameters (`breedte` en `hoogte`) die 
 
 Het programma vraagt de gebruiker om een `breedte` en een `hoogte`, en toont vervolgens een rechthoek van die afmeting.
 
-Baseer je hierbij op de oplossing van oefening D06.12
+Baseer je hierbij op de oplossing van oefening D06.rechthoekopmaat.
 
 [source,shell]
 ----
@@ -237,10 +237,10 @@ string[] dieren = {"hond", "kat", "olifant", "krokodil"};
 Console.WriteLine(Bevat(dieren, "papegaai")); // <1>
 Console.WriteLine(Bevat(dieren, "olifant"));  // <2>
 ----
-<1> drukt false af
-<2> drukt true af
+<1> drukt False af
+<2> drukt True af
 
-Herschrijf de oplossing van oefening D09.01 (boerderijdieren) zodat deze `Bevat` method gebruikt wordt.
+Herschrijf de oplossing van oefening D09.zoekdier zodat deze `Bevat` method gebruikt wordt.
 
 
 === Oefening D10.faculteit

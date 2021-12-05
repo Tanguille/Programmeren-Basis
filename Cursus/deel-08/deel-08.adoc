@@ -1,6 +1,6 @@
 = Programmeren Basis - Deel 08
 Frederiek De Wolf
-v2021.10.26.12.56
+v2021.10.28.15.12
 // toc and section numbering
 :toc: preamble
 :toclevels: 4
@@ -433,7 +433,7 @@ Het vereist natuurlijk wel dat alle elementen van hetzelfde datatype zijn.  Of m
 
 === Opvullen van een array-element
 
-Naast het uitlezen van array-elementen, kan je aan de had van een index uiteraard ook opgeven aan welke element je een waarde wenst toe te kennen.
+Naast het uitlezen van array-elementen, kan je aan de hand van een index uiteraard ook opgeven aan welke element je een waarde wenst toe te kennen.
 
 ****
 [.underline]#Voorbeeld van het benaderen van array-elementen#
@@ -595,7 +595,7 @@ string werkdag1 = "maandag";
 string werkdag2 = "dinsdag";
 string werkdag3 = "woensdag";
 string werkdag4 = "donderdag";
-string werkdag5 = "vrijddag";
+string werkdag5 = "vrijdag";
 
 Console.WriteLine(werkdag1);
 Console.WriteLine(werkdag3);

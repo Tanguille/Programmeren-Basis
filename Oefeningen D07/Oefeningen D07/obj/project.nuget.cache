@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "VytBYSosbrad6JDIxPdg62JvMj3L83wbbjnMPb76erK+b14u8WwqzZXPsw0xripCr3bVd7A7vBpp3GdUY4mhKg==",
+  "dgSpecHash": "ejSqIbhoRoOeO4n3NQsdCO/LMfF5qHxZB65ES84KRtInE+9hGppZbCYIaKbmzmTqgg2ubvKl74k0IQw+lJv2kg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D07\\Oefeningen D07\\Oefeningen D07.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Tangu\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512",
+    "C:\\Users\\Tangu\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Tangu\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\Tangu\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

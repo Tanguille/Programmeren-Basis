@@ -4,7 +4,11 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Oefeningen_D07</RootNamespace>
-    <StartupObject>ConsoleApp1.aantalkere</StartupObject>
+    <StartupObject>ConsoleApp1.zoeken</StartupObject>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <Optimize>False</Optimize>
   </PropertyGroup>
 
   <ItemGroup>

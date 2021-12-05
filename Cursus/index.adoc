@@ -1,6 +1,6 @@
 = Programmeren Basis - Index
 Frederiek De Wolf
-v2021.10.19.11.24
+v2021.11.23.14.17
 // toc and section numbering
 :toc: preamble
 :toclevels: 4
@@ -69,53 +69,60 @@ versie {revnumber}
 ** link:deel-09-oefeningen/deel-09-oefeningen.adoc[Oefeningen]
 ** link:deel-09-oplossingen/deel-09-oplossingen.adoc[Oplossingen]
 
-* link:deel-pa/deel-pa.adoc[Deel PA 1 - intro]
+* link:deel-pa1/deel-pa1.adoc[Deel PA1] : introductie 
+** link:deel-pa1-oefeningen/deel-pa1-oefeningen.adoc[Oefeningen]
+** link:deel-pa1-oplossingen/deel-pa1-oplossingen.adoc[Oplossingen]
 
 * link:deel-10/deel-10.adoc[Deel 10]: Methods en console kleuren.
 ** link:deel-10-oefeningen/deel-10-oefeningen.adoc[Oefeningen]
 ** link:deel-10-oplossingen/deel-10-oplossingen.adoc[Oplossingen]
 ** link:deel-10-verdieping/deel-10-verdieping.adoc[Verdieping]
-* link:deel-10bis/deel-10bis.adoc[Deel 10bis]: Geavanceerder debuggen.
-** link:deel-10bis-verdieping/deel-10bis-verdieping.adoc[Verdieping]
 
 * link:deel-11/deel-11.adoc[Deel 11]: Geavanceerde method aspecten, enumeraties en console mogelijkheden.
 ** link:deel-11-oefeningen/deel-11-oefeningen.adoc[Oefeningen]
-** Eastbound and down (deel-11-oefening)
 ** link:deel-11-oplossingen/deel-11-oplossingen.adoc[Oplossingen]
 
-* link:deel-pa/deel-pa.adoc[Deel PA 2 - stuk DPA.metmethods]
-** link:deel-pa-oefeningen/deel-pa-oefeningen.adoc[Oefening - stuk DPA.metmethods]
-** link:deel-pa-oplossingen/deel-pa-oplossingen.adoc[Oplossing - stuk DPA.metmethods]
- 
+* link:deel-pa2/deel-pa2.adoc[Deel PA2] : met methods
+** link:deel-pa2-oefeningen/deel-pa2-oefeningen.adoc[Oefeningen]
+** link:deel-pa2-oplossingen/deel-pa2-oplossingen.adoc[Oplossingen]
+
 * link:deel-12/deel-12.adoc[Deel 12]: Documentatie, afronding, DateTime/Timespan, dot, using en namespaces
 ** link:deel-12-oefeningen/deel-12-oefeningen.adoc[Oefeningen]
 ** link:deel-12-oplossingen/deel-12-oplossingen.adoc[Oplossingen]
 
+* link:deel-ebd/deel-ebd.adoc[Deel EBD]: East Bound and Down applicatie.
+** link:deel-ebd-oefeningen/deel-ebd-oefeningen.adoc[Oefeningen]
+** link:deel-ebd-oplossingen/deel-ebd-oplossingen.adoc[Oplossingen]
+
 * link:deel-13/deel-13.adoc[Deel 13]: File IO en structured exception handling.
 ** link:deel-13-oefeningen/deel-13-oefeningen.adoc[Oefeningen]
 ** link:deel-13-oplossingen/deel-13-oplossingen.adoc[Oplossingen]
+** link:deel-13-verdieping/deel-13-verdieping.adoc[Verdieping]
+
+* link:deel-pa3/deel-pa3.adoc[Deel PA3] : met file I/O
+** link:deel-pa3-oefeningen/deel-pa3-oefeningen.adoc[Oefeningen]
+** link:deel-pa3-oplossingen/deel-pa3-oplossingen.adoc[Oplossingen]
 
 * link:deel-14/deel-14.adoc[Deel 14]: OOP.
 ** link:deel-14-oefeningen/deel-14-oefeningen.adoc[Oefeningen]
 ** link:deel-14-oplossingen/deel-14-oplossingen.adoc[Oplossingen]
-** link:deel-14-verdieping/deel-14-verdieping.adoc[Verdieping]
 
 * link:deel-15/deel-15.adoc[Deel 15]: OOP: constructoren, visibility, properties, containment en static typing.
 ** link:deel-15-oefeningen/deel-15-oefeningen.adoc[Oefeningen]
 ** link:deel-15-oplossingen/deel-15-oplossingen.adoc[Oplossingen]
 ** link:deel-15-verdieping/deel-15-verdieping.adoc[Verdieping]
 
-* link:deel-pa/deel-pa.adoc[Deel PA 3 - stuk DPA.metpersoonklasse]
-** link:deel-pa-oefeningen/deel-pa-oefeningen.adoc[Oefening - stuk DPA.metpersoonklasse]
-** link:deel-pa-oplossingen/deel-pa-oplossingen.adoc[Oplossing - stuk DPA.metpersoonklasse]
+* link:deel-pa4/deel-pa4.adoc[Deel PA4] : met class Persoon
+** link:deel-pa4-oefeningen/deel-pa4-oefeningen.adoc[Oefeningen]
+** link:deel-pa4-oplossingen/deel-pa4-oplossingen.adoc[Oplossingen]
 
 * link:deel-16/deel-16.adoc[Deel 16]: Collectieklassen: List<T>, LinkedList<T> en HashSet<T>.
 ** link:deel-16-oefeningen/deel-16-oefeningen.adoc[Oefeningen]
 ** link:deel-16-oplossingen/deel-16-oplossingen.adoc[Oplossingen]
 
-* link:deel-pa/deel-pa.adoc[Deel PA 4 - stuk DPA.metcollectieklassen]
-** link:deel-pa-oefeningen/deel-pa-oefeningen.adoc[Oefening - stuk DPA.metcollectieklassen]
-** link:deel-pa-oplossingen/deel-pa-oplossingen.adoc[Oplossing - stuk DPA.metcollectieklassen]
+* link:deel-pa5/deel-pa5.adoc[Deel PA5] : met collecties
+** link:deel-pa5-oefeningen/deel-pa5-oefeningen.adoc[Oefeningen]
+** link:deel-pa5-oplossingen/deel-pa5-oplossingen.adoc[Oplossingen]
 
 * link:deel-17/deel-17.adoc[Deel 17]: Collectieklassen: Dictionary<TKey, TValue>.
 ** link:deel-17-oefeningen/deel-17-oefeningen.adoc[Oefeningen]

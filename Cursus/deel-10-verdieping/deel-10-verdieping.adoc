@@ -1,6 +1,6 @@
 ﻿= Programmeren Basis - Deel 10 - Verdieping
 Frederiek De Wolf
-v2021.10.15.12.48
+v2021.10.28.14.30
 // toc and section numbering
 :toc: preamble
 :toclevels: 4
@@ -241,3 +241,182 @@ De volgorde van de parameterwaardes is niet meer van belang.
 Deze aanpak kan de leesbaarheid ten goede komen.  Je hoeft niet meer te kijken naar de method definitie om een beeld te hebben van wat de rol is van deze parameterwaardes.
 
 Je hoeft niet alle parameterwaardes te benoemen, maar benoemde moeten steeds achteraan de parameterlijst staan.
+
+== Methods genereren in Visual Studio
+
+Bij het opstellen van nieuwe methods kan een geavanceerde ontwikkelomgeving als __Visual Studio__ ons ondersteunen.  Sterker nog het is in staat, op basis van bestaande code, zelf methods te genereren.
+
+Als __productivity feature__ kan dat wel tellen.  We kunnen hiermee wel wat tijdswinst boeken.
+ 
+****
+[.underline]#Voorbeeld van het genereren van methods met Visual Studio#
+
+Stel dat je graag een method zou hebben om een bepaald `aantal` elementen van `string` array als `weekdagen` af te printen. 
+
+Je neemt misschien alvast een method call als `Print(weekdagen, aantal)` in je code op.  Uiteraard krijg je een compilefout omdat deze method nog niet bestaat...
+
+image::Visual%20Studio%20-%20Quick%20Actions%201.png[Visual Studio - Quick Actions 1]
+
+Zou je hier het __Quick Actions__ lichtbol icoontje aanklikken dan wordt ons voorgesteld deze method automatisch te laten genereren.
+
+Er wordt een voorbeeld getoond van hoe onze method er kan gaan uitzien.
+
+image::Visual%20Studio%20-%20Quick%20Actions%202.png[Visual Studio - Quick Actions 2]
+
+Kies je hier effectief voor __Generate method ...__ dan wordt onze code aangevuld met een definitie van deze method.
+
+[source,csharp,linenums]
+----
+static void Main()
+{
+	string[] weekdagen = { "ma", "di", "wo", "do", "vr", "za", "zo" };
+	int aantal = 5;
+
+	Print(weekdagen, aantal);
+}
+private static void Print(string[] weekdagen, int aantal)
+{
+	throw new NotImplementedException();
+}
+----
+
+Je hoeft geen tijd meer te verliezen aan het zelf uitschrijven van de method hoofding.
+
+Het `private` keyword in de methodsignatuur was niet noodzakelijk en mag je verwijderen.  Al kan het geen kwaad dit sleutelwoord te behouden.
+Later bespreken we wel eens de betekenis van `private`.
+
+__Visual Studio__ kon natuurlijk niet weten wat we graag zouden verwezelijken in de implementatie en gaat eenvoudigweg markeren dat er nog geen implemantie is voorzien (__NotImplemented__).
+
+We kunnen uiteraard zelf een zinvol gedrag voor deze `Print` method uitschrijven...
+
+[source,csharp,linenums]
+----
+static void Print(string[] weekdagen, int aantal)
+{
+    for (int index = 0; index < aantal; index++) {
+        Console.Write(weekdagen[index] + " ");
+	}
+    Console.WriteLine();
+}
+----
+
+Ook de parameternaam gaan we aanpassen.  De method kan eender welke `string[]` (__string array__) afdrukken, dit hoeven niet persé __weekdagen__ te zijn.  Straks willen we misschien aan deze method __familienamen__ of __stadsnamen__ doorgeven.  
+
+Een vagere benaming als __reeks__ lijkt meer aangewezen.
+
+[source,csharp,linenums]
+----
+static void Print(string[] reeks, int aantal)
+{
+    for (int index = 0; index < aantal; index++) {
+        Console.Write(reeks[index] + " ");
+	}
+    Console.WriteLine();
+}
+----
+****
+
+ 
+****
+[.underline]#Nog een voorbeeld van het genereren van methods#
+
+In onderstaande code merk je misschien op hoe bepaalde logica meermaals is uitgeschreven...
+
+We gaan twee keer de elementen van een `int[]` (__int array__) benaderen om deze op de console te drukken.  Voor de waardes van de array, wordt het __aantal element__ afgedrukt.
+
+[source,csharp,linenums]
+----
+int[] dagen = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+int[] temperaturen = { 10, 21, 13, 17 };
+
+Console.Write($"({dagen.Length} elementen) ");
+foreach (int dag in dagen) {
+	Console.Write(dag + " ");
+}
+Console.WriteLine();
+
+Console.Write($"({temperaturen.Length} elementen) ");
+foreach (int temperatuur in temperaturen) {
+	Console.Write(temperatuur + " ");
+}
+----
+
+Indien we het voorbeeld uitvoeren dan krijgen we volgende output...
+
+[source,shell]
+----
+(12 elementen) 31 28 31 30 31 30 31 31 30 31 30 31
+(4 elementen) 10 21 13 17
+----
+
+Je kan hier beslissen een extra method toe te voegen voor het printen van dergelijke array.  Deze method kan je echter ook laten generen door __Visual Studio__.
+
+Selecteer in de code-editor de instructieregels die je in een nieuwe method wil onderbrengen.  Rechterklik op deze selectie en kies voor __Quick Actions...__.
+
+image::Visual%20Studio%20-%20Quick%20Actions%203.png[Visual Studio - Quick Actions 3]
+
+Er wordt voorgesteld een extra method `NewMethod` toe te voegen.  
+
+We zien aan de voorgestelde definitie dat deze method een `int[]` parameterwaarde zou verwachten.  De geselecteerde code zou worden vervangen door een call naar deze method.
+
+image::Visual%20Studio%20-%20Quick%20Actions%204.png[Visual Studio - Quick Actions 4]
+
+Als het voorgestelde je bevalt, kies je voor __Extract Method__ onder het lichtbol icoontje.
+
+De broncode in de code-editor wordt aangepast.
+
+__Visual Studio__ heeft ook wel door dat `NewMethod` geen goede naam is voor deze extra method.  Het vraagt ons meteen (bij wijze van de __Rename__ feature) een nieuwe, hopelijk betere, naam in te stellen.
+
+image::Visual%20Studio%20-%20Quick%20Actions%205.png[Visual Studio - Quick Actions 5]
+
+`Print` lijkt een aangewezen naam.
+
+Ook voor het afprinten van onze `temperaturen` `int[]` kunnen we nu de `Print` method inzetten...
+
+[source,csharp,linenums]
+----
+static void Main()
+{
+	int[] dagen = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	int[] temperaturen = { 10, 21, 13, 17 };
+
+	Print(dagen);
+	Print(temperaturen);
+}
+
+private static void Print(int[] dagen)
+{
+	Console.Write($"({dagen.Length} elementen) ");
+	foreach (int dag in dagen) {
+		Console.Write(dag + " ");
+	}
+	Console.WriteLine();
+}
+----
+
+De naam van de parameter en de naam van de elementvariabele van de `foreach` is eigenlijk niet goed uitgekozen.
+
+We gebruiken deze `Print` method zowel om __dagen__ als om __temperaturen__ aan door te geven.
+Over het algemeen kan je stellen dat het een __getallenreeks__ is die wordt doorgegeven.  
+
+Misschien zijn __getallen__ en __getal__ beter benamingen...
+
+[source,csharp,linenums]
+----
+private static void Print(int[] getallen)
+{
+    Console.Write($"({getallen.Length} elementen) ");
+    foreach (int getal in getallen)
+        Console.Write(getal + " ");
+    Console.WriteLine();
+}
+----
+
+De __Quick Actions__ in __Visual Studio__ bieden ons uitstekende ondersteuning voor het toevoegen van extra methods.
+
+[WARNING]
+====
+Let wel op: bekijk goed of wat gegenereerd wordt ook effectief voldoet aan de verwachtingen.  Meestal moet toch manueel één en ander worden aangepast.
+
+Zeker de benamingen van lokale variabelen en parameters moet je vaak nog zelf corrigeren.
+====

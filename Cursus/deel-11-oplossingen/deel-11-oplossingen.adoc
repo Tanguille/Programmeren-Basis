@@ -620,7 +620,3 @@ static public int[] Slice(int[] values, int startIndex, int endIndex) {
 
 Voor deze oefening is er geen voorbeeld oplossing beschikbaar.
 
-
-=== Oplossing D11.eastboundanddown
-
-Er is geen oplossing voor deze oefening.

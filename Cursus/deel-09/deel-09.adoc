@@ -1,6 +1,6 @@
 = Programmeren Basis - Deel 09
 Yanic Inghelbrecht
-v2021.10.26.15.14
+v2021.10.28.15.12
 // toc and section numbering
 :toc: preamble
 :toclevels: 4
@@ -19,6 +19,8 @@ v2021.10.26.15.14
 // folders
 :imagesdir: images
 :url-verdieping: ../{docname}-verdieping/{docname}-verdieping.adoc
+:deel-07-oefeningen: ../deel-07-oefeningen/deel-07-oefeningen.adoc
+:deel-07-oplossingen: ../deel-07-oplossingen/deel-07-oplossingen.adoc
 // experimental voor kdb: en btn: macro's van AsciiDoctor
 :experimental:
 
@@ -58,7 +60,7 @@ Ons programma zal efficiënter omgaan met de __CPU cycles__ als we niet onnodig 
 ****
 [.underline]#Voorbeeld#
 
-Hernemen we eens oefening D07.bevatleesteken, waar de gebruiker een tekst kon invoeren en het programma dan toonde of de tekst wel/niet een leesteken bevat.
+Hernemen we eens link:{deel-07-oefeningen}#_oefening_d07_bevatleesteken[de oefening van D07.bevatleesteken, window="_blank"], waar de gebruiker een tekst kon invoeren en het programma dan toonde of de tekst wel/niet een leesteken bevat.
 
 De oplossing zag er zo uit :
 
@@ -84,7 +86,10 @@ if (leestekenGevonden) {
 <2> de _if_ die voor elk karakter nagaat of het een leesteken is
 <1> een leesteken werd gevonden, we zouden nu eigenlijk al kunnen stoppen met de zoektocht
 
+De loop zal sowieso blijven herhalen totdat alle karakters behandeld zijn, ook al hebben we allang gevonden wat we zochten.
+
 In de bespreking van de oplossing werd ook al verwezen naar het vroegtijdig willen stoppen van de loop.
+
 ****
 
 === Stoppen zonder break
@@ -96,14 +101,21 @@ Als we echter de loop vroegtijdig willen afbreken is dit niet zo simpel bij deze
 Bij een __for loop__ zou je 
 
 * aan de teller kunnen prutsen in de __loop body__, zodat die meteen de grenswaarde bereikt en de loop zal stoppen
-* een ingewikkeldere loop voorwaarde gebruiken, bv. `teller<grens && !gevonden`. Zodra we vinden wat we zoeken zetten we `gevonden` op `true`.
+* een ingewikkeldere loop voorwaarde gebruiken, bv. `teller<grens && !gevonden`
+** zodra we vinden wat we zoeken zetten we `gevonden` op `true`
+** dit maakt de loop voorwaarde `false` zodat de loop kan eindigen
 
 Geen van beide is echter wenselijk! 
 
 [NOTE]
 ====
 
-Denk eraan dat we enkel __for loops__ willen met een simpele hoofding en liever niet prutsen aan de teller in de __loop body__.
+Denk eraan dat als het om **__for loops__** gaat, we enkel __for loops__ willen met een simpele hoofding en een simpele teller.
+
+* we willen niet prutsen aan de teller in de __loop body__ van een __for loop__
+* we willen geen ingewikkelde loop voorwaarde in een __for loop__
+
+Als je wel moet prutsen aan een teller, of een ingewikkelde loop voorwaarde hebt, gebruik dan een **__while loop__**.
 
 ====
 
@@ -114,7 +126,9 @@ Je zou natuurlijk een __while loop__ of __do while loop__ kunnen gebruiken, bv. 
 ****
 [.underline]#Voorbeeld#
 
-We kunnen eens de oplossing D07.bevatleesteken herschrijven met een while loop en de loop vroegtijdig beëindigen. We krijgen dan :
+We kunnen eens link:{deel-07-oplossingen}#_oplossing_d07_bevatleesteken[oplossing D07.bevatleesteken, window="_blank"] herschrijven met een while loop en de loop vroegtijdig beëindigen.
+
+We krijgen dan :
 
 [source,csharp,linenums]
 ----
@@ -166,7 +180,7 @@ if (index <= input.Length) {       // <3>
 ----
 <1> Hier zit er een aanpassing, `index < input.Length && !leestekenGevonden` werd `index < input.Length`.
 <2> Ook hier zit er een aanpassing, `leestekenGevonden = true` werd `index = input.Length + 1`.
-<3> En hier zit er een aanpassing, `leestekenGevonden` werd `index <= input.Length`.
+<3> En hier zit er een aanpassing, `leestekenGevonden` werd `index \<= input.Length`.
 
 De code is op die manier echter veel onduidelijker geworden. Weet jij bv. meteen de antwoorden op deze vragen?
 
@@ -191,12 +205,14 @@ Gelukkig bestaat er in veel programmeertalen een opdracht die soelaas biedt : `b
 
 Om eender welk soort loop vroegtijdig te stoppen, kunnen we de `break` opdracht gebruiken. 
 
-**De `break` opdracht beëindigt onmiddellijk de loop** en de uitvoering gaat verder na de loop. Dus als de `break` halverwege de __loop body__ uitgevoerd wordt, zal de tweede helft van deze __loop body__ overgeslaan worden en eindigt de loop!
+**De `break` opdracht beëindigt onmiddellijk de loop** en de uitvoering gaat verder _na_ de loop. 
+
+Dus als de `break` halverwege de __loop body__ uitgevoerd wordt, zal de tweede helft van deze __loop body__ overgeslaan worden en eindigt de loop!
 
 ****
 [.underline]#Simpel voorbeeld#
 
-In het programma hieronder staat een loop die vijf keer herhaald zou moeten worden, maar bij de derde iteratie een break uitvoert...
+In het programma hieronder staat een loop die vijf keer herhaald zou moeten worden. Bij de derde iteratie (teller `i==2`) wordt echter een `break` uitgevoerd...
 
 [source,csharp,linenums]
 ----
@@ -240,7 +256,9 @@ Dit simpele voorbeeld was enigszins geforceerd, tijd voor een realistischere toe
 ****
 [.underline]#Voorbeeld#
 
-We zullen eens de oplossing D07.bevatleesteken herschrijven en de __foreach loop__ vroegtijdig stoppen met `break`. We krijgen dan :
+We zullen eens link:{deel-07-oplossingen}#_oplossing_d07_bevatleesteken[oplossing D07.bevatleesteken, window="_blank"] herschrijven en de __foreach loop__ vroegtijdig stoppen met `break`.
+
+We krijgen dan :
 
 [source,csharp,linenums]
 ----
@@ -340,13 +358,13 @@ De image:continue-button.png[continue button] knop vind je in de toolbar en dien
 
 === Parallelle arrays
 
-Vaak is het nodig over een groep van elementen (bv. studenten) meerdere stukjes informatie bij te houden (bv. naam en leeftijd).
+Vaak is het nodig over een groep van elementen (bv. studenten) meerdere soorten informatie bij te houden (bv. naam en leeftijd).
 
 Later zullen we zien dat dit heel elegant met objecten kan, maar voorlopig zullen we het op een primitievere manier moeten doen.
 
 De truc is : 
 
-* stop de twee stukjes informatie (namen en leeftijden) elk in een eigen array
+* stop de twee soorten informatie (namen en leeftijden) elk in een eigen array
 ** dus een array met namen en een array met leeftijden
 * zorg ervoor dat de naam en de leeftijd van een student op exact dezelfde index staan in de respectievelijke arrays
 ** bv. jouw naam staat op positie 7 in de lijst met namen en je leeftijd staat op positie 7 in de lijst met leeftijden
@@ -382,19 +400,40 @@ Zetten we die twee arrays eens in een tabel naast elkaar, dan krijgen we :
 | `3` | `Cornelia` | `18`
 |====
 
-Je ziet dus dat we op elke positie de informatie vinden van een bepaalde student. De informatie in de arrays is 'virtueel' gekoppeld op basis van de index.
+Je ziet dus dat we op elke positie de informatie vinden van één bepaalde student.
+
+De informatie in de arrays is 'virtueel' gekoppeld op basis van de index.
+
+* helaas bestaat de koppeling enkel in het hoofd van de programmeur
+* dit maakt het foutgevoelig in grote programma's, ooit wordt er iets over het hoofd gezien
 
 
 ****
 [.underline]#Voorbeeld#
 
-We willen een programma dat de naam van een student vraagt en toont hoe oud hij/zij is. Het programma is hoofdlettergevoelig (Engels : __case sensitive__).
+We willen een programma dat de naam van een student vraagt en toont hoe oud hij/zij is. 
 
-Als de gebruiker `Miet` ingeeft, dan zoeken we `Miet` in het `namen` array en vinden die tekst op positie `1`. Vervolgens kijken we op diezelfde positie `1` in array `leeftijden` en vinden daar de leeftijd `23`. Dus `Miet` is `23` jaar.
+Het programma is hoofdlettergevoelig (Engels : __case sensitive__).
 
-Als de gebruiker `Cornelia` ingeeft, dan zoeken we in het `namen` array naar `Cornelia` en vinden die naam op positie `3`. Vervolgens kijken we op diezelfde positie `3` in array `leeftijden` en vinden daar de leeftijd `18`. Dus `Cornelia` is `23` jaar.
+Als de gebruiker `Miet` ingeeft
 
-Als de gebruiker `Jules` ingeeft, dan zoeken we in het `namen` array naar `Jules` maar vinden die naam niet. Dan heeft het ook geen zin om te zoeken naar een leeftijd natuurlijk. De student met naam `Jules` is niet gekend in ons programma.
+* dan zoeken we `Miet` in het `namen` array en vinden die tekst op positie `1`
+* vervolgens kijken we op diezelfde positie `1` in array `leeftijden`
+* we vinden daar de leeftijd `23`
+* dus `Miet` is `23` jaar
+
+Als de gebruiker `Cornelia` ingeeft
+
+* dan zoeken we in het `namen` array naar `Cornelia` en vinden die naam op positie `3`
+* vervolgens kijken we op diezelfde positie `3` in array `leeftijden`
+* daar vinden we de leeftijd `18`
+* dus `Cornelia` is `23` jaar
+
+Als de gebruiker `Jules` ingeeft
+
+* dan zoeken we in het `namen` array naar `Jules` maar vinden die naam niet
+** dan heeft het ook geen zin om te zoeken naar een leeftijd natuurlijk
+* dus de student met naam `Jules` is niet gekend in ons programma.
 
 Het programma zou er zo kunnen uitzien :
 
@@ -450,9 +489,16 @@ if (index != -1) {
 ****
 [.underline]#Voorbeeld#
 
-We willen een programma dat de gebruiker om een leeftijd vraagt, en de namen toont van studenten die zo oud of jonger zijn.
+We willen een programma dat de gebruiker om een leeftijd vraagt, en vervolgens de namen toont van alle studenten die even oud of jonger zijn.
 
-Als de gebruiker `20` ingeeft, dan zoeken we in `leeftijden` naar getallen die `\<= 20` zijn. Telkens we er zo eentje vinden op een bepaalde positie `i`, dan kijken we in het `namen` array op diezelfde positie `i` en vinden daar de naam van de student met die leeftijd. In ons voorbeeld vinden we `Jan` en `Cornelia`.
+Als de gebruiker `20` ingeeft
+
+* dan zoeken we in `leeftijden` naar getallen die `\<= 20` zijn. 
+* telkens we er zo eentje vinden op een bepaalde positie `i`, 
+** dan kijken we in het `namen` array op diezelfde positie `i`
+** we vinden daar de naam van de student met die leeftijd
+
+In ons voorbeeld vinden we op die manier studenten `Jan` en `Cornelia`.
 
 Een programma dat dit doet zou er zo kunnen uitzien :
 
@@ -475,7 +521,14 @@ for (int i = 0; i < leeftijden.Length; i++) {
 ----
 ****
 
-In deze voorbeelden gebruikten we **twee parallelle arrays**, maar het kunnen er natuurlijk ook meer dan twee zijn. Het hangt er maar van af hoeveel stukjes gerelateerde informatie je wil bijhouden (bv. naam, leeftijd, adres, telefoonnummer, etc.).
+[CAUTION]
+====
+In alle voorgaande voorbeelden gebruikten we **twee parallelle arrays**, maar het kunnen er natuurlijk ook **meer dan twee** zijn!
+
+Het hangt er maar van af hoeveel stukjes gerelateerde informatie je wil bijhouden (bv. naam, leeftijd, adres, telefoonnummer, etc.).
+
+We zullen later zien dat we verschillende stukjes informatie ook kunnen bundelen in *"objecten"*, wat doorgaans tot eenvoudigere code leidt dan parallelle arrays.
+====
 
 === De doorsnede van twee arrays berekenen
 
@@ -496,7 +549,7 @@ Wat je kan doen is voor elke waarde in `gentenaars`, de `voetballers` overlopen 
 1 : foreach(string gentenaar in gentenaars) {       // <1>
 2 :     foreach(string voetballer in voetballers) { // <2>
 3 :         if (gentenaar == voetballer) {          // <3>
-4 :             Console.WriteLine($"Ok, gentenaar {gentenaar} is een voetballer!");
+4 :             Console.WriteLine($"Ok, Gentenaar {gentenaar} is een voetballer!");
 5 :         } else {
 6 :             Console.WriteLine($"    Gentenaar {gentenaar} is niet voetballer {voetballer}.");
 7 :         }
@@ -509,8 +562,8 @@ Wat je kan doen is voor elke waarde in `gentenaars`, de `voetballers` overlopen 
 
 Hoe vaak zou de vergelijking op regel `3` uitgevoerd worden?
 
-- er zijn 4 gentenaars
-- elke gentenaar wordt met 3 voetballers vergeleken
+- er zijn 4 Gentenaars
+- elke Gentenaar wordt met 3 voetballers vergeleken
 
 dus in totaal gebeuren er `4 x 3 = 12` vergelijkingen.
 
@@ -519,19 +572,19 @@ De uitvoering van dit programma ziet er zo uit :
 [source,shell]
 ----
     Gentenaar jan is niet voetballer miet.
-Ok, gentenaar jan is een voetballer!          <1>
+Ok, Gentenaar jan is een voetballer!          <1>
     Gentenaar jan is niet voetballer bart.    <2>
     Gentenaar piet is niet voetballer miet.
     Gentenaar piet is niet voetballer jan.
     Gentenaar piet is niet voetballer bart.
-Ok, gentenaar miet is een voetballer!         <1>
+Ok, Gentenaar miet is een voetballer!         <1>
     Gentenaar miet is niet voetballer jan.    <3>
     Gentenaar miet is niet voetballer bart.   <3>
     Gentenaar camille is niet voetballer miet.
     Gentenaar camille is niet voetballer jan.
     Gentenaar camille is niet voetballer bart.
 ----
-<1> De Gentenaars die ook voetballen
+<1> De Gentenaars die ook voetballen.
 <2> Overbodige vergelijking, we weten immers al dat `jan` een voetballer is
 <3> Overbodige vergelijkingen, we weten immers al dat `miet` een voetballer is
 
@@ -543,7 +596,7 @@ verspilling van __CPU cycles__ en kan vermeden worden door de binnenste loop vro
 foreach(string gentenaar in gentenaars) {       
     foreach(string voetballer in voetballers) { 
 	    if (gentenaar == voetballer) {          
-		    Console.WriteLine($"Ok, gentenaar {gentenaar} is een voetballer!");
+		    Console.WriteLine($"Ok, Gentenaar {gentenaar} is een voetballer!");
 		    break; // <1>
 	    } else {
 		    Console.WriteLine($"    Gentenaar {gentenaar} is niet voetballer {voetballer}.");
@@ -558,20 +611,18 @@ De uitvoering van dit programma ziet er dan zo uit :
 [source,shell]
 ----
     Gentenaar jan is niet voetballer miet.
-Ok, gentenaar jan is een voetballer!          <1>
+Ok, Gentenaar jan is een voetballer!          <1>
     Gentenaar piet is niet voetballer miet.
     Gentenaar piet is niet voetballer jan.
     Gentenaar piet is niet voetballer bart.
-Ok, gentenaar miet is een voetballer!         <1>
+Ok, Gentenaar miet is een voetballer!         <1>
     Gentenaar camille is niet voetballer miet.
     Gentenaar camille is niet voetballer jan.
     Gentenaar camille is niet voetballer bart.
 ----
+<1> De Gentenaars die ook voetballen.
 
-Merk op dat er nu minder vergelijkingen gebeurd zijn (`9` i.p.v. `12`). Eenmaal we vaststelden dat Gentenaars `jan` en `miet` voetballers zijn, werden ze niet meer met andere voetballers vergeleken.
-
-	
-		
+Merk op dat er nu minder vergelijkingen gebeurd zijn (`9` i.p.v. `12`). Eenmaal we vaststelden dat Gentenaars `jan` en `miet` voetballers zijn, werden ze immers niet meer met andere voetballers vergeleken!
 
 
 == Strings
@@ -584,7 +635,7 @@ Je zou je dus kunnen afvragen :
 
 * Is een `string` dan gewoon hetzelfde als een `char` array?
 
-Het korte antwoord is : "**Neen, een `string` is geen `char` array**". Er is echter een verband en in sommige programmeertalen is de grens eerder vaag.
+Het korte antwoord is : "**Neen, een `string` is geen `char` array**". Er is echter een verband en in sommige programmeertalen is de grens nogal vaag.
 
 Een array van `char` waarden definiëren we zo :
 
@@ -627,6 +678,9 @@ do {
 } while(naamAlsTekst.Trim() == "");    // <1>
 ----
 <1> Na de `.Trim()` vergelijken we de overgebleven input met een lege string
+
+Dit fragment zal de "Geef een naam : " vraag blijven herhalen totdat de gebruiker daadwerkelijk iets zinvols intypt.
+
 ****
 
 ****
@@ -644,6 +698,9 @@ Console.WriteLine(reeks);
 ----
 <1> beginnen met een lege string
 <2> op het einde steeds iets nieuws erbij plakken
+
+De output van dit fragment is `(0)(1)(2)(3)(4)(5)(6)(7)(8)(9)`.
+
 ****
 
 Er bestaat trouwens ook een expressie `string.Empty` die je kan gebruik i.p.v. `""`, als je dit leesbaarder zou vinden.
@@ -759,7 +816,15 @@ Stel je krijgt een tekst met woorden die gescheiden zijn door komma's :
 string tekst = "appel,peer,tomaat,kiwi,druif";
 ----	
 
-Dan kun je met de `.Split()` mogelijkheid, de individuele woorden tussen de komma's te pakken krijgen. Het resultaat zal een `string` array zijn dat de tussenliggende woorden bevat.
+Dit gebeurt vaak wanneer je data krijgt aangeleverd als een tekst file die je programma moet verwerken. 
+
+* bv. een bestand met product informatie waarbij elke regel een product beschrijft
+** elke regel bevat dan de stukjes informatie voor dat product (prijs, aantal, beschrijving, gewicht, etc.)
+** op elke regel zijn de stukjes informatie gescheiden door komma's
+
+Dan kun je met de `.Split()` mogelijkheid, de individuele woorden tussen de komma's te pakken krijgen.
+
+Het resultaat zal een `string` array zijn dat de tussenliggende woorden bevat.
 
 [source,csharp,linenums]
 ----
@@ -795,7 +860,7 @@ string[] woorden = tekst.Split(separators); // <2>
 <1> het `char` array met scheidingstekens
 <2> `.Split()` gebruiken met een `char` array van scheidingstekens
 
-Het `char` array `separators` bevat meerdere karakters. Telkens `.Split()` 1 van die karakters tegenkomt, is een nieuw woord gevonden dat in het `woorden` array terechtkomt.
+Het `char` array `separators` bevat meerdere karakters. Telkens `.Split()` zo'n scheidingsteken tegenkomt in de tekst, is een nieuw woord gevonden dat in het `woorden` array terechtkomt.
 
 Let op : als er meerdere scheidingskarakters elkaar opvolgen, komen er lege strings in het array terecht!
 

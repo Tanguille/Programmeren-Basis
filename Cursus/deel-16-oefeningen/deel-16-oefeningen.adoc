@@ -1,6 +1,6 @@
 = Programmeren Basis - Deel 16 - Oefeningen
 Yanic Inghelbrecht
-v2020.11.30.18.15
+v2021.11.22.11.59
 // toc and section numbering
 :toc: preamble
 :toclevels: 4
@@ -378,6 +378,84 @@ Let op de volgorde van de gesorteerde unieke getallen : van groot naar klein.
 ====
 De klasse `List<T>` heeft een `Reverse()` method die de volgorde van de elementen omkeert.
 ====
+
+=== Oefening D16.socialmediafilter
+
+In deze oefening gaan we een simpele __social media__ filter bouwen die 'stoute woordjes' kan censureren.
+
+Gegeven is onderstaande `Main` method :
+
+[source,csharp,linenums]
+----
+static void Main() {
+	// Maak een lijst van woorden die misschien gecensureerd moeten worden
+	List<string> words = new List<string> { "oranje", "trump", "haar", "Trump", "bedrog", "verkiezingen", "winnaar" };
+
+	// Maak een set van 'stoute woordjes' die we willen censureren
+	HashSet<string> naughtyWords = new HashSet<string> { "Trump", "fraude", "verkiezingen" };
+
+	// Toon eerste eens alle woorden
+	Console.WriteLine(String.Join(",", words));
+
+	// Censureer waar nodig
+	List<string> gecensureerd = SocialMediaFilter(words, naughtyWords); // <1>
+
+	// Toon de woorden opnieuw, dit keer geschikt voor gevoelige zieltjes
+	Console.WriteLine(String.Join(",", gecensureerd));
+}
+----
+<1> Deze `SocialMediaFilter` method is niet gegeven, die moet je zelf schrijven.
+
+De output van dit programma is :
+
+[source,shell]
+----
+oranje,trump,haar,Trump,bedrog,verkiezingen,winnaar
+oranje,trump,haar,*****,bedrog,************,winnaar
+----
+
+Merk op dat het censureren hoofdlettergevoelig is, `trump` is veilig voor de ogen maar `Trump` niet.
+
+De opdracht van deze oefening is de `SocialMediaFilter` method te schrijven. Deze method heeft 2 parameters :
+
+. een lijst met woorden
+. een set met verboden woorden
+
+Je mag ervan uitgaan dat deze parameters nooit `null` zullen zijn (maar het kan wel gebeuren dat het een lege lijst en/of lege set is).
+
+Je kunt in de `Main` method zien hoe deze method gebruikt wordt en daaruit afleiden wat de parametertypes en het returntype moeten zijn.
+
+Deze `SocialMediaFilter` method maakt een NIEUWE lijst die gebaseerd is op de lijst met woorden en retourneert die lijst.
+
+* toegelaten woorden worden integraal overgenomen
+* verboden woorden vervangen worden door sterretjes
+** evenveel als de lengte van het verboden woord
+
+Het vergelijken van de woorden en de verboden woorden is hoofdlettergevoelig.
+
+****
+[.underline]#Voorbeeld#
+
+Als we de social media filter zouden toepassen op deze data 
+
+* woorden : rood, grasgroen, blauw, geel, zwart
+* verboden woorden : geel, grasgroen
+
+dan bekomen we een lijst met daarin de strings
+
+* rood, pass:[*********], blauw, pass:[****], zwart
+
+Merk op dat het aantal sterretjes overeenkomt met de lengte van het verboden woord.
+****
+
+Enkele vaststellingen :
+
+* de meegegeven lijst met woorden en de geretourneerde lijst zullen evenveel strings bevatten
+* de onderlinge volgorde van de woorden in beide lijsten is dezelfde
+* op elke positie zijn de strings in beide lijsten even lang
+** ofwel is het exact hetzelfde woord (en dus sowieso even lang)
+** ofwel is het een reeks sterretjes van dezelfde lengte
+
 
 
 

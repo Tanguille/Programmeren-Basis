@@ -1,6 +1,6 @@
 = Programmeren Basis - Deel 18 - Oplossingen
 Yanic Inghelbrecht
-v2020.12.13.12.00
+v2021.11.19.11.00
 // toc and section numbering
 :toc: preamble
 :toclevels: 4
@@ -517,9 +517,22 @@ namespace ConsoleApp {
 <2> een naam comparer voor z->a volgorde
 
 
+=== Oplossing D18.factuur
+
+Voor deze oefening is er geen voorbeeld oplossing beschikbaar.
+
+
+=== Oplossing D18.interval
+
+Voor deze oefening is er geen voorbeeld oplossing beschikbaar.
+
+
+=== Oplossing D18.afspraak
+
+Voor deze oefening is er geen voorbeeld oplossing beschikbaar.
+
 
 == Strings
-
 
 
 === Oplossing D18.stringznaara

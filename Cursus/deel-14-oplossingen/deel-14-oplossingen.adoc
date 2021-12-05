@@ -1,6 +1,6 @@
 ﻿= Programmeren Basis - Deel 14 - Oplossingen
 Frederiek De Wolf
-v2021.02.15.11.02
+v2021.11.23.14.13
 // toc and section numbering
 :toc: preamble
 :toclevels: 4
@@ -95,13 +95,12 @@ class Program {
 
 		PrintPersoonsgegevens(p2);
 
-		Persoon p1 = new Persoon();
-		p1.SetNaam("Rita");
-		p1.SetGeboortedatum(geboorteDatum3);
-		p1.SetWoonplaats("Antwerpen");
+		Persoon p3 = new Persoon();
+		p3.SetNaam("Rita");
+		p3.SetGeboortedatum(geboorteDatum3);
+		p3.SetWoonplaats("Antwerpen");
 
-		PrintPersoonsgegevens(p1);
-		PrintPersoonsgegevens(p2);
+		PrintPersoonsgegevens(p3);
 	}
 
 	static void PrintPersoonsgegevens(Persoon persoon) {

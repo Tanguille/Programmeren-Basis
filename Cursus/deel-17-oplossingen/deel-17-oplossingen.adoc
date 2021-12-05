@@ -1,6 +1,6 @@
 = Programmeren Basis - Deel 17 - Oplossingen
 Yanic Inghelbrecht
-v2020.11.30.18.45
+v2021.11.08.11.00
 // toc and section numbering
 :toc: preamble
 :toclevels: 4
@@ -67,6 +67,11 @@ while (true) {
 ----
 <1> Zit het woord in ons Dictionary `scheldwoordNaarUitleg`?
 <2> Zoek de uitleg voor het scheldwoord op.
+
+
+=== Oplossing D17.morse
+
+Voor deze oefening is er geen voorbeeld oplossing beschikbaar.
 
 
 === Oplossing D17.dobbelsteen
@@ -223,6 +228,15 @@ Console.WriteLine($"Telefoonnummer is : {telefoon}");
 <1> voor elke `letter` uit `letters` van toets `digit` voegen we `letter`->``digit`` toe aan `letterToDigit`.
 <2> we zetten de tekst om naar hoofdletters omdat `letterToDigit` alleen hoofdletters bevat en geen kleine letters.
 
+
+=== Oplossing D17.gecombineerdetellingen
+
+Voor deze oefening is er geen voorbeeld oplossing beschikbaar.
+
+
+=== Oplossing D17.gemiddeldetellingen
+
+Voor deze oefening is er geen voorbeeld oplossing beschikbaar.
 
 
 == Met eigen klassen

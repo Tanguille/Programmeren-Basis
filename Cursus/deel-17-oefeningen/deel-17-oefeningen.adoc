@@ -1,6 +1,6 @@
 = Programmeren Basis - Deel 17 - Oefeningen
 Yanic Inghelbrecht
-v2020.11.30.18.45
+v2021.11.08.11.00
 // toc and section numbering
 :toc: preamble
 :toclevels: 4
@@ -20,6 +20,7 @@ v2020.11.30.18.45
 // folders
 :imagesdir: images
 :url-verdieping: ../{docname}-verdieping/{docname}-verdieping.adoc
+:deel-09-oefeningen: ../deel-09-oefeningen/deel-09-oefeningen.adoc
 // experimental voor kdb: en btn: macro's van AsciiDoctor
 :experimental:
 
@@ -57,6 +58,40 @@ Geef een scheldwoord : badgast
 rare kerel, iemand die zich vreemd gedraagt
 Geef een scheldwoord :
 ----
+
+
+=== Oefening D17.morse
+
+In link:{deel-09-oefeningen}#_oefening_d09_morse[oefening D09.morse] gebruikten we twee parallelle arrays om de __mapping__ bij te houden tussen letters `A-Z` en hun corresponderende Morse code (in beide richtingen!).
+
+In deze oefening gebruiken we een dictionary om bij te houden wat de Morse code is van elke letter. Voor de eenvoud beschouwen we enkel de letters `A-F`.
+
+Schrijf een `Main` method met een oneindige loop die de gebruiker om een tekst vraagt en de overeenkomstige ITU Morse code op het scherm zet.
+
+Een voorbeeld uitvoering :
+
+[source,shell]
+----
+Geef een woord : A
+.- 
+Geef een woord : ABC
+.- -... -.-. 
+Geef een woord : BEEF
+-... . . ..-. 
+----
+	
+De omzetting van letter naar morse code is als volgt
+
+* `A` -> `.-`
+* `B` -> `-...`
+* `C` -> `-.-.`
+* `D` -> `-..`
+* `E` -> `.`
+* `F` -> `..-.`
+
+Je mag ervan uitgaan dat de gebruiker altijd correcte input ingeeft (woorden met hoofdletters van A t.e.m. F dus).
+
+In de output worden de Morse codes gescheiden door een spatie.
 
 
 
@@ -109,15 +144,17 @@ symbool 'm' komt 1 keer voor
 
 Schrijf een programma dat de gebruiker om een woord vraagt en dit omzet naar een telefoonnummer.
 
-Je mag ervan uitgaan dat het woord enkel uit de letters a-z bestaat (hoofdletterongevoelig).
+Je mag ervan uitgaan dat het woord enkel uit de letters `a-z` bestaat (hoofdletterongevoelig).
 
-De omzetting gebeurt volgens links:https://en.wikipedia.org/wiki/Telephone_keypad[de letters op de toetsen van je telefoon, window="_blank"]. 
+De omzetting gebeurt volgens link:https://en.wikipedia.org/wiki/Telephone_keypad[de letters op de toetsen van je telefoon, window="_blank"]. 
 
-Bv. het stukje GETFOOD uit 1-800-get-food wordt 4 3 8 3 6 6 3.
+Bv. het stukje `GETFOOD` uit `1-800-get-food` wordt `4 3 8 3 6 6 3`.
 
 Gegeven is een dictionary `digitToLetters` dat als volgt wordt opgevuld :
 
-Dictionary<int, string> digitToLetters=new Dictionary<int, string> {
+[source,csharp,linenums]
+----
+Dictionary<int, string> digitToLetters = new Dictionary<int, string> {
           {2, "ABC"},
           {3, "DEF"},
           {4, "GHI"},
@@ -127,6 +164,7 @@ Dictionary<int, string> digitToLetters=new Dictionary<int, string> {
           {8, "TUV"},
           {9, "WXYZ"}
 };
+----
 
 Helaas hebben wij precies de omgekeerde _mapping_ nodig, van letter naar cijfer!
 
@@ -142,6 +180,150 @@ Geef een woord : GeTFOod
 Telefoonnummer is : 4383663
 ----
 
+
+=== Oefening D17.gecombineerdetellingen
+
+Jaarlijks trekken ambtenaren van het 'Agentschap voor Wegen & Verkeer' de straat op om het weggebruik in kaart te brengen.
+Ze houden van alle passanten het middel van transport bij, om zo te kunnen tellen hoeveel fietsers, voetgangers, vrachtwagenbestuurders, ... passeren.
+
+Voor deze oefening stuurden we er twee ambtenaren op uit : Jan deed de ochtendshift en Piet wisselde hem af op de middag. Ze telden de passanten die ze voorbij zagen komen op de Rooiegemlaan.
+
+Jan telde de volgende passanten :
+
+* automobilist -> 573
+* stepper -> 2
+* voetganger -> 114
+* fietser -> 481
+* vrachtwagenbestuurder -> 134
+
+en Piet zag de volgende aantallen passeren :
+
+* vrachtwagenbestuurder -> 81
+* automobilist -> 488
+* voetganger -> 137
+* fietser -> 392
+* paardrijder -> 1
+
+**Voorzie in je `Main` method twee variabelen `tellingenJan` en `tellingenPiet` om deze gegevens in op te slaan.**
+
+Voor beide gebruik je een dictionary van `string` naar `int` :
+
+* de `string` is een verwijzing naar het transportmiddel (bv. "automobilist")
+* de `int` is het aantal keren dat dit transportmiddel voorbij kwam (bv. 173)
+
+We zouden graag deze tellingen samenvoegen zodat we een overzicht kunnen maken van wie er zoal in deze straat voorbijkwam.
+
+**Definieer een method `Gecombineerd` die twee tellingen samenvoegt** (bv. die van Jan en Piet) in een nieuw dictionary. Deze method zal twee parameters hebben, elk stelt een telling voor. De teruggeefwaarde van deze method is het nieuwe dictionary met de getelde totalen.
+
+* Indien beide tellingen eenzelfde transportmiddel bevatten, dan tellen we hun aantallen samen in het eindresultaat
+** Bv. het resultaat zal 'automobilist -> 251' bevatten (nl. 114 van Jan en 137 van Piet)
+* Indien een transportmiddel slechts in 1 van beide tellingen voorkomt, wordt dat aantal gewoon overgenomen
+** Bv. het resultaat zal 'stepper -> 2' bevatten (enkel Jan zag steppers)
+** Bv. het resultaat zal 'paardrijder -> 1' bevatten (enkel Piet zag een paardrijder)
+
+**Test je `Gecombineerd` method met onderstaande code** die je in de `Main` method plaatst :
+
+[source,csharp,linenums]
+----
+// TODO : vul dit dictionary met de tellingen van Jan
+Dictionary<string, int> tellingenJan = ...
+
+// TODO : vul dit dictionary met de tellingen van Piet
+Dictionary<string, int> tellingenPiet = ...
+
+// Voeg beide tellingen samen d.m.v. de Gecombineerd method
+Dictionary<string, int> gecombineerdeTellingen = Gecombineerd(tellingenJan, tellingenPiet);
+
+// Toon de samengevoegde tellingen op de console
+string output = string.Join(Environment.NewLine, gecombineerdeTellingen);
+Console.WriteLine(output);
+----
+
+De output van dit programma is als volgt (let op : de volgorde hoeft niet dezelfde te zijn, daar heb je geen invloed op)
+
+[source,shell]
+----
+[automobilist, 1061]
+[stepper, 2]
+[voetganger, 251]
+[fietser, 873]
+[vrachtwagenbestuurder, 215]
+[paardrijder, 1]
+----
+
+
+=== Oefening D17.gemiddeldetellingen
+Voor deze oefening sturen we er 2 vrienden (Jan en Mieke) op uit om de dieren te tellen die ze tegenkomen in twee verschillende bossen.
+
+Voor elk houden we een dictionary bij van `string` naar `int` met de tellingen van die persoon.
+
+* de `string` is de naam van de diersoort (bv. "hond")
+* de `int` is het aantal keren dat een dier van die soort werd gezien (bv. 3)
+
+Na afloop zouden we graag weten hoeveel dieren er *gemiddeld* gespot werden, we doen dit door de tellingen van Jan en Mieke samen te voegen :
+
+* indien een diersoort WEL in beide tellingen voorkomt
+** berekenen we het gemiddelde van die tellingen en stoppen we dit in het resultaat
+* indien een diersoort NIET in beide tellingen voorkomt
+** berekenen we niks en komt er geen telling voor deze soort in het resultaat
+
+Bijvoorbeeld, indien de 2 tellingen als volgt zijn :
+
+* tellingen Jan : 5 x hond, 1 x papegaai
+* tellingen Mieke : 2 x hond, 2 x dromedaris
+
+Dan bevat het resultaat de volgende tellingen :
+
+* resultaat : 3,5 x hond (gemiddelde van 5x hond en 2x hond)
+
+De tellingen voor papegaai en dromedaris komen niet in het gemiddelde voor omdat ze niet door beiden geteld werden.
+
+Gegeven is de volgende code :
+
+[source,csharp,linenums]
+----
+static void Main() {
+	// de tellingen van Jan
+	Dictionary<string, int> tellingenJan = new Dictionary<string, int>() {
+		{ "hond", 5},
+		{ "papegaai", 1 },
+		{ "worm", 3 },
+		{ "konijn", 2 },
+		{ "gruffalo", 0 }
+	};
+
+	// de tellingen van Mieke
+	Dictionary<string, int> tellingenMieke = new Dictionary<string, int>() {
+		{ "hond", 2},
+		{ "worm", 1 },
+		{ "konijn", 3 },
+		{ "gruffalo", 1 },
+		{ "dromedaris", 2 }
+	};
+
+	// Voeg beide tellingen samen d.m.v. de GetGemiddelde method
+	Dictionary<string, double> gemiddelde = GetGemiddelde(tellingenJan, tellingenMieke); // <1>
+
+	// Toon de gemiddelden op de console
+	string output = string.Join(Environment.NewLine, gemiddelde);
+	Console.WriteLine(output);
+}
+----
+<1> De `GetGemiddelde` method voegt de tellingen samen zoals hierboven werd beschreven.
+
+**Schrijf de ontbrekende method `GetGemiddelde` die de tellingen samenvoegt.**
+
+Je kunt uit de code in de `Main` method afleiden, welke parameters en teruggeeftype deze `GetGemiddelde` method moet hebben.
+
+De output van dit programma is 
+
+[source,shell]
+----
+[hond, 3,5]
+[worm, 2]
+[konijn, 2,5]
+[gruffalo, 0,5]
+----
 
 
 == Met eigen klassen
