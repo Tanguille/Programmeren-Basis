@@ -17,6 +17,14 @@ body {
       color: #809fff;
     }
   }
+
+  .hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5
+em
+;
+    color:  #333;
+    background:#f8f8f8;
+}
   
-  
-  Resources

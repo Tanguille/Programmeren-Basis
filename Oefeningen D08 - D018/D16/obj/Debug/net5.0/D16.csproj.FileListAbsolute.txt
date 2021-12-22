@@ -1,0 +1,10 @@
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D16\obj\Debug\net5.0\D16.csproj.AssemblyReference.cache
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D16\obj\Debug\net5.0\D16.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D16\obj\Debug\net5.0\D16.AssemblyInfoInputs.cache
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D16\obj\Debug\net5.0\D16.AssemblyInfo.cs
+C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D16\obj\Debug\net5.0\D16.csproj.CoreCompileInputs.cache
+D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D16\obj\Debug\net5.0\D16.csproj.AssemblyReference.cache
+D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D16\obj\Debug\net5.0\D16.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D16\obj\Debug\net5.0\D16.AssemblyInfoInputs.cache
+D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D16\obj\Debug\net5.0\D16.AssemblyInfo.cs
+D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D16\obj\Debug\net5.0\D16.csproj.CoreCompileInputs.cache

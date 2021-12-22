@@ -1,0 +1,28 @@
+Het cursusmateriaal is definitief (of zal op zijn minst niet meer inhoudelijk worden aangepast).  Alle 150 in te dienen oefeningen zijn hiermee gekend!
+
+    Ter herhaling (niets nieuws): Het gaat zoals eerder meegedeeld om alle oefeningen uit de reguliere delen D08 tot en met D18.  Niet om de oefeningen uit de aanvullende delen DGFX1/2, DEBD of DPA1-5.
+
+Een volledig overzicht van alle in te dienen oefeningen vind je onderaan dit bericht.
+Deze oefeningen worden ten laatste ingediend op zondag 16 januari door je zip bestand up te loaden in de Chamilo Opdrachten rubriek.
+
+    Ter herhaling (niets nieuws): Hoe (in welk formaat) de oefeningen worden opgeleverd, kan je opnieuw nalezen in een vorige aankondiging.  Je moet alle oplossingen in het verwachte formaat opleveren (op de juiste manier invoegen in je ingediende solution).  Indien dat niet het geval is, zal je geen enkel punt scoren.
+
+We raden iedereen aan naar één van de online consultaties af te komen om voor te leggen wat je huidige staat van de op-te-leveren-solution is (hoe ver je ook achterstaat)!  Mogelijk kunnen de docenten dan wat bijsturen, of tips geven waar je verder op kan focussen.
+
+Het correct opleveren van zoveel mogelijk oplossingen is uiterst belangrijk.  Je weet op voorhand niet welke oefeningen (een drietal) de docenten inhoudelijk zullen beoordelen.
+Heb je geen oplossing voor de steekproefgewijs uitgekozen oefening, dan scoor je ook geen enkel punt.  In het slechtste geval leidt dat bij afwezigheid van dat drietal oplossingen tot een score van 0 op 15.  
+We gaan zowel inhoudelijk kijken naar minstens één oefening waarvoor een modeloplossing beschikbaar is, als naar minstens één oefening waarvoor geen modeloplossing beschikbaar is.
+
+    Ter herhaling (niets nieuws): Indien je een modeloplossing indient met eigen commentaar, dan plaats je op de eerste regel in zo'n bestand commentaar:
+    // MODELOPLOSSING MET EIGEN COMMENTAAR, datum 12/12/21
+    waarbij je natuurlijk de datum invult waarop je de modeloplossing van commentaar voorzag.
+    Dan is er geen discussie voor ons (eigen oplossing vs modeloplossing zonder commentaar) en zien we ook eens de datum.
+
+Ook op loutere aanwezigheid van oplossingen wordt je beoordeeld (5 op 20).  Heb je bijvoorbeeld 95% van alle oefeningen op correct wijze ingediend, dan scoor je daar alvast 4,75 op 5.
+
+Wie niets heeft opgeleverd ten laatste op 16 januari, of wie niet aan voldoende score komt (minder dan 10/20) tijdens de eerste kans, krijgt een tweede kans.  Hierbij zal je ten laatste tegen zondag 30 januari opnieuw je solution moeten doorsturen.
+Je zal volgens dezelfde criteria beoordeeld worden tijdens die tweede kans (andere steekproef weliswaar).
+
+Naast deze twee kansen is er geen verdere inhaalmogelijkheid.
+
+Overzicht van alle 150 in te dienen oefeningen (D08:16 + D09:15 + D10:12 + D11:19 + D12:15 + D13:6 + D14:9 + D15:20 + D16:16 + D17:9 + D18:13):

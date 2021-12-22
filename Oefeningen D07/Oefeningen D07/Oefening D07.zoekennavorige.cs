@@ -6,29 +6,24 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.Write("Geef een tekst: ");
-            string tekst = Console.ReadLine();
-
-            Console.Write("Geef de zoektekst: ");
-            string zoekTekst = Console.ReadLine();
-
-            int aantalGevonden = 0;
-
-            string tekstKlein = tekst.ToLower();
-
-            string zoektekstKlein = zoekTekst.ToLower();
-
-            int resultaat = tekstKlein.IndexOf(zoektekstKlein);
-
-            while (resultaat != -1)
+            string a, b; int c = 0, d = 0;
+            Console.Write("Geef een tekst : ");
+            a = Console.ReadLine();
+            Console.Write("Geef de zoektekst : ");
+            b = Console.ReadLine();
+            for (int i = 0; i < a.Length / b.Length; i++)
             {
-                aantalGevonden++;
-                int resultaat2 = resultaat + 1;
-                resultaat = tekstKlein.IndexOf(zoektekstKlein, resultaat + 1);
-
+                if (a.Substring(c, b.Length).Equals(b))
+                {
+                    d++;
+                }
+                c += b.Length;
             }
 
-            Console.WriteLine("De zoektekst komt " + aantalGevonden + " keer voor.");
+
+
+
+            Console.Write($"De zoektekst komt {d} keer voor");
 
 
 
@@ -44,15 +39,3 @@ namespace ConsoleApp1
 }
 
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Oefeningen_D07
-{
-    internal class Class1
-    {
-    }
-}

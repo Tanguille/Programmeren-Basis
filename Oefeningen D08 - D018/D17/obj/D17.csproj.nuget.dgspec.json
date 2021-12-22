@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fwol697\\OneDrive - Hogeschool Gent\\Hogent\\Programmeren Basis\\Evaluaties 21-22\\Oplevertemplate\\ProgrammerenBasis\\D17\\D17.csproj": {}
+    "D:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D08 - D018\\D17\\D17.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fwol697\\OneDrive - Hogeschool Gent\\Hogent\\Programmeren Basis\\Evaluaties 21-22\\Oplevertemplate\\ProgrammerenBasis\\D17\\D17.csproj": {
+    "D:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D08 - D018\\D17\\D17.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fwol697\\OneDrive - Hogeschool Gent\\Hogent\\Programmeren Basis\\Evaluaties 21-22\\Oplevertemplate\\ProgrammerenBasis\\D17\\D17.csproj",
+        "projectUniqueName": "D:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D08 - D018\\D17\\D17.csproj",
         "projectName": "D17",
-        "projectPath": "C:\\Users\\fwol697\\OneDrive - Hogeschool Gent\\Hogent\\Programmeren Basis\\Evaluaties 21-22\\Oplevertemplate\\ProgrammerenBasis\\D17\\D17.csproj",
-        "packagesPath": "C:\\Users\\fwol697\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fwol697\\OneDrive - Hogeschool Gent\\Hogent\\Programmeren Basis\\Evaluaties 21-22\\Oplevertemplate\\ProgrammerenBasis\\D17\\obj\\",
+        "projectPath": "D:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D08 - D018\\D17\\D17.csproj",
+        "packagesPath": "C:\\Users\\Tangu\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D08 - D018\\D17\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\fwol697\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Tangu\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
