@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "Hn67ilzb9Z38qE8bRVH9+SRY5KLcsw6JrwlecCZxnpCbLLyslWf1zBXtM54PawWgbBssrD7MWlfY/8WnIrxI4A==",
+=======
+  "dgSpecHash": "8HotRLZ1JQpAZk7qtPcC/tp1c68mDHG9H1vhi9uELkZ/LFAkY7EbjLjEKD8RKP8o409QrlOADh+nxFvpXwVDWg==",
+>>>>>>> Stashed changes
   "success": true,
   "projectFilePath": "C:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D05\\Oefeningen D05\\Oefeningen D05.csproj",
   "expectedPackageFiles": [],

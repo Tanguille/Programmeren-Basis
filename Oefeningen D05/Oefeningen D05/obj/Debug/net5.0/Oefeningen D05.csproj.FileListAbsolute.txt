@@ -1,5 +1,13 @@
+<<<<<<< Updated upstream
 C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D05\Oefeningen D05\obj\Debug\net5.0\Oefeningen D05.csproj.AssemblyReference.cache
 C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D05\Oefeningen D05\obj\Debug\net5.0\Oefeningen D05.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D05\Oefeningen D05\obj\Debug\net5.0\Oefeningen D05.AssemblyInfoInputs.cache
 C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D05\Oefeningen D05\obj\Debug\net5.0\Oefeningen D05.AssemblyInfo.cs
 C:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D05\Oefeningen D05\obj\Debug\net5.0\Oefeningen D05.csproj.CoreCompileInputs.cache
+=======
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D05\Oefeningen D05\obj\Debug\net5.0\Oefeningen D05.csproj.AssemblyReference.cache
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D05\Oefeningen D05\obj\Debug\net5.0\Oefeningen D05.GeneratedMSBuildEditorConfig.editorconfig
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D05\Oefeningen D05\obj\Debug\net5.0\Oefeningen D05.AssemblyInfoInputs.cache
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D05\Oefeningen D05\obj\Debug\net5.0\Oefeningen D05.AssemblyInfo.cs
+D:\Nieuwe map (2)\aaaProgrammeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D05\Oefeningen D05\obj\Debug\net5.0\Oefeningen D05.csproj.CoreCompileInputs.cache
+>>>>>>> Stashed changes
