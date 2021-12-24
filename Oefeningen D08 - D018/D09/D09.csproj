@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
-    <StartupObject>D09.D09zoekdier</StartupObject>
+    <StartupObject>D09.D09morse</StartupObject>
   </PropertyGroup>
 
 </Project>
