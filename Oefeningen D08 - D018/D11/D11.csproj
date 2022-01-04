@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
-    <StartupObject>D11.D11letterscore</StartupObject>
+    <StartupObject>D11.D11keuzeinput</StartupObject>
   </PropertyGroup>
 
 </Project>

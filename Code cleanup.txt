@@ -1,1 +1,0 @@
-For C# code files, Visual Studio 2019 has a Code Cleanup button at the bottom of the editor (keyboard: Ctrl+K, Ctrl+E) to apply code styles from an EditorConfig file or from the Code Style options page.
