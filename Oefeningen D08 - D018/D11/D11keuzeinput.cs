@@ -14,18 +14,20 @@ namespace D11
         static int GetKeuze(string[] keuzes)
         {
             int index = -1;
-
-            Console.Write("Geef uw keuze (" + String.Join("|", keuzes) +") : ");
-            string input = Console.ReadLine();
-
-            for (int i = 0; i < keuzes.Length; i++)
+            do
             {
-                //Opgezocht online na veel proberen met nesten van loops en indexen.
-                if (keuzes[i].Equals(input, StringComparison.CurrentCultureIgnoreCase))
+                Console.Write("Geef uw keuze (" + String.Join("|", keuzes) + ") : ");
+                string input = Console.ReadLine();
+
+                for (int i = 0; i < keuzes.Length; i++)
                 {
-                    index = i;
+                    //Opgezocht online na veel proberen met nesten van loops en indexen.
+                    if (keuzes[i].Equals(input, StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        index = i;
+                    }
                 }
-            }
+            } while (index == -1);
             return index;
         }
     }

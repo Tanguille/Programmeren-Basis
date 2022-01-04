@@ -45,17 +45,29 @@ namespace D11
         {
             int[] expanded = new int[getallen.Length * aantal];
             {
-                int i = 0;
-                    for (i = 0; i < (getallen.Length); i++)
-                    {
-                        expanded[i] = getallen[i];
-                    }
+                {
+
                     if (aantal > 1)
                     {
-                        expanded = Enumerable.Repeat(getallen[i], aantal).ToArray();
+                        for (int i = 0; i < (getallen.Length); i++)
+                        {
+                            int j = 0;
+                            while (j < (i * aantal))                           
+                            {
+                                i = 0;
+                                expanded[j] = getallen[i];
+                                j++;
+                            }                            
+                        }
                     }
-
-                
+                    else
+                    {
+                        for (int i = 0; i < (getallen.Length); i++)
+                        {
+                            expanded[i] = getallen[i];
+                        }
+                    }
+                }
             }
             return expanded;
         }
