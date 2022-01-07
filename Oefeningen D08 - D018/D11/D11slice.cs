@@ -30,7 +30,12 @@ namespace D11
         }
         static int[] Slice(int[] values, int startIndex, int length)
         {
-            return values;
+            int[] slice = new int[length];
+            for (int i = 0; i < length ; i++)
+            {
+                slice[i] = values[startIndex + i]; 
+            }
+            return slice;
         }
     }
 }

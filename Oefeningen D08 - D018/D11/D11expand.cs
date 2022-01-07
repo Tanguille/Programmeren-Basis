@@ -51,12 +51,9 @@ namespace D11
                     {
                         for (int i = 0; i < (getallen.Length); i++)
                         {
-                            int j = 0;
-                            while (j < (i * aantal))                           
-                            {
-                                i = 0;
-                                expanded[j] = getallen[i];
-                                j++;
+                            for (int j = 0; j < aantal ; j++)                                                
+                            {                               
+                                expanded[i * aantal + j] = getallen[i];                               
                             }                            
                         }
                     }

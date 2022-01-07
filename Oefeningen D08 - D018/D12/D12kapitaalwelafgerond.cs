@@ -2,7 +2,7 @@
 
 namespace D12
 {
-    class D12kapitaalnietafgerond
+    internal class D12kapitaalwelafgerond
     {
         static void Main(string[] args)
         {
@@ -26,8 +26,8 @@ namespace D12
                 }
                 else
                 {
-                    eindkapitaal += eindkapitaal * (interestvoet / 100);
-                    Console.WriteLine($"Jaar {i}: {eindkapitaal, 0:f2}");
+                    eindkapitaal += Math.Round(eindkapitaal, MidpointRounding.AwayFromZero)  * (interestvoet / 100);
+                    Console.WriteLine($"Jaar {i}: {eindkapitaal,0:f2}");
                 }
             }
         }

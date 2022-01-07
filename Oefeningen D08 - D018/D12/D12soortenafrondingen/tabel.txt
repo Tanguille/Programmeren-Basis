@@ -1,12 +1,12 @@
 ﻿g		Math.Ceiling(g)		Math.Floor(g)	Math.Round(g)	Math.Round(g, MidpointRounding.AwayFromZero)
-7.4		
+7.4		8					7				7				7
 
-7.5		
+7.5		8					7				8				8
 
-7.6		
+7.6		8					7				8				8
 
--7.4	
+-7.4	-7					-8				-7				-7
 
--7.5	
+-7.5	-7					-8				-8				-8
 
--7.6	
+-7.6	-7					-8				-8				-8

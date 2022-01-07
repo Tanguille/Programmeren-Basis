@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
-    <StartupObject>D12.D12soortenafrondingen.Program</StartupObject>
+    <StartupObject>D12.D12feestdagen</StartupObject>
   </PropertyGroup>
 
 </Project>
