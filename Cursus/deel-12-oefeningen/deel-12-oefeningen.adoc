@@ -41,6 +41,7 @@ Zoek de webpagina met de officiële .Net API documentatie over
 * De `Sleep()` method waarmee we ons programma konden laten wachten
 * De `ReadKey()` method met een `bool` parameter
 
+en schrijf de links op waar je deze informatie vond.
 
 
 == Kommagetallen en afronden

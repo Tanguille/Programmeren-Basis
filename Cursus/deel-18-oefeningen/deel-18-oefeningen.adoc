@@ -1,6 +1,6 @@
 = Programmeren Basis - Deel 18 - Oefeningen
 Yanic Inghelbrecht
-v2021.11.19.11.00
+v2021.12.21.12.11
 // toc and section numbering
 :toc: preamble
 :toclevels: 4
@@ -31,7 +31,7 @@ versie {revnumber}
 
 == Vooraf
 
-Alle klassen in deze oefeningen staan in een namespace `ConsoleApp` en de `Main` method staat in een klasse `Program`.
+Alle klassen in deze oefeningen staan in een namespace `D18` en de `Main` method staat in een klasse `Program`.
 
 
 
@@ -381,13 +381,13 @@ Bijvoorbeeld op datum van 11 januari 2021 is...
 * een   betaalde factuur met vervaldatum 10 januari 2021
 ** niet achterstallig
 * een **on**betaalde factuur met vervaldatum 10 januari 2021
-** niet achterstallig
+** WEL achterstallig
 * een   betaalde factuur met vervaldatum 11 januari 2021
 ** niet achterstallig
 * een **on**betaalde factuur met vervaldatum 11 januari 2021
 ** NIET achterstallig (weliswaar onbetaald, maar nog niet voorbij de vervaldatum)
 * een **on**betaalde factuur met vervaldatum 12 januari 2021
-** WEL achterstallig (onbetaald en voorbij de vervaldatum)
+** niet achterstallig
 * een   betaalde factuur met vervaldatum 12 januari 2021
 ** niet achterstallig
 
@@ -840,7 +840,7 @@ Bij deze oefening is het de bedoeling dat de onderstaande `Program` klasse
 ----
 using System;
 
-namespace ConsoleApp {
+namespace D18 {
     public class Program {
 
          static void PrintStyled(string text, IStyle style) {

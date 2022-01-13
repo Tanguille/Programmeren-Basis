@@ -1,6 +1,6 @@
 ﻿= Programmeren Basis - Deel 15 - Verdieping
 Frederiek De Wolf
-v2021.02.15.14.18
+v2021.11.30.14.44
 // toc and section numbering
 :toc: preamble
 :toclevels: 4
@@ -163,7 +163,7 @@ True
 ----
 ****
 
-=== Queries aan de hand van readonly properties of methods
+== Queries aan de hand van readonly properties of methods
 
 Voordat we zelf properties gingen implementeren, kon een query die wel verkozen logica ging uitvoeren, enkel aan de hand van een method worden gedefinieerd.  Nu echter, hebben we twee mogelijkheden, (readonly) properties of methods.
 

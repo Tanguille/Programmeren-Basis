@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
-    <StartupObject>D14.D14persoon.Program</StartupObject>
+    <StartupObject>D14.D14bankrekening.Program</StartupObject>
   </PropertyGroup>
 
 </Project>

@@ -69,7 +69,7 @@ versie {revnumber}
 ** link:deel-09-oefeningen/deel-09-oefeningen.adoc[Oefeningen]
 ** link:deel-09-oplossingen/deel-09-oplossingen.adoc[Oplossingen]
 
-* link:deel-pa1/deel-pa1.adoc[Deel PA1] : introductie 
+* link:deel-pa1/deel-pa1.adoc[Deel PA1] : Introductie 
 ** link:deel-pa1-oefeningen/deel-pa1-oefeningen.adoc[Oefeningen]
 ** link:deel-pa1-oplossingen/deel-pa1-oplossingen.adoc[Oplossingen]
 
@@ -82,7 +82,7 @@ versie {revnumber}
 ** link:deel-11-oefeningen/deel-11-oefeningen.adoc[Oefeningen]
 ** link:deel-11-oplossingen/deel-11-oplossingen.adoc[Oplossingen]
 
-* link:deel-pa2/deel-pa2.adoc[Deel PA2] : met methods
+* link:deel-pa2/deel-pa2.adoc[Deel PA2] : Met methods
 ** link:deel-pa2-oefeningen/deel-pa2-oefeningen.adoc[Oefeningen]
 ** link:deel-pa2-oplossingen/deel-pa2-oplossingen.adoc[Oplossingen]
 
@@ -99,11 +99,11 @@ versie {revnumber}
 ** link:deel-13-oplossingen/deel-13-oplossingen.adoc[Oplossingen]
 ** link:deel-13-verdieping/deel-13-verdieping.adoc[Verdieping]
 
-* link:deel-pa3/deel-pa3.adoc[Deel PA3] : met file I/O
+* link:deel-pa3/deel-pa3.adoc[Deel PA3] : Met file I/O
 ** link:deel-pa3-oefeningen/deel-pa3-oefeningen.adoc[Oefeningen]
 ** link:deel-pa3-oplossingen/deel-pa3-oplossingen.adoc[Oplossingen]
 
-* link:deel-14/deel-14.adoc[Deel 14]: OOP.
+* link:deel-14/deel-14.adoc[Deel 14]: OOP
 ** link:deel-14-oefeningen/deel-14-oefeningen.adoc[Oefeningen]
 ** link:deel-14-oplossingen/deel-14-oplossingen.adoc[Oplossingen]
 
@@ -112,7 +112,7 @@ versie {revnumber}
 ** link:deel-15-oplossingen/deel-15-oplossingen.adoc[Oplossingen]
 ** link:deel-15-verdieping/deel-15-verdieping.adoc[Verdieping]
 
-* link:deel-pa4/deel-pa4.adoc[Deel PA4] : met class Persoon
+* link:deel-pa4/deel-pa4.adoc[Deel PA4] : Met class Persoon
 ** link:deel-pa4-oefeningen/deel-pa4-oefeningen.adoc[Oefeningen]
 ** link:deel-pa4-oplossingen/deel-pa4-oplossingen.adoc[Oplossingen]
 
@@ -120,7 +120,7 @@ versie {revnumber}
 ** link:deel-16-oefeningen/deel-16-oefeningen.adoc[Oefeningen]
 ** link:deel-16-oplossingen/deel-16-oplossingen.adoc[Oplossingen]
 
-* link:deel-pa5/deel-pa5.adoc[Deel PA5] : met collecties
+* link:deel-pa5/deel-pa5.adoc[Deel PA5] : Met collecties
 ** link:deel-pa5-oefeningen/deel-pa5-oefeningen.adoc[Oefeningen]
 ** link:deel-pa5-oplossingen/deel-pa5-oplossingen.adoc[Oplossingen]
 
@@ -128,7 +128,9 @@ versie {revnumber}
 ** link:deel-17-oefeningen/deel-17-oefeningen.adoc[Oefeningen]
 ** link:deel-17-oplossingen/deel-17-oplossingen.adoc[Oplossingen]
 
-* deel-gfx 2(.zip) (Aanleiding tot interfaces)
+* link:deel-gfx2/deel-gfx2.adoc[Deel GFX2]: Grafische figuren
+** link:deel-gfx2-oefeningen/deel-gfx2-oefeningen.adoc[Oefeningen (gelinkte pdf)]
+** link:deel-gfx2-oplossingen/deel-gfx2-oplossingen.adoc[Oplossingen]
 
 * link:deel-18/deel-18.adoc[Deel 18]: Interfaces en dynamisch polymorfisme.
 ** link:deel-18-oefeningen/deel-18-oefeningen.adoc[Oefeningen]

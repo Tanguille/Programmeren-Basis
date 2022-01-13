@@ -8,3 +8,14 @@ D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oef
 D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D13\obj\Debug\net5.0\D13.AssemblyInfoInputs.cache
 D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D13\obj\Debug\net5.0\D13.AssemblyInfo.cs
 D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D13\obj\Debug\net5.0\D13.csproj.CoreCompileInputs.cache
+D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D13\bin\Debug\net5.0\D13.exe
+D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D13\bin\Debug\net5.0\D13.deps.json
+D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D13\bin\Debug\net5.0\D13.runtimeconfig.json
+D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D13\bin\Debug\net5.0\D13.runtimeconfig.dev.json
+D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D13\bin\Debug\net5.0\D13.dll
+D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D13\bin\Debug\net5.0\ref\D13.dll
+D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D13\bin\Debug\net5.0\D13.pdb
+D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D13\obj\Debug\net5.0\D13.dll
+D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D13\obj\Debug\net5.0\ref\D13.dll
+D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D13\obj\Debug\net5.0\D13.pdb
+D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D13\obj\Debug\net5.0\D13.genruntimeconfig.cache
