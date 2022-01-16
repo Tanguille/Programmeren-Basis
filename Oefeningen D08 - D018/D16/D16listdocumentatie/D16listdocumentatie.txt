@@ -1,0 +1,18 @@
+Return Type			    	Method Naam			Parameter		Parameter 2		    Uitleg
+
+void                  		Add			    	T value					            Voegt value achteraan de lijst toe.
+
+void                       Insert               int index       T value             Voegt value toe op de positie van de index.  
+
+bool                      Contains               T value                            Zoekt value in de lijst.
+
+int                       IndexOf                T value                            Zoekt vanaf het begin van de lijst naar de value. Geeft index ervan.
+
+int                      IndexOf                T value        int index            Hetzelfde maar begint te zoeken op positie index.
+
+bool                     Remove                 T value                             Verwijdert value uit de lijst, geen dubbels.
+
+void                     RemoveAt               int index                           Verwijdert het item op de positie index.
+
+void                     Sort                                                      Sorteert de elementen van klein naar groot, op alfabet of chronologisch.
+

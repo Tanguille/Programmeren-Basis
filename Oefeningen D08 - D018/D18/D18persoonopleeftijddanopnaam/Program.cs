@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace D16.D16listdocumentatie
+namespace D18.D18persoonopleeftijddanopnaam
 {
-    internal class D16listdocumentatie
+    internal class Program
     {
-        static void Main(string[] args)
-        {
-
-        }
     }
 }

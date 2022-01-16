@@ -29,3 +29,4 @@ D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oef
 D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D12\obj\Debug\net5.0\ref\D12.dll
 D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D12\obj\Debug\net5.0\D12.pdb
 D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D12\obj\Debug\net5.0\D12.genruntimeconfig.cache
+D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D12\obj\Debug\net5.0\D12.csproj.AssemblyReference.cache

@@ -17,3 +17,4 @@ D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oef
 D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D18\obj\Debug\net5.0\ref\D18.dll
 D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D18\obj\Debug\net5.0\D18.pdb
 D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D18\obj\Debug\net5.0\D18.genruntimeconfig.cache
+D:\Users\Tangu\Documents\1Programmeren\Programmeren Basis\Programmeren-Basis-Oefeningen\Oefeningen D08 - D018\D18\obj\Debug\net5.0\D18.csproj.AssemblyReference.cache

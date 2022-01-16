@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace D11
 {
     internal class D11concataantalkeer

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
-    <StartupObject>D15.D15encrypter.Program</StartupObject>
+    <StartupObject>D15.D15stellingverhuur.Program</StartupObject>
   </PropertyGroup>
 
 </Project>

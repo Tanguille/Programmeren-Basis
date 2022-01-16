@@ -1,0 +1,11 @@
+﻿Return Type					Method Naam				Parameter				Uitleg
+
+LinkedListNode<T>			AddFirst				T Value					voegt value vooraan de lijst toe.
+
+LinkedListNode<T>			AddLast					T Value					voegt value achteraan de lijst toe.
+
+Bool					Contains				T Value					Zoekt value in de lijst en geeft true of false aan naargelang de value gevonden is.
+
+Bool					Remove					T Value					Zoekt en verwijderd de waarde uit de lijst. Geeft true of false aan naarmate er iets verwijderd is.
+
+

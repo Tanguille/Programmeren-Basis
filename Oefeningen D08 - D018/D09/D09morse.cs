@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace D09
 {
     class D09morse

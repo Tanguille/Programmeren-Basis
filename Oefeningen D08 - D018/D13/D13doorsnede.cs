@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace D18
+namespace D13
 {
-    internal class Program
+    internal class D13doorsnede
     {
         static void Main(string[] args)
         {

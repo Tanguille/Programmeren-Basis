@@ -4,8 +4,8 @@ namespace D15.D15afstandtussenpunten
 {
     internal class Punt
     {
-        public double _x { get; private set; }
-        public double _y { get; private set; }
+        public double _x { get; }
+        public double _y { get; }
 
         public Punt(double x, double y)
         {

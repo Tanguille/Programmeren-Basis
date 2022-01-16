@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace D12
 {
@@ -20,9 +16,9 @@ namespace D12
             if (key1 == key2)
             {
                 Console.WriteLine();
-                TimeSpan ticksDelta = ticks2 - ticks1;               
+                TimeSpan ticksDelta = ticks2 - ticks1;
                 Console.WriteLine("De tijd ertussen bedroeg " + ticksDelta.TotalMilliseconds + " ms.");
             }
         }
-    }    
+    }
 }

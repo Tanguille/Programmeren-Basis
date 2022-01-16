@@ -6,13 +6,15 @@ namespace D15.D15cirkel
     {
         static void Main(string[] args)
         {
-            Cirkel cirkel = new Cirkel();
-            cirkel.Straal = (3.45);
-
+            Cirkel cirkel = new Cirkel(3.45);
+            
             cirkel.GetOppervlakte();
             cirkel.GetOmtrek();
 
             PrintCirkel(cirkel);
+
+            //Als je onderstaande lijn uit commentaar haalt zie je een compilefout die erop duid dat de straal niet aangepast kan worden.
+            //cirkel.Straal = 5.0; 
         }
         static void PrintCirkel(Cirkel c)
         {

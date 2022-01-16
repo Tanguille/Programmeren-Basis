@@ -1,24 +1,25 @@
 ﻿namespace D15.D15artikelmetprijs
 {
-    internal class Artikelmetprijs
+    internal class Artikel
     {
-        public Artikelmetprijs()
+        public Artikel(decimal PrijsExclusiefBtw, decimal BtwPercentage)
         {
-            _btw = 0.21m;
+            this.PrijsExclusiefBtw = PrijsExclusiefBtw;
+            this.BtwPercentage = BtwPercentage;
         }
-
-        public decimal PrijsExclBTW { get; set; }
+        public Artikel(decimal PrijsExclusiefBtw)
+        {
+            this.PrijsExclusiefBtw = PrijsExclusiefBtw;
+            this.BtwPercentage = 21m;
+        }
+        public decimal PrijsExclusiefBtw { get; set; }
 
         private decimal _btw;
-        public decimal Btw
+        public decimal BtwPercentage { get; set; }
+      
+        public decimal PrijsInclusiefBtw()
         {
-            get { return _btw; }
-            set { _btw = value / 100; }           
-        }
-
-        public decimal PrijsInclBTW
-        {
-            get { return PrijsExclBTW * (1 + Btw); }
+           return PrijsExclusiefBtw * (1 + BtwPercentage / 100);
         }
     }
 }

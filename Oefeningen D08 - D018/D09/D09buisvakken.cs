@@ -8,8 +8,7 @@ namespace D09
         {
             string[] vakken = { "Frans", "Engels", "Wiskunde", "Duits", "L.O." };
             int[] scores = { 34, 55, 20, 10, 80 };
-            bool onvoldoende = false;
-
+            
             for (int i = 0; i < vakken.Length; i++)
             {
                 if (scores[i] < 50)
