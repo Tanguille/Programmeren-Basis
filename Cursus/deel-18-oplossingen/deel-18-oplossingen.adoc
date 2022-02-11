@@ -1,6 +1,6 @@
 = Programmeren Basis - Deel 18 - Oplossingen
 Yanic Inghelbrecht
-v2021.11.19.11.00
+v2021.12.13.14.44
 // toc and section numbering
 :toc: preamble
 :toclevels: 4
@@ -31,7 +31,7 @@ versie {revnumber}
  
 == Vooraf
 
-Alle klassen in deze oefeningen staan in een namespace `ConsoleApp` en de `Main` method staat in een klasse `Program`.
+Alle klassen in deze oefeningen staan in een namespace `D18` en de `Main` method staat in een klasse `Program`.
 
 
 
@@ -44,7 +44,7 @@ Alle klassen in deze oefeningen staan in een namespace `ConsoleApp` en de `Main`
 .Persoon.cs
 [source,csharp,linenums]
 ----
-namespace ConsoleApp {
+namespace D18 {
     public class Persoon {
         public string Naam { get; set; }
         public int Leeftijd { get; set; }
@@ -61,7 +61,7 @@ namespace ConsoleApp {
 ----
 using System.Collections.Generic;
 
-namespace ConsoleApp {
+namespace D18 {
     class PersoonLeeftijdComparer : IComparer<Persoon> {
         public int Compare(Persoon x, Persoon y) {
             return x.Leeftijd.CompareTo(y.Leeftijd);
@@ -76,7 +76,7 @@ namespace ConsoleApp {
 using System;
 using System.Collections.Generic;
 
-namespace ConsoleApp {
+namespace D18 {
 	public class Program {
 
 		static void PrintPersonenMetTitel(string titel, List<Persoon> personen) {
@@ -116,7 +116,7 @@ De inhoud van `Persoon.cs` is identiek aan oplossing D18.persoonopleeftijd :
 .Persoon.cs
 [source,csharp,linenums]
 ----
-namespace ConsoleApp {
+namespace D18 {
     public class Persoon {
         public string Naam { get; set; }
         public int Leeftijd { get; set; }
@@ -135,7 +135,7 @@ Een eenvoudige comparer op basis van de `Naam` property :
 ----
 using System.Collections.Generic;
 
-namespace ConsoleApp {
+namespace D18 {
     class PersoonNaamComparer : IComparer<Persoon> {
         public int Compare(Persoon x, Persoon y) {
             return x.Naam.CompareTo(y.Naam);
@@ -152,7 +152,7 @@ De `Main` method heeft onderaan een paar bijkomende regels waarin de nieuwe comp
 using System;
 using System.Collections.Generic;
 
-namespace ConsoleApp {
+namespace D18 {
 	public class Program {
 
 		static void PrintPersonenMetTitel(string titel, List<Persoon> personen) {
@@ -218,7 +218,7 @@ Een oplossing waarin we de code van PersoonNaamComparer aanpassen door gewoon ee
 ----
 using System.Collections.Generic;
 
-namespace ConsoleApp {
+namespace D18 {
     class PersoonNaamComparer : IComparer<Persoon> {
         public int Compare(Persoon x, Persoon y) {
             return - x.Naam.CompareTo(y.Naam); // <1>
@@ -235,7 +235,7 @@ Een oplossing waarin we de code van PersoonNaamComparer aanpassen door `x` en `y
 ----
 using System.Collections.Generic;
 
-namespace ConsoleApp {
+namespace D18 {
     class PersoonNaamComparer : IComparer<Persoon> {
         public int Compare(Persoon x, Persoon y) {
             return y.Naam.CompareTo(x.Naam); // <1>
@@ -258,7 +258,7 @@ namespace ConsoleApp {
 ----
 using System.Collections.Generic;
 
-namespace ConsoleApp {
+namespace D18 {
     class PersoonLeeftijdComparer : IComparer<Persoon> {
         public int Compare(Persoon x, Persoon y) {
 			System.Console.WriteLine($"   {x.Naam} en {y.Naam} worden vergeleken"); // <1>
@@ -274,7 +274,7 @@ namespace ConsoleApp {
 ----
 using System.Collections.Generic;
 
-namespace ConsoleApp {
+namespace D18 {
     class PersoonNaamComparer : IComparer<Persoon> {
         public int Compare(Persoon x, Persoon y) {
 			System.Console.WriteLine($"   {x.Naam} en {y.Naam} worden vergeleken"); // <1>
@@ -290,7 +290,7 @@ namespace ConsoleApp {
 using System;
 using System.Collections.Generic;
 
-namespace ConsoleApp {
+namespace D18 {
 	public class Program {
 
 		static void PrintPersonenMetTitel(string titel, List<Persoon> personen) {
@@ -341,7 +341,7 @@ namespace ConsoleApp {
 ----
 using System.Collections.Generic;
 
-namespace ConsoleApp {
+namespace D18 {
     class PersoonLeeftijdDanNaamComparer : IComparer<Persoon> {
         public int Compare(Persoon x, Persoon y) {
 		
@@ -366,7 +366,7 @@ namespace ConsoleApp {
 using System;
 using System.Collections.Generic;
 
-namespace ConsoleApp {
+namespace D18 {
     public class Program {
 
         static void PrintPersonenMetTitel(string titel, List<Persoon> personen) {
@@ -449,7 +449,7 @@ De klasse `PersoonNaamComparerSlim` houdt in een `bool` dataveld `_isNormaleVolg
 ----
 using System.Collections.Generic;
 
-namespace ConsoleApp {
+namespace D18 {
     class PersoonNaamComparerSlim : IComparer<Persoon> {
 
         private bool _isNormaleVolgorde; // normaal = sorteren van a->z
@@ -481,7 +481,7 @@ namespace ConsoleApp {
 using System;
 using System.Collections.Generic;
 
-namespace ConsoleApp {
+namespace D18 {
     public class Program {
 
         static void PrintPersonenMetTitel(string titel, List<Persoon> personen) {
@@ -542,7 +542,7 @@ Voor deze oefening is er geen voorbeeld oplossing beschikbaar.
 ----
 using System.Collections.Generic;
 
-namespace ConsoleApp {
+namespace D18 {
     class StringComparerOmgekeerd : IComparer<string> {
         public int Compare(string x,  string y) {
             return -x.CompareTo(y);
@@ -557,7 +557,7 @@ namespace ConsoleApp {
 using System;
 using System.Collections.Generic;
 
-namespace ConsoleApp {
+namespace D18 {
     public class Program {
 	
         static void Main(string[] args) {
@@ -587,7 +587,7 @@ namespace ConsoleApp {
 using System;
 using System.Collections.Generic;
 
-namespace ConsoleApp {
+namespace D18 {
     class ReversedStringComparer : IComparer<string> {
 	
         static private string ReverseText(String text) {
@@ -614,7 +614,7 @@ namespace ConsoleApp {
 using System;
 using System.Collections.Generic;
 
-namespace ConsoleApp {
+namespace D18 {
     public class Program {
 	
         static void Main(string[] args) {
@@ -642,7 +642,7 @@ namespace ConsoleApp {
 ----
 using System.Collections.Generic;
 
-namespace ConsoleApp {
+namespace D18 {
     class StringLengteComparer : IComparer<string> {
         public int Compare(string x, string y) {
             // Vergelijk de lengte van x en y
@@ -663,7 +663,7 @@ Program.cs
 using System;
 using System.Collections.Generic;
 
-namespace ConsoleApp {
+namespace D18 {
     public class Program {
 
         static void Main(string[] args) {
@@ -694,7 +694,7 @@ namespace ConsoleApp {
 .IStyle.cs
 [source,csharp,linenums]
 ----
-namespace ConsoleApp {
+namespace D18 {
     interface IStyle {
         public string getStyledTextFor(string text); // <1>
     }
@@ -706,7 +706,7 @@ namespace ConsoleApp {
 .AllCapsStyle.cs
 [source,csharp,linenums]
 ----
-namespace ConsoleApp {
+namespace D18 {
     class AllCapsStyle : IStyle {
         public string getStyledTextFor(string text) {
             string result = text.ToUpper();
@@ -719,7 +719,7 @@ namespace ConsoleApp {
 .ExclamationStyle.cs
 [source,csharp,linenums]
 ----
-namespace ConsoleApp {
+namespace D18 {
     class ExclamationStyle : IStyle {
         public string getStyledTextFor(string text) {
             string result = text.Replace('.', '!'); // <1>
@@ -739,7 +739,7 @@ We gebruiken daarvoor de lokale variabele `isHoofdletterNodig`.
 ----
 using System;
 
-namespace ConsoleApp {
+namespace D18 {
     class CapitalCasingStyle : IStyle {
         public string getStyledTextFor(string text) {
             string result = "";

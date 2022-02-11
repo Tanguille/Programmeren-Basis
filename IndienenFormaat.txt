@@ -1,3 +1,6 @@
+Alle namespaces en namen checken
+
+
 Het cursusmateriaal is definitief (of zal op zijn minst niet meer inhoudelijk worden aangepast).  Alle 150 in te dienen oefeningen zijn hiermee gekend!
 
     Ter herhaling (niets nieuws): Het gaat zoals eerder meegedeeld om alle oefeningen uit de reguliere delen D08 tot en met D18.  Niet om de oefeningen uit de aanvullende delen DGFX1/2, DEBD of DPA1-5.
@@ -26,3 +29,42 @@ Je zal volgens dezelfde criteria beoordeeld worden tijdens die tweede kans (ande
 Naast deze twee kansen is er geen verdere inhaalmogelijkheid.
 
 Overzicht van alle 150 in te dienen oefeningen (D08:16 + D09:15 + D10:12 + D11:19 + D12:15 + D13:6 + D14:9 + D15:20 + D16:16 + D17:9 + D18:13):
+
+Indien je je oplossing in één bestand kan plaatsen
+Dan geef je dit bestand een naam die overeenkomt met de oefeningnaam (inclusief het deel nummer).  Laat de punt echter gerust achterwege.  
+Bijvoorbeeld "D08feestdagen.cs" voor de oefening "D08.feestdagen" of "D12documentatie.txt" voor de oefening "D12.documentatie".
+Bij oplossingen zonder C# code (bv traceertabellen, eerdere tekstuele antwoorden, objectdiagrammen, ...) kan je je oplossing in eerder welke gepaste vorm invoegen, bijvoorbeeld .xls, .txt, .png, .jpg, ... bestanden.
+Bij broncode oplossingen (bv "D08feestdagen.cs") staat de naam van de oefening zowel in de bestandsnaam alsook na "class" in het broncode bestand .cs. Na "namespace" staat de naam van het deel (dikgedrukt in onderstaande code).
+
+In file D08feestdagen.cs:
+using System;
+
+namespace D08 {
+    class D08feestdagen {
+        static void Main(string[] args) {
+            // dus hier aanvullen
+        }
+    }
+}
+
+Indien je je oplossing niet in één bestand kan plaatsen 
+Dan voeg je een folder toe aan het project van dat deel.  Om vervolgens in die folder alle bestanden (al dan niet broncode) op te nemen.  De foldernaam komt dan overeen met de  oefeningnaam (inclusief het deel nummer).  Laat opnieuw de punt achterwege.  
+
+Bijvoorbeeld folder "D12soortenafrondingen" in het project "D12" voor de oefening "D12.soortenafrondingen".  In deze folder kan je een "Program.cs" bestand voorzien voor de gevraagde broncode, en bijvoorbeeld een "tabel.txt" bestand voor de gevraagde tabel.
+
+Of bijvoorbeeld folder "D14persoon" in het project "D14" voor de oefening "D14.persoon".  In deze folder kan je de broncodedocumenten "Program.cs" en "Persoon.cs" opnemen.
+Plaats alle broncode in deze folder ook in een namespace met corresponderende naam.  "Program.cs" in folder "D14persoon" van project "D14" ziet er bijvoorbeeld bijgevolg zo uit...
+
+using System;
+
+namespace D14.D14persoon {
+    class Persoon {
+        //...
+    }
+}
+
+Het is verplicht je solution verder aan te vullen, en onderhouden, in Visual Studio 2019 Enterprise.  Solutions en projecten in andere versies van Visual Studio opslaan, zal mogelijks compatibiliteitsproblemen opleveren met de configuratie van de docenten.  Deze worden om die reden dan ook niet aanvaard.
+
+Wie nog eens wil nalezen hoe je met meerdere (broncode)documenten in één project aan de slag kan, of hoe je folder of namespace toevoegd, kan het stuk 'Projecten in Visual Studio' in deel 7 nalezen.
+
+Als het je niet duidelijk is, vraag je docent tijdens een oefeningenles (open labo of consultatie) om uitleg! Je solution moet bovenstaande indeling volgen anders zal je docent jouw oplossingen niet evalueren.

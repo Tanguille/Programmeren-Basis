@@ -1,6 +1,6 @@
 ﻿= Programmeren Basis - Deel 13 - Oplossingen
 Frederiek De Wolf
-v2021.11.23.21.52
+v2021.12.03.12.13
 // toc and section numbering
 :toc: preamble
 :toclevels: 4
@@ -37,7 +37,7 @@ Voor deze oefening is er geen voorbeeld oplossing beschikbaar.
 
 === Visual Studio en Debugging
 
-==== Oefening D13.palindroom
+==== Oplossing D13.palindroom
 
 [cols="3,1", options="header"]
 |===
@@ -67,7 +67,7 @@ static string ReverseText(string tekst) {
 
 === Arrays en methods
 
-==== Oefening D13.doorsnede
+==== Oplossing D13.doorsnede
 
 [source, csharp, linenums]
 ----
@@ -134,7 +134,7 @@ class Program {
 }
 ----
 
-==== Oefening D13.gemeenteraad
+==== Oplossing D13.gemeenteraad
 
 [source, csharp, linenums]
 ----
@@ -201,7 +201,7 @@ static int[] Zetels(int raadsleden, string[] lijsten, int[] stemcijfers) {
 
 === Console invoer, arrays en methods
 
-==== Oefening D13.frequenties
+==== Oplossing D13.frequenties
 
 [source, csharp, linenums]
 ----
@@ -252,7 +252,7 @@ class Program {
 }
 ----
 
-==== Oefening D13.morsebeep
+==== Oplossing D13.morsebeep
 
 [source, csharp, linenums]
 ----

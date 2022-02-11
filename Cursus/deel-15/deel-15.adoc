@@ -1,6 +1,6 @@
 ﻿= Programmeren Basis - Deel 15
 Frederiek De Wolf
-v2021.02.15.10.59
+v2021.12.02.18.45
 // toc and section numbering
 :toc: preamble
 :toclevels: 4
@@ -43,7 +43,7 @@ DateTime geboortedatum = new DateTime(2000, 1, 1);
 
 Persoon p1 = new Persoon();           // <1>
 p1.SetNaam("Jan");                    // <2>
-p1.SetGeboortedatum(geboortedatum);  // 
+p1.SetGeboortedatum(geboortedatum);  
 
 Persoon p2 = new Persoon();
 ----
@@ -57,8 +57,8 @@ Pas op het moment dat een object een betekenisvolle toestand heeft, kan het ook 
 Console.WriteLine(p1.Leeftijd());  // <1>
 Console.WriteLine(p2.Leeftijd());  // <2>
 ----
-<1> Levert een zinvol antwoord, bijvoorbeeld __20__ (in het jaar __2020__).
-<2> Levert geen zinvol antwoord, bijvoorbeeld __2019__ (in het jaar __2020__).
+<1> Levert een zinvol antwoord, bijvoorbeeld __21__ (in het jaar __2021__).
+<2> Levert geen zinvol antwoord, bijvoorbeeld __2020__ (in het jaar __2021__).
 
 `p2.Leeftijd()` levert geen zinvol antwoord, het `p2` object is immers louter aangemaakt, maar bevat nog geen betekenisvolle toestand.
 
@@ -695,6 +695,42 @@ Merk op hoe bij het gebruik van properties nooit ronde haakjes volgen op de prop
 Bij het aanroepen van een method is er wel steeds sprake van ronde haakjes, zelfs indien er geen parameterwaardes zijn.
 ====
 
+=== Properties instellen in de object initializer
+
+Tijdens het aanmaken van objecten (aan de hand van een __object initializer__) kan je meteen ook __initiële waardes__ toekennen aan de (instelbare) eigenschappen van dergelijk object.
+
+Je doet dit door in de object initializer (bijvoorbeeld `New Persoon`) na de naam van het datatype tussen accolades, na een `.` de naam van de property te vermelden waaraan je waarde wenst toe te kennen, bijvoorbeeld...
+
+[source,csharp,linenums]
+----
+Persoon persoon1;
+
+persoon1 = new Persoon();    // <1>
+persoon.Naam = "Jan";        // <2>
+persoon.Postcode = "9000";   // <2> 
+
+Persoon persoon2;
+
+persoon2 = new Persoon() { Naam = "Piet", Postcode = "8000" };   // <3>
+
+Persoon persoon3;
+
+persoon3 = new Persoon { Naam = "Joris", Postcode = "2000" };    // <4>
+----
+<1> In plaats van na het aanmaken van een object van type `Persoon`...
+<2> ...elke in-te-stellen eigenschap op een aparte instructieregel zijn waarde toe te kennen...
+<3> ...kan je met dergelijke __uitgebreide object initializer__ deze verschillende stappen samen ondernemen, of dus in één regel coderen.
+<4> De ronde haakjes na de naam van het type mogen bij een __uitgebreide object initializer__ worden weggelaten.  Dus bijvoorbeeld iets als `new Persoon { ... }` in plaats van `new Persoon(...) { ... }`, indien de constructor geen parameterwaardes verwacht.
+
+Hier natuurlijk in de veronderstelling dat we in klasse `Persoon` naast de instelbare (__settable__) property `Naam`, ook beschikken over een instelbare property `Postcode`...
+
+[source,csharp,linenums]
+----
+class Persoon {
+    public string Naam { get; set; }
+    public string Postcode { get; set; }
+}
+----
 
 === Vereenvoudiging ten opzichte van methods
 
@@ -718,18 +754,18 @@ a| [source,csharp,linenums]
 class Persoon {
     private string _naam;
     public string GetNaam() {
-	    return _naam;
-	}
-	public void SetNaam(string naam) {
-	    _naam = naam
-	}
+	return _naam;
+    }
+    public void SetNaam(string naam) {
+        _naam = naam
+    }
 }
 ----
 a| [source,csharp,linenums]
 ----
 class Persoon {
-
     public string Naam { get; set; }
+    
 
 
 
@@ -857,7 +893,7 @@ public string Naam { get; set; }
 
 Is zowel publiek opvraagbaar (`public get`), als publiek instelbaar (`public set`).
 
-Indien een *eigenschap enkel uitleesbaar* moet zijn, heb je twee mogelijkheden:
+Indien een *eigenschap enkel uitleesbaar* moet zijn, heb je een aantal mogelijkheden:
 
 - Je overschrijft de `public` visibility van de property, specifiek voor het `set` gedeelte met `private` visibility, bijvoorbeeld...
 +
@@ -866,7 +902,7 @@ Indien een *eigenschap enkel uitleesbaar* moet zijn, heb je twee mogelijkheden:
 public string Naam { get; private set; }
 ----
 +
-Hierdoor kan je enkel nog binnen de klasse zelf een waarde toekennen aan deze property.
+Hierdoor kan je enkel nog binnen de klasse zelf een waarde toekennen aan deze property.  Dit kan in de constructor zijn, of in de implementatie van een andere member.
 
 - Je laat het `set` gedeelte vallen, bijvoorbeeld...
 +
@@ -876,6 +912,26 @@ public string Naam { get; }
 ----
 +
 Enkel in de constructor kan je nog een waarde toekennen aan deze property.
+
+- Je werkt met een `init` in plaats van `set`, bijvoorbeeld...
++
+[source,csharp,linenums]
+----
+public string Naam { get; init; }
+----
++
+Hierdoor is de property instelbaar in de implemenatie van de constructor, en publiek settable op het moment dat je het object aanmaakt, bijvoorbeeld...
+
+[source,csharp,linenums]
+----
+Persoon persoon1 = new Persoon { Naam = "Jan" };  // <1>
+
+persoon1.Naam = "Piet";                            // kan niet meer => compilefout
+----
+<1> Aan de hand van __uitgebreide object initializer__ kan je de `Naam` property een (initiële) waarde geven.
+<2> Naderhand is het niet meer mogelijk de `Naam` nog te veranderen.  Er is immers geen __publieke setter__ (`public set`) aanwezig.
+
+Het laten instellen van initiële waardes voor properties had niet mogelijk geweest bij wijze van properties zonder `set` of properties met een `private set`.
 
 ****
 [.underline]#Voorbeeld van enkel uitleesbare eigenschappen#
@@ -901,22 +957,22 @@ a|
 ----
 class Counter {
     public Counter() {
-	    _value = 0;    
+	_value = 0;    
         _stepValue = 1; 
     }
 
-	private int _value;  
-	public int Value() {
-		return _value;
-	}
+    private int _value;  
+    public int Value() {
+	return _value;
+    }
 
     private int _stepValue; 
     public int Step() {
-		return _stepValue;
+	return _stepValue;
     }
 
     public void Advance() {
-		_value += Step();
+	_value += Step();
     }
 }
 ----
@@ -925,7 +981,7 @@ a|
 ----
 class Counter {
     public Counter() {
-		Value = 0;    
+	Value = 0;    
         Step = 1;  
     }
 
@@ -935,7 +991,7 @@ class Counter {
 
 
 
-	public int Step { get; }
+    public int Step { get; }
 
 
 
@@ -1148,10 +1204,10 @@ class Program
     static void Main()
     {
         Persoon persoon = new Persoon();
-        persoon.Straat = "Voskenslaan";            // <1>
+        persoon.Straat = "Voskenslaan";             // <1>
 
         Adres adres = new Adres();
-        adres.Nummer = "tien";                     // <2>
+        adres.Nummer = "tien";                      // <2>
 
         Console.WriteLine("hello" - "world");       // <3>
 

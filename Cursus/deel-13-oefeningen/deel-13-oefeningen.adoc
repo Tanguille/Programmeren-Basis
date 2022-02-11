@@ -1,6 +1,6 @@
 ﻿= Programmeren Basis - Deel 13 - Oefeningen
 Frederiek De Wolf
-v2021.11.23.21.52
+v2021.12.03.12.11
 // toc and section numbering
 :toc: preamble
 :toclevels: 4
@@ -29,7 +29,7 @@ versie {revnumber}
 
 == Tekstbestanden en exceptions
 
-=== D13.srt
+=== Oefening D13.srt
 
 Bij het afspelen van video of audio, bijvoorbeeld lokaal of op streaming platformen, kunnen de video- of audiobestand gecombineerd worden met een __.srt__ bestand die __ondertiteling__ (__subtitles__) bevatten.
 

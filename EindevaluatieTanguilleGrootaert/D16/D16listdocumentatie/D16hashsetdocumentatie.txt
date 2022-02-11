@@ -1,0 +1,17 @@
+Return Type				    Method Naam				Parameter		    Uitleg
+
+bool                        Add                     T value             Voegt value toe aan de lijst. 
+
+bool                        Contains                T value             Zoekt value in de lijst.
+
+bool                        Remove                  T value             Verwijdert value uit de lijst.
+
+void                        ExceptWith              andere lijst        Verwijdert alle elementen uit deze lijst die ook in andere lijst zitten.
+
+void                        IntersectWith           andere lijst        Verwijdert alle elementen uit deze lijst die niet in andere lijst zitten.
+
+void                        UnionWith               andere lijst        Voegt alle elementen van andere lijst toe zonder dubbels.
+
+bool                        Overlaps                andere lijst        Bepaalt of andere set minstent 1 gemeenschappelijk element hebben.
+
+
