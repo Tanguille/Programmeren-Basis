@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D08 - D018\\D15\\D15.csproj",
+      "projectUniqueName": "D:\\Nieuwe map (2)\\aaaProgrammeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D08 - D018\\D15\\D15.csproj",
       "projectName": "D15",
-      "projectPath": "D:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D08 - D018\\D15\\D15.csproj",
+      "projectPath": "D:\\Nieuwe map (2)\\aaaProgrammeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D08 - D018\\D15\\D15.csproj",
       "packagesPath": "C:\\Users\\Tangu\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D08 - D018\\D15\\obj\\",
+      "outputPath": "D:\\Nieuwe map (2)\\aaaProgrammeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D08 - D018\\D15\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Tangu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

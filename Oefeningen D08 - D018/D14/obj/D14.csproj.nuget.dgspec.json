@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D08 - D018\\D14\\D14.csproj": {}
+    "D:\\Nieuwe map (2)\\aaaProgrammeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D08 - D018\\D14\\D14.csproj": {}
   },
   "projects": {
-    "D:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D08 - D018\\D14\\D14.csproj": {
+    "D:\\Nieuwe map (2)\\aaaProgrammeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D08 - D018\\D14\\D14.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D08 - D018\\D14\\D14.csproj",
+        "projectUniqueName": "D:\\Nieuwe map (2)\\aaaProgrammeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D08 - D018\\D14\\D14.csproj",
         "projectName": "D14",
-        "projectPath": "D:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D08 - D018\\D14\\D14.csproj",
+        "projectPath": "D:\\Nieuwe map (2)\\aaaProgrammeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D08 - D018\\D14\\D14.csproj",
         "packagesPath": "C:\\Users\\Tangu\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\Tangu\\Documents\\1Programmeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D08 - D018\\D14\\obj\\",
+        "outputPath": "D:\\Nieuwe map (2)\\aaaProgrammeren\\Programmeren Basis\\Programmeren-Basis-Oefeningen\\Oefeningen D08 - D018\\D14\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Tangu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
